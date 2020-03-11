@@ -1,0 +1,11 @@
+1. Lengvai skaitoma sàsaja;
+2. Paprastas (nesudëtingas) panaudojimas;
+3. Prieinamumas, kad vartotojas nesivarþytø naudodamas sistemà;
+4. Neákyri sàsaja (pavyzdþiui, nereikalaujanti pastoviai kà nors kelis kartus patvirtinti);
+5. Paprastai panaudojamas bet kokio asmens be apsimokymo (90% sëkmingas pasinaudojimas pirmu bandymu);
+6. Uþduoèiø vykdymo didelis greitis; 
+7. Transakcijø greitis;
+8. Aukstas patikimumo lygis;
+9. Konfidencialumas - sistemoje esantys privatûs duomenys apsaugoti nuo neteisëtos prieigos;
+10. Vientisumas (integrity) - sistemos duomenys vienareikðmiðkai atitinka ðaltinio perduotus (ið jo gautus) duomenis, kartu uþtikrinant jø panaudojimo teisëtumà;
+11. Pasiekiamumas - galimybë pasinaudoti duomenimis per fiksuotà laikà teisëtiems vartotojams.
