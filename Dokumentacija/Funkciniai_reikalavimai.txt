@@ -1,0 +1,27 @@
+﻿DONORAS
+- Kraujo grupė ir faktoriai
+- Kokias kraujo grupes ir faktorius turintiems tinka
+- Informacija, kada ir kiek laiko negalima būti donoru
+- Ankstesnių donacijų sąrašas
+- Sekančios galimos donacijos data
+- Kiek reikia donacijų iki pensijos
+- Tyrimų atsakymų sąrašas
+- Pažymėti 'unavailable' (nustatytam terminui arba iki išjungimo)
+- Donoro tipo kraujo poreikis kraujo centruose ir ligoninėse
+- Pakviesti draugus tapti donorais
+- Pasidalinti informacija apie kraujo poreikį
+- Esamos dovanos kraujo centruose
+- Rezervuoti dovaną
+
+KRAUJO CENTRAS
+- Turimos atsargos (filtrai: tipas, kraujo grupės, faktoriai, galiojimo laikas, tinkamumas kraujo grupei)
+- Numatomas poreikis (rytoj, po savaitės, po mėnesio; su atsargų filtrais + ligoninės)
+- Perduotas kraujas ligoninėms (su atsargų filtrais + ligoninės)
+- Donorų duomenų bazė (filtrai: tipas, kraujo grupės, faktoriai, tyrimai, tinkamumas kraujo grupei, donacijų datos)
+- Galimi donorai (dabar, po savaitės, po mėnesio)- Pakviesti donorus duoti kraujo
+- Esamos dovanos (papildymas, rezervuotų ir atiduotų registravimas)
+
+LIGONINĖ
+- Turimos atsargos (filtrai: tipas, kraujo grupės, faktoriai, galiojimo laikas, tinkamumas kraujo grupei)
+- Numatomas poreikis (rytoj, po savaitės, po mėnesio; su atsargų filtrais + centrai)
+- Iš centrų gautas kraujas (su atsargų filtrais + centrai)
