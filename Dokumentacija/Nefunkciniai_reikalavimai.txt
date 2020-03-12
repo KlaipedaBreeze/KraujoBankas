@@ -1,0 +1,11 @@
+﻿1. Vartotojams lengvai suprantama  ir patogi naudoti programa;
+2. Aplikacija veikianti mobiliajame irenginyje;
+3. Programą palaiko visos interneto naršyklės;
+4. Integruotos duomenų saugumą užtikrinančios priemonės;
+5. Vartotojo prisijungimo duomenys (suteikiami informacinių
+sistemų administratorių);
+6. Duomenų bazėje saugomos vartotojų registracijos anketos ir kraujo davimo istorija;
+7. Galimybė programėlės pagalba susirasti artimiausią kraujo davimo vietą;
+8. Kraujo davimo skatinantinimo programa;
+9. Programa skirta 10000 programėlės vartotojų su galimybe praplėsti vartotojų skaičių;
+10. Bendradarbiavimas su įvairiomis institucijomis reklamos ir žinomumo klausimais.

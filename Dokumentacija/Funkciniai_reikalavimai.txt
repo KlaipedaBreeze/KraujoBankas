@@ -1,0 +1,19 @@
+﻿1. Vartotojas turi prisijungti prie mobiliosios aplikacijos naudodamas
+ administratoriaus suteiktus prisijungimo duomenis tam, kad būtų
+autorizuotas vartotojas su jam priklausančio turinio pasiekiamumo galimybe;
+2. Prisijungęs vartotojas gali peržiūrėti kraujo pridavimo centrų sąrašą mobiliojoje aplikacijoje
+ir nereikia atlikti papildomų paieškų kitose informacinėse sistemose norimai informacijai
+gauti.
+3. Kraujo davimo punktuose pasirinkus norimą centrą, vartotojas gali pamatyti  kontaktinius
+duomenis ir kitą detalesnę informaciją;
+4. Vartotojas gali peržvelgti kraujo davimo  reglamentuojančius dokumentus ir visą teisinę informaciją tiesiogiai
+mobiliojoje aplikacijoje neatliekant jokių paieškos operacijų.
+5. Vartotojas gali peržiūrėti kraujo davimo istoriją;
+6. Medicininės įstaigos turi galimybę matyti kraujo atsargas;
+7. Galimybė pakviesti ar rekomenduoti draugui duoti kraujo;
+8.  Skirtingos registracijos ir naudojimosi programėle formos kraujo davėjams ir medicinos įstaigoms;
+9. Pritaikomumas kitakalbiams ir neįgaliųjų versija;
+10. Pranešimai su priminimais apie galimybę vėl duoti kraujo;
+11. Galerija su nuotraukomis;
+12. Informaciją apie kraują ir jo davimo reikalingumą;
+13. Vartotojų aktyvumo tikrinimas;
