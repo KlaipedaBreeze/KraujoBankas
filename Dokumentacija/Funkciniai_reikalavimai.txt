@@ -1,1 +1,23 @@
-test
+1. Donoru registravimas ir savarankiskas registravimasis savanoriam(daugkartiniam donoram).
+2. Donoro profilis su kontaktine informacija.
+3. Profilio statistika(kiek kraujo paaukota ir kiek givybiu isgelbeta).
+4. Pasirinkimas profilyje buti iskvieciamam skubiai donorystei pritrukus kraujo.
+
+5. Donaciju duomenu registravimas.
+6. Kraujo tyrimu informacija pasiekiama pagal donacijos registracija
+7. Kraujo tyrimu informacija pasiekiama donorui.
+8. Isankstinis registravimasis donacijai.
+9. Donorystes akcijos registravimas tiek kraujo banko tiek kraujo centru.
+10. Akciju statistika.
+11. Kraujo centru prisijungimas
+12. Kraujo centru priejimas prie donoru kontaktu informacijos
+
+13. Kraujo centru atsargu valdymas su perdavimu kraujo bankui, gydimo istaigoms.
+14. Kraujo centru istorija
+15. Gydimo istaigu atsargu valdymas. gavimas/perleidimas kitai gydimo istaigai skubiu atveju.
+16. Gydimo istaigu recipientu istorija.
+17. Gydimo istaigu istorija.
+
+18. Recipientui prieinama donoro kontaktine informacija (donorui sutikant)
+19. Kraujo kiekio matymas tiek vietinis tiek kraujo centru/banko.
+20. kreipimasis del likuciu perskirstymo skubiais atvejais.
