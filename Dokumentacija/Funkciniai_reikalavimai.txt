@@ -1,0 +1,14 @@
+Programa turetu grupuoti duomenis, esamu donoru skaiciu, kraujo grupes.
+Programa turetu grupuoti ir skaiciuoti duomenis apie donoryste gavusius asmenis.
+Prisijungimo funkcija.
+Naujo donoro funkcija koregavimas / ivedimas.
+Donoro ir donoro duodanciu asmenu rusiavimas palei esamas grupes.
+Korupcijos prevencija t.y. duoti savanoriui pilna teise atsaukti donoryste, sekti procesa ir t.t.
+Apie kraujo pridavimo centrus, adresas, personalas, vykdoma veikla.
+Registracija del kraujo pridavimo.
+Renkama informacija apie antrojo laipsnio pensija t.y. apie suteikiama kraujo donoro varda.
+Trumposios tekstines zinutes donorams apie kraujo trukuma.
+Lojalumo sistema.
+Pilna informacija apie personala.
+Viesuju pirkimu sistema.
+Sistema kuri veiktu tarp kraujo centru apie kraujo rezerva, esamas grupes ir planuojamas akcijas.
