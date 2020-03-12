@@ -1,0 +1,6 @@
+﻿-PĮ naudojama tiek mobiliuose, tiek stacionariuose įrenginiuose
+-PĮ prieinama Windows, Apple, Linux, iOS, Android operacinėmis sistemomis
+-Užtikrinamas kraujo donorų anonimiškumas 
+-Užtikrinamas visų vartotojų suvedamos ir gaunamos informacijos saugumas
+-Kvietimai duoti kraujo atliekami tik per programą
+-Vartotojai turi galimybę valdyti pranešimų gavimo tipus ir savybes
