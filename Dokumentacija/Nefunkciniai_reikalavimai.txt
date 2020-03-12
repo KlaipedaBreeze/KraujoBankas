@@ -1,0 +1,6 @@
+1. Paprasta vartotojo sąsaja, kuria lengva naudotis.
+2. Sistemos veikimas 24 val. per parą.
+3. Sistema gali naudotis daug vartotojų vienu metu.
+4. Stiprus duomenų saugumas.
+5. Greitas sistemos veikimas.
+6. Sistema veikia PC, Android, iOS.

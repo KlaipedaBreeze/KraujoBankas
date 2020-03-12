@@ -1,0 +1,6 @@
+1. Galimybė užsiregistruoti ir turėti savo profilį.
+2. Galimybė redaguoti savo įvestus duomenis.
+3. Informacijos pateikimas apie reikiamą kraują.
+4. Donacijų registracija / patvirtinimas / atšaukimas.
+5. Donacijų istorija.
+6. Konkrečius duomenis gali matyti tik priskirti vartotojų tipai.
