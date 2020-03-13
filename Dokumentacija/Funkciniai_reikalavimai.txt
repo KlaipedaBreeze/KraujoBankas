@@ -1,37 +1,85 @@
-﻿1.	Vieša sritis, skirta visiems naudotojams (viešai prieinama informacija)
-1.1	Informaciniai pranešimai apie donorystės akcijas ()rafikas, kalendorus ar .pan.)
-1.2	Apibendrinta informacija apie kraujo atsargas
-1.3 Donorystės akcijos registracija
-
-2. Donorų sritis (informacija skirta donorui)
-2.1 Informaciją apie anksčiau suteiktas donorystės paslaugas
-2.2 Pranešimų gavimas iš kraujo centrų / Sveikatos priežiūros įstaigų
-2.3 Duomenų apie sveikatos būklę teikimas
-2.4	Donoro atvykimo į sveikatos priežiūros įstaigą registravimas
-2.5 Įrašų paieška
-2.6 Donorų lojalumo programa
-2.7 Integracija su Facebook, kuriame galima pasidalinti savo donorystės pasiekimais
-2.8 Naujo donoro registracija
-
-3. Sveikatos priežiūros įstaigų sritis (paslaugos ir informacija skirta sveikatos priežiūros specialistams)
-3.1 Periodinis informacijos apie turimas kraujo atsargas registravimas
-3.2 Donorų paeiška
-3.3 Pranešimo donorui/-ams siuntimas
-3.4 Kraujo paieška tarp Kraujo centrų ir kitų Sveikatos priežiūros įstaigų
-3.5 Donorų priėmimo registravimas
-3.6 Statistinių ataskaitų formavimas
-
-4. Kraujo centrų sritis (sveikatos paslaugos ir informacija skirta centrų specialistams)
-4.1 Periodinis informacijos apie turimas kraujo atsargas registravimas
-4.2 Statistika apie Sveikatos priežiūros įstaigų ir kitų centrų kraujo atsargas
-4.3 Donorų paeiška
-4.4 Pranešimo donorui/-ams siuntimas
-4.5 Kraujo paieška tarp Kraujo centrų ir kitų Sveikatos priežiūros įstaigų
-4.6 Donorų priėmimo registravimas
-4.7 Statistinių ataskaitų formavimas
-
-5. Informacinė struktūra
-5.1 Donorų duomenų bazė
-5.2 Sveikatos priežiūros įstaigų duomenų bazė
-5.3 Kraujo centrų duomenų bazė
-5.4 Tipinių ataskaitų ir statistinės informacijos duomenų bazė
+﻿FUNKCINIAI REKALAVIMAI
+**********************
+--------------------------------------------------------------------------------------------------------------------------------------------
+Donoro modulis
+--------------------------------------------------------------------------------------------------------------------------------------------
+1	Galimybė užsiregistruoti ir turėti savo profilį.
+2	Galimybė redaguoti savo įvestus duomenis.
+3	Informacijos gavimas apie donoro kraujo grupės atsargas
+4	Donacijos registracija / patvirtinimas / atšaukimas
+5	Donacijų istorija
+6	Profilio statistika (kiek kraujo paaukota ir kiek givybiu isgelbeta)
+7	Pasirinkimas profilyje - buti iskvieciamam skubiai donorystei pritrukus kraujo
+8	Kraujo tyrimu informacija
+9	Renkama informacija apie antrojo laipsnio pensija t.y. apie suteikiama kraujo donoro varda, kiek liko donacijų 
+iki pensijos skirymo
+10	Pranešimo gavimas apie donoro kraujo grupės kraujo trukuma
+11	Lojalumo sistema
+12	Sekančios galimos donacijos data
+13	Pažymėti 'unavailable' (nustatytam terminui arba iki išjungimo)
+14	Pakviesti draugus tapti donorais
+15	Pasidalinti informacija kitose platformose apie kraujo poreikį
+16	Integracija su Facebook, gakimybė pasidalinti savo donorystės pasiekimais
+17	Esamos dovanos kraujo centruose
+18	Rezervuoti dovaną
+--------------------------------------------------------------------------------------------------------------------------------------------
+Kraujo donorystės įstaigos modulis
+--------------------------------------------------------------------------------------------------------------------------------------------
+1	Donorystes akcijos registravimas
+2	Akciju statistika
+3	Įstaigos darbuotojų registracija/prisijungimas
+4	Priejimas prie donoru kontaktinės informacijos
+5	Atsargu valdymas su perdavimu kitoms istaigoms
+6	Turimos atsargos (filtrai: tipas, kraujo grupės, faktoriai, galiojimo laikas, tinkamumas kraujo grupei)
+7	 Numatomas poreikis (rytoj, po savaitės, po mėnesio; su atsargų filtrais + ligoninės)
+8	Perduotas kraujas įstaigoms (su atsargų filtrais + ligoninės)
+9	Donorų duomenų bazė (filtrai: tipas, kraujo grupės, faktoriai, tyrimai, tinkamumas kraujo grupei, donacijų 
+datos)
+10	Galimi donorai (dabar, po savaitės, po mėnesio) - Pakviesti donorus duoti kraujo
+11	Esamos dovanos (papildymas, rezervuotų ir atiduotų registravimas)
+12	Automatines suvestines apie kraujo likucius
+13	Kraujo likučių suvestinei imami šie pjūviai: kraujo grupe, miestai/regionai
+14	Iš pateiktų duomenų ieškomi saryšiai, siekiant pagerinti donacijos efektyvumą, ieškomi būdai kaip paskatinti 
+donaciją
+15	Donorų priėmimo registravimas
+16	Pranešimo siuntimas donorams
+17	Sistema kuri veiktu tarp įstaigų, su informacija apie kraujo rezerva, esamas grupes ir planuojamas akcijas.
+18	Naujo donoro asmeninės registracijos patvirtinimas
+19	Donorų aktyvumo stebėjimas
+-------------------------------------------------------------------------------------------------------------------------------------------- 	
+Sveikatos priežiūros įstaigos modulis
+--------------------------------------------------------------------------------------------------------------------------------------------
+1	Įstaigu atsargu valdymas. Gavimas/perleidimas kitai gydimo istaigai skubiu atveju
+2	Gydymo istaigu recipientu istorija
+3	Kreipimasis del likuciu perskirstymo skubiais atvejais
+4	Turimos atsargos (filtrai: tipas, kraujo grupės, faktoriai, galiojimo laikas, tinkamumas kraujo grupei)
+5	Numatomas poreikis (rytoj, po savaitės, po mėnesio; su atsargų filtrais + centrai)
+6	Iš centrų gautas kraujas (su atsargų filtrais + centrai)
+7	Donorų paeiška
+8	Pranešimo donorui/-ams siuntimas
+9	Kraujo paieška tarp Donorystės įstaigų ir kitų Sveikatos priežiūros įstaigų
+10	Donorų priėmimo registravimas
+11	Įstaigos, jos darbuotojų registravimas
+12	Naujo donoro asmeninės registracijos patvirtinimas
+--------------------------------------------------------------------------------------------------------------------------------------------
+Kiti, bendri
+--------------------------------------------------------------------------------------------------------------------------------------------
+1	Konkrečius duomenis gali matyti tik priskirti vartotojų tipai
+2	Donorystės akcijos registracija, pvz. įmonėje, renginyje
+3	Vartotojams neturi turėti galimybės ištrinti duomenis iš db
+4	Sistema turi aprūpinti vartotojus tinkamomis informacijos peržiūros (.pdf, .doc) priemonėmis (viewers), kad 
+jie galėtų skaityti 
+dokumentus tiesiai iš straipsnių saugyklos/duomenų bazės;
+5	Pritaikomumas kitakalbiams ir neįgaliųjų versija
+6	Vieša sritis, skirta visiems naudotojams (viešai prieinama informacija)
+7	Informaciniai pranešimai apie donorystės akcijas grafikas, kalendorus ar pan.
+8	Donoras nurodo ar nori, kad jam galėtų per sistemą parašyti recipientas
+9	Programoje turi būti "skelbimų lenta" - kokiam subjektui (kraujo bankas, ligoninė, privatus asmuo) kokio tipo 
+kraujo reikia.
+10	Įdiegti funkciją leidžiančią programos vartotojui "užsisakyti" kraujo tipo, kurio jis negali rasti.
+11	Kai kraujas nukeliauja į kraujo banką, turi būti išsiunčiamas pranešimas įstaigai ieškančiai to kraujo tipo
+12	Programa turi pranešti kraujo bankui, kada jo rezervai pradeda sekti ir smarkiai sumažėja retų kraujo tipų
+13	Atlikus donaciją, informacija išsaugoma į sistemą,kurią patvirtina įstaigos darbuotojas
+14	Po tam tikro laiko periodo donorui ateina priminimas apie galimą naują donaciją
+15	Donoras turi matyti informaciją apie vykdomas donorystes akcijas
+16	Įstaigos į sistemą gali registruoti donorus

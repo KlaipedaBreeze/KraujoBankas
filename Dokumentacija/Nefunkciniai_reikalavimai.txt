@@ -1,12 +1,24 @@
-﻿1.	Sistema turi tinkamai veikti su šiomis interneto naršyklėmis:
+﻿NEFUNKCINIAI REKALAVIMAI
+************************
+1	Sistema turi tinkamai veikti su šiomis interneto naršyklėmis:
 	-Internet Explorer (ne žemesnė nei 7 versija);
 	-Mozilla Firefox (ne žemesnė nei 12 versija);
 	-Google chrome (ne žemesnė nei 18 versija);
 	-Apple Safari (ne žemesnė nei 4 versija).
-2.	Naudotojo sąsaja turi būti suasmeninta atsižvelgiant į naudotojo tipą ir prieigos teises.
-3.	Užtikrintas aukštas našumo lygis ir patikimumas
-4.	Pajėgumų plėtimo galimybių užtikrinimas
-5.	Sistemoje turi būti įgyvendintas klaidų toleravimo ir tvarkymo mechanizmas
-6.	Duomenų mainų priemonės turi būti pagrįstos šiais standartais: XML, HTTP(S), SOAP
-7.	Sistema privalo palaikyti .NET technologijas, skirtas naujų ir/ar plečiamų posistemių kūrimui
-8.	Sistemos naudojama duomenų bazė turi remtis struktūrizuotų užklausų kalba SQL
+2	Aplikacija veikianti mobiliajame irenginyje;
+3	Sistema prieinama Windows, Apple, Linux, iOS, Android operacinėmis sistemomis
+4	Naudotojo sąsaja turi būti suasmeninta atsižvelgiant į naudotojo tipą ir prieigos teises.
+5	Vartotojams lengvai suprantama ir patogi naudoti aplinka
+6	vienu metu gali būti prisujungusių daug vartotojų
+7	Integruotos duomenų saugumą užtikrinančios priemonės;
+8	Užtikrintas aukštas našumo lygis ir patikimumas
+9	Produktas turi veikti be klaidų. Klaidos atveju klaidos žinutė turi pateikti informaciją kuo paprasčiau
+10	Pajėgumų plėtimo galimybių užtikrinimas
+11	Sistemoje turi būti įgyvendintas klaidų toleravimo ir tvarkymo mechanizmas
+12	Duomenų mainų priemonės turi būti pagrįstos šiais standartais: XML, HTTP(S), SOAP
+13	Sistema privalo palaikyti .NET technologijas, skirtas naujų ir/ar plečiamų posistemių kūrimui
+14	Sistemos naudojama duomenų bazė turi remtis struktūrizuotų užklausų kalba SQL
+15	Vientisumas (integrity) - sistemos duomenys vienareikšmiškai atitinka šaltinio perduotus (iš jo gautus) 
+duomenis, kartu uztikrinant jų panaudojimo teisėtumą
+16	Pasiekiamumas - galimybė pasinaudoti duomenimis per fiksuotą laiką teisėtiems vartotojams
+17	Prisijungimo informacija koduojama
