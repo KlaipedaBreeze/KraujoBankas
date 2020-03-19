@@ -350,7 +350,6 @@ C:\xampp\htdocs\AA_personal-project\kraujoBankasASP\KraujoBankasASP\obj\Debug\ne
 C:\xampp\htdocs\AA_personal-project\kraujoBankasASP\KraujoBankasASP\obj\Debug\netcoreapp3.1\KraujoBankasASP.TagHelpers.output.cache
 C:\xampp\htdocs\AA_personal-project\kraujoBankasASP\KraujoBankasASP\obj\Debug\netcoreapp3.1\KraujoBankasASP.RazorCoreGenerate.cache
 C:\xampp\htdocs\AA_personal-project\kraujoBankasASP\KraujoBankasASP\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-C:\xampp\htdocs\AA_personal-project\kraujoBankasASP\KraujoBankasASP\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\xampp\htdocs\AA_personal-project\kraujoBankasASP\KraujoBankasASP\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\xampp\htdocs\AA_personal-project\kraujoBankasASP\KraujoBankasASP\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\xampp\htdocs\AA_personal-project\kraujoBankasASP\KraujoBankasASP\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
@@ -365,3 +364,6 @@ C:\xampp\htdocs\AA_personal-project\kraujoBankasASP\KraujoBankasASP\obj\Debug\ne
 C:\xampp\htdocs\AA_personal-project\kraujoBankasASP\KraujoBankasASP\obj\Debug\netcoreapp3.1\KraujoBankasASP.dll
 C:\xampp\htdocs\AA_personal-project\kraujoBankasASP\KraujoBankasASP\obj\Debug\netcoreapp3.1\KraujoBankasASP.pdb
 C:\xampp\htdocs\AA_personal-project\kraujoBankasASP\KraujoBankasASP\obj\Debug\netcoreapp3.1\KraujoBankasASP.genruntimeconfig.cache
+C:\xampp\htdocs\AA_personal-project\kraujoBankasASP\KraujoBankasASP\obj\Debug\netcoreapp3.1\Razor\Views\Home\Istorija.cshtml.g.cs
+C:\xampp\htdocs\AA_personal-project\kraujoBankasASP\KraujoBankasASP\obj\Debug\netcoreapp3.1\Razor\Views\Home\ApieMus.cshtml.g.cs
+C:\xampp\htdocs\AA_personal-project\kraujoBankasASP\KraujoBankasASP\obj\Debug\netcoreapp3.1\Razor\Views\Home\InformacijaDonorui.cshtml.g.cs

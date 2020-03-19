@@ -5,7 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    
+  </ItemGroup>
+
+  <ItemGroup>
+    
+    <Content Remove="Views\Home\apie_mus.cshtml" />
     <Content Remove="wwwroot\css\StyleSheet.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Views\Home\apie_mus.html" />
   </ItemGroup>
 
   <ItemGroup>
