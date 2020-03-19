@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\xampp\\htdocs\\AA_personal-project\\kraujoBankasASP\\KraujoBankas\\kraujobankasASP\\KraujoBankasASP.csproj": {}
+    "C:\\xampp\\htdocs\\AA_personal-project\\kraujoBankasASP\\KraujoBankasASP\\KraujoBankasASP.csproj": {}
   },
   "projects": {
-    "C:\\xampp\\htdocs\\AA_personal-project\\kraujoBankasASP\\KraujoBankas\\kraujobankasASP\\KraujoBankasASP.csproj": {
+    "C:\\xampp\\htdocs\\AA_personal-project\\kraujoBankasASP\\KraujoBankasASP\\KraujoBankasASP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\xampp\\htdocs\\AA_personal-project\\kraujoBankasASP\\KraujoBankas\\kraujobankasASP\\KraujoBankasASP.csproj",
+        "projectUniqueName": "C:\\xampp\\htdocs\\AA_personal-project\\kraujoBankasASP\\KraujoBankasASP\\KraujoBankasASP.csproj",
         "projectName": "KraujoBankasASP",
-        "projectPath": "C:\\xampp\\htdocs\\AA_personal-project\\kraujoBankasASP\\KraujoBankas\\kraujobankasASP\\KraujoBankasASP.csproj",
+        "projectPath": "C:\\xampp\\htdocs\\AA_personal-project\\kraujoBankasASP\\KraujoBankasASP\\KraujoBankasASP.csproj",
         "packagesPath": "C:\\Users\\11mar\\.nuget\\packages\\",
-        "outputPath": "C:\\xampp\\htdocs\\AA_personal-project\\kraujoBankasASP\\KraujoBankas\\kraujobankasASP\\obj\\",
+        "outputPath": "C:\\xampp\\htdocs\\AA_personal-project\\kraujoBankasASP\\KraujoBankasASP\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\11mar\\AppData\\Roaming\\NuGet\\NuGet.Config",
