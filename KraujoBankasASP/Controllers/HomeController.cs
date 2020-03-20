@@ -28,6 +28,21 @@ namespace KraujoBankasASP.Controllers
             return View();
         }
 
+        public IActionResult ApieMus()
+        {
+            return View();
+        }
+
+        public IActionResult Istorija()
+        {
+            return View();
+        }
+
+        public IActionResult InformacijaDonorui()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
