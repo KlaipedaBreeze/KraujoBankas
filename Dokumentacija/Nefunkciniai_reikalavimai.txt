@@ -9,3 +9,4 @@
 9. Konfidencialumas - sistemoje esantys privatûs duomenys apsaugoti nuo neteisëtos prieigos;
 10. Vientisumas (integrity) - sistemos duomenys vienareikðmiðkai atitinka ðaltinio perduotus (ið jo gautus) duomenis, kartu uþtikrinant jø panaudojimo teisëtumà;
 11. Pasiekiamumas - galimybë pasinaudoti duomenimis per fiksuotà laikà teisëtiems vartotojams.
+12. Sistema paleidþiama 4 pagrindinëse paieðkos sistemose;
