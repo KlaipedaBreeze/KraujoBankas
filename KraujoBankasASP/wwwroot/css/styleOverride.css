@@ -47,7 +47,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    color: rgba(255, 255, 255, 0.85);
+    color: rgba(255, 255, 255, 0.80);
 }
 
     .banner a {
@@ -59,3 +59,13 @@
             color: rgb(235, 4, 13);
             
         }
+
+
+.display-4 {
+    font-size: 3rem !important;
+   
+}
+
+.text-black-90 {
+    opacity: 0.9;
+}
