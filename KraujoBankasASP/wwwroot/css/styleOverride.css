@@ -1,10 +1,33 @@
 ﻿
 
-.container-fluid {
-    width: 90%;
-}
 
 .logo {
     color: #212529;
     font-size: 2rem;
+    margin-top: 0.5rem;
+}
+
+    .logo:hover {
+        color: #d63447;
+    }
+
+.nav-item {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+@media (min-width: 576px){
+    .container {
+        max-width: none;
+    }
+}
+
+.container {
+    width: 70%;
+}
+
+@media (max-width:769px ){
+    .container {
+        width: 98%;
+    }
 }
