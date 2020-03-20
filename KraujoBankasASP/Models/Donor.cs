@@ -41,6 +41,7 @@ namespace KraujoBankasASP.Models
         public int Height { get; set; }
 
         [Required]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
 
         [Required]
