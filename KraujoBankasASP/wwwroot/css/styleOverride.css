@@ -1,12 +1,10 @@
-﻿.navbar-brand {
-    margin-right: 3rem;
-    font-size: 2rem;
-}
-
-a.navbar-brand {
-    color: #212529;
-}
+﻿
 
 .container-fluid {
     width: 90%;
+}
+
+.logo {
+    color: #212529;
+    font-size: 2rem;
 }
