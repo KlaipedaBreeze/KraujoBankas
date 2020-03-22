@@ -1,7 +1,7 @@
 ﻿
 
 
-.logo {
+/*.logo {
     color: #212529;
     font-size: 2rem;
     margin-top: 0.5rem;
@@ -9,7 +9,17 @@
 
     .logo:hover {
         color: rgb(190, 32, 38);
-    }
+    }*/
+
+.logo {
+    width: 5rem;
+    height:5rem;
+    margin-right: 0;
+}
+
+.logo-text {
+    color: rgb(190, 32, 38);
+}
 
 .nav-item {
     margin-left: 0.5rem;
