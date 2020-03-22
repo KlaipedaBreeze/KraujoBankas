@@ -1,7 +1,7 @@
 ﻿
 
 
-.logo {
+/*.logo {
     color: #212529;
     font-size: 2rem;
     margin-top: 0.5rem;
@@ -9,7 +9,17 @@
 
     .logo:hover {
         color: rgb(190, 32, 38);
-    }
+    }*/
+
+.logo {
+    width: 5rem;
+    height:5rem;
+    margin-right: 0;
+}
+
+.logo-text {
+    color: rgb(190, 32, 38);
+}
 
 .nav-item {
     margin-left: 0.5rem;
@@ -39,7 +49,7 @@
 
 .banner {
     background-image: url(/visuals/images-main/Blood-donation.png);
-    background-position: center;
+    background-position:center;
     background-size: cover;
     background-repeat: no-repeat;
     height: 400px;
@@ -50,22 +60,40 @@
     color: rgba(255, 255, 255, 0.80);
 }
 
-    .banner a {
-        color: rgb(190, 32, 38);
-        font-size: 1.1rem;
+
+
+
+
+    .display-4 {
+        font-size: 3rem !important;
     }
-
-        .banner a:hover {
-            color: rgb(235, 4, 13);
-            
-        }
-
-
-.display-4 {
-    font-size: 3rem !important;
-   
-}
 
 .text-black-90 {
     opacity: 0.9;
+}
+
+.card {
+    background-color:rgba(224, 224, 224, 0.30);
+}
+
+
+.card-icon1 {
+    background-image: url(/visuals/icons/iconfinder_clipboard-document-office-form-application_3209374.svg);
+    height: 25px;
+    width: 25px;
+    background-repeat: no-repeat;
+}
+
+.card-icon2 {
+    background-image: url(/visuals/icons/iconfinder_users-groups_511933.svg);
+    height: 25px;
+    width: 25px;
+    background-repeat: no-repeat;
+}
+
+.card-icon3 {
+    background-image: url(/visuals/icons/iconfinder_location-alt_126573.svg);
+    height: 25px;
+    width: 25px;
+    background-repeat: no-repeat;
 }
