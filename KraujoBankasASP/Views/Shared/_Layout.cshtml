@@ -13,14 +13,38 @@
     <header>
         <div class="container">
             <div class="row ">
-                @*--- logo columas su 3rem margin-top --*@ 
+                @*--- logo columas su 3rem margin-top --*@
                 <div class="col mt-3 ">
                     @*<a  class="navbar-brand logo" asp-area="" asp-controller="Home" asp-action="Index"></a>*@   @*--- reikes sujungti nauja logo su senais kontroleriais, palieku kaip pvz ---*@
                     <img class="navbar-brand logo " src="~/visuals/icons/blood-bank.svg" />
                     <span class="logo-text align-middle">KRAUJO-BANKAS</span>
                 </div>
 
-                @*--- Pauliau tavo columas reikalingas cia. ps. nepamirsk panaudoti align clasiu, kad nereiketu vargt perrasynejant css ---*@
+                @* login screenas*@
+                <div class="float-right px-4 py-3">
+                    <a data-toggle="dropdown" class="nav-link dropdown-toggle btn-outline-danger" href="#">Prisijungti</a>
+                    <ul class="dropdown-menu form-wrapper">
+                        <li>
+                            <form action="/examples/actions/confirmation.php" method="post" class="px-4 py-3">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Vartojo vardas" required="required">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" placeholder="Vartotojo slaptažodis" required="required">
+                                </div>
+                                <div class="text-center"><input type="submit" class="btn btn-outline-danger px-1 py-2 mt-4" value="Prisijungti"></div>
+                                <div class="form-footer px-1 py-1">
+                                    <div class="row text-center mt-1">
+                                        <div class="col">Neturite vartotojo?</div>
+                                    </div>
+                                    <div class="row text-center">
+                                        <div class="col"> <a href="#"> Užsiregistruokite</a></div>
+                                    </div>
+                                </div>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
 
             </div>
         </div>
