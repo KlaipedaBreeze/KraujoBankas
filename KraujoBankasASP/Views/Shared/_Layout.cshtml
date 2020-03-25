@@ -12,12 +12,21 @@
 <body>
     <header>
         <div class="container">
-            <a class="navbar-brand logo" asp-area="" asp-controller="Home" asp-action="Index">Kraujo-Bankas</a>
+            <div class="row ">
+                @*--- logo columas su 3rem margin-top --*@ 
+                <div class="col mt-3 ">
+                    @*<a  class="navbar-brand logo" asp-area="" asp-controller="Home" asp-action="Index"></a>*@   @*--- reikes sujungti nauja logo su senais kontroleriais, palieku kaip pvz ---*@
+                    <img class="navbar-brand logo " src="~/visuals/icons/blood-bank.svg" />
+                    <span class="logo-text align-middle">KRAUJO-BANKAS</span>
+                </div>
+
+                @*--- Pauliau tavo columas reikalingas cia. ps. nepamirsk panaudoti align clasiu, kad nereiketu vargt perrasynejant css ---*@
+
+            </div>
         </div>
         <nav class="navbar navbar-expand-md navbar-toggleable-md navbar-light bg-white border-bottom box-shadow mb-3 ">
-            <div class="container ">
-                @*<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Kraujo-Bankas</a>*@
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+            <div class="container text-center">
+                <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -52,6 +61,7 @@
             <a href="https://github.com/KlaipedaBreeze/KraujoBankas" target="_blank" class="footer-icon"><img src="~/visuals/icons/icons8-github.svg" alt="github icon"></a>
         </div>
         
+
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
