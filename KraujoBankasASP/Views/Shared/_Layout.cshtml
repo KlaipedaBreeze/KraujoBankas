@@ -38,15 +38,48 @@
                                         <div class="col">Neturite vartotojo?</div>
                                     </div>
                                     <div class="row text-center">
-                                        <div class="col"> <a href="#"> Užsiregistruokite</a></div>
+                                        <div class="col" data-toggle="modal" data-target="#registerModal"> <a href="#"> Užsiregistruokite</a></div>
                                     </div>
                                 </div>
                             </form>
                         </li>
                     </ul>
                 </div>
-
             </div>
+            @* register screenas*@ 
+                        
+        <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <img class="navbar-brand logo" src="~/visuals/icons/blood-bank.svg">
+                        <h2>Užsiregistruokite</h2>
+                        <button type="button" class="close ml-0" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form role="form" action="" method="post" class="registration-form">
+                            <div class="form-group">                                
+                                <input type="text" name="form-first-name" placeholder="Jūsų vardas..." class="form-first-name form-control" required>
+                            </div>
+                            <div class="form-group">                                
+                                <input type="text" name="form-last-name" placeholder="Jūsų pavardė..." class="form-last-name form-control" required>
+                            </div>
+                            <div class="form-group">                               
+                                <input type="text" name="form-email" placeholder="El. paštas..." class="form-email form-control" required>
+                            </div> 
+                            <div class="form-group">
+                                <input type="text" name="form-email" placeholder="Pakartokite El. paštą..." class="form-email form-control" required>
+                            </div>
+                            <div class="text-center"><button type="submit" class="btn btn-outline-danger">Registruotis</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+
         </div>
         <nav class="navbar navbar-expand-md navbar-toggleable-md navbar-light bg-white border-bottom box-shadow mb-3 ">
             <div class="container text-center">
