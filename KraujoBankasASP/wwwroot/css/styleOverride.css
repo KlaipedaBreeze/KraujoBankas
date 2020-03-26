@@ -1,15 +1,4 @@
-﻿
-
-
-/*.logo {
-    color: #212529;
-    font-size: 2rem;
-    margin-top: 0.5rem;
-}
-
-    .logo:hover {
-        color: rgb(190, 32, 38);
-    }*/
+﻿@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:700&display=swap');
 
 .logo {
     width: 5rem;
@@ -24,44 +13,91 @@
 .nav-item {
     margin-left: 0.5rem;
     margin-right: 0.5rem;
-    font-size: 18px;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
-@media (min-width: 576px) {
+
+@media (min-width:1199px ) {
     .container {
+        width: 90%;
+        max-width: 90%;
+    }
+}
+
+@media (min-width:992px ) {
+    .container {
+        width: 90%;
+        max-width: none;
+        flex-wrap: wrap;
+    }
+}
+
+@media (min-width:768px ) {
+    .container {
+        width: 100%;
+        max-width: none;
+        flex-wrap: wrap !important;
+    }
+    .navbar {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media (min-width:576px ) {
+    .container {
+        width: 100%;
         max-width: none;
     }
 }
 
-.container {
-    width: 70%;
-}
-
-@media (max-width:769px ) {
+@media (min-width:1200px ) {
     .container {
-        width: 98%;
+        width: 70%;
+        flex-wrap: wrap !important;
     }
 }
 
-.footer-icon {
+
+.form-control {
+    width:auto;
+}
+    .footer-icon {
     margin-left: 0.3rem;
 }
+
+
+
 
 .banner {
     background-image: url(/visuals/images-main/Blood-donation.png);
     background-position:center;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 400px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    color: rgba(255, 255, 255, 0.80);
+   
+}
+
+
+.banner-istorija {
+    background-image:url(/visuals/images-main/person-blood-check-compressor.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 250px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
     color: rgba(255, 255, 255, 0.80);
 }
-
-
-
 
 
     .display-4 {
@@ -97,3 +133,4 @@
     width: 25px;
     background-repeat: no-repeat;
 }
+
