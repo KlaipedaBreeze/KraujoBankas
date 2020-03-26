@@ -1,5 +1,5 @@
-﻿var loginWindow = document.getElementById("login");
-var registerWindow = document.getElementsByClassName("form-control");
+﻿let loginWindow = document.getElementById("login");
+let registerWindow = document.getElementsByClassName("form-control");
 
 //overwriting BS4 conflicting style between login and registration window
 loginWindow.addEventListener("click", () => {
