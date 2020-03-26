@@ -62,12 +62,26 @@
 
 
 .form-control {
-    width:auto;
+    width: -webkit-fill-available;
+    width: -moz-available;
 }
-    .footer-icon {
-    margin-left: 0.3rem;
+    
+
+.autoModal.modal .modal-body {
+    max-height: 100%;
 }
 
+.modal-body {
+    position: relative;
+    overflow-y: auto;
+    max-height: 400px;
+    padding: 15px;
+}
+
+
+.footer-icon {
+    margin-left: 0.3rem;
+}
 
 
 

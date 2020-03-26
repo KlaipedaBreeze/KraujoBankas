@@ -6,7 +6,7 @@
     <title>@ViewData["Title"] - Kraujo Bankas</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="stylesheet" href="~/css/styleOverride.css?Version=1" />
+    <link rel="stylesheet" href="~/css/styleOverride.css" />
     
 </head>
 <body>
@@ -99,16 +99,19 @@
                             <div class="modal-body">
                                 <form role="form" action="" method="post" class="registration-form">
                                     <div class="form-group">
-                                        <input  type="text" name="form-first-name" placeholder="Jūsų vardas..." class="form-first-name form-control" required>
+                                        <input type="text" name="form-first-name" placeholder="Jūsų vardas..." class="form-first-name form-control" required>
                                     </div>
                                     <div class="form-group">
                                         <input type="text" name="form-last-name" placeholder="Jūsų pavardė..." class="form-last-name form-control" required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" name="form-email" placeholder="El. paštas..." class="form-email form-control" required>
+                                        <input type="text" name="form-email" placeholder="Įveskite El. paštą..." class="form-email form-control" required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" name="form-email" placeholder="Pakartokite El. paštą..." class="form-email form-control" required>
+                                        <input type="password" name="form-password" placeholder="Įveskite slaptažodį" class="form-password form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" name="form-password" placeholder="Pakartokite slaptažodį" class="form-password form-control" required>
                                     </div>
                                     <div class="text-center"><button type="submit" class="btn btn-outline-danger">Registruotis</button></div>
                                 </form>
