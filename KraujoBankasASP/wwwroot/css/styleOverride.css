@@ -72,16 +72,28 @@
     background-position:center;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 400px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    color: rgba(255, 255, 255, 0.80);
+   
+}
+
+
+.banner-istorija {
+    background-image:url(/visuals/images-main/person-blood-check-compressor.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 250px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
     color: rgba(255, 255, 255, 0.80);
 }
-
-
-
 
 
     .display-4 {
