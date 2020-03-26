@@ -11,96 +11,78 @@
 </head>
 <body>
     <header>
-        <div class="container">
-            <div class="row ">
+ 
                 @*--- logo columas su 3rem margin-top --*@
-                <div class="col mt-3 ">
+
+
+                @* login screenas*@
+
+
+           
+
+        <nav class="navbar navbar-expand-md navbar-toggleable-md navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+
+                @*logo*@
+                <div class="justify-content-between pr-5">
                     @*<a  class="navbar-brand logo" asp-area="" asp-controller="Home" asp-action="Index"></a>*@   @*--- reikes sujungti nauja logo su senais kontroleriais, palieku kaip pvz ---*@
                     <img class="navbar-brand logo " src="~/visuals/icons/blood-bank.svg" />
                     <span class="logo-text align-middle">KRAUJO-BANKAS</span>
                 </div>
+                
 
-                @* login screenas*@
-                <div class="float-right px-4 py-3">
-                    <a data-toggle="dropdown" class="nav-link dropdown-toggle btn-outline-danger" href="#">Prisijungti</a>
-                    <ul class="dropdown-menu form-wrapper">
-                        <li>
-                            <form action="/examples/actions/confirmation.php" method="post" class="px-4 py-3">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Vartojo vardas" required="required">
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="Vartotojo slaptažodis" required="required">
-                                </div>
-                                <div class="text-center"><input type="submit" class="btn btn-outline-danger px-1 py-2 mt-4" value="Prisijungti"></div>
-                                <div class="form-footer px-1 py-1">
-                                    <div class="row text-center mt-1">
-                                        <div class="col">Neturite vartotojo?</div>
-                                    </div>
-                                    <div class="row text-center">
-                                        <div class="col" data-toggle="modal" data-target="#registerModal"> <a href="#"> Užsiregistruokite</a></div>
-                                    </div>
-                                </div>
-                            </form>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            @* register screenas*@ 
-                        
-        <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <img class="navbar-brand logo" src="~/visuals/icons/blood-bank.svg">
-                        <h2>Užsiregistruokite</h2>
-                        <button type="button" class="close ml-0" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
+                @*hamburger*@
+                <div class=" ">
+  
+                        <button class="navbar-toggler mr-auto text-center" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
                         </button>
-                    </div>
-                    <div class="modal-body">
-                        <form role="form" action="" method="post" class="registration-form">
-                            <div class="form-group">                                
-                                <input type="text" name="form-first-name" placeholder="Jūsų vardas..." class="form-first-name form-control" required>
-                            </div>
-                            <div class="form-group">                                
-                                <input type="text" name="form-last-name" placeholder="Jūsų pavardė..." class="form-last-name form-control" required>
-                            </div>
-                            <div class="form-group">                               
-                                <input type="text" name="form-email" placeholder="El. paštas..." class="form-email form-control" required>
-                            </div> 
-                            <div class="form-group">
-                                <input type="text" name="form-email" placeholder="Pakartokite El. paštą..." class="form-email form-control" required>
-                            </div>
-                            <div class="text-center"><button type="submit" class="btn btn-outline-danger">Registruotis</button></div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-            
 
-        </div>
-        <nav class="navbar navbar-expand-md navbar-toggleable-md navbar-light bg-white border-bottom box-shadow mb-3 ">
-            <div class="container text-center">
-                <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-md-inline-flex flex-md-row-reverse">
-                    <ul class="navbar-nav flex-grow-1  d-flex justify-content-center">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Pradžia</a>
+                </div>
+
+                @*nav list*@
+                <div class="navbar-collapse collapse d-md-inline-flex  flex-md-row-reverse text-center">
+                    <ul class="navbar-nav flex-grow-1  d-flex justify-content-center ">
+                        <li class="nav-item my-nav-link">
+                            <a class="nav-link text-secondary  my-nav-link" asp-area="" asp-controller="Home" asp-action="Index">Pradžia</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ApieMus">Apie Mus</a>
+                            <a class="nav-link text-secondary" asp-area="" asp-controller="Home" asp-action="ApieMus">Apie Mus</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Istorija">Istorija</a>
+                            <a class="nav-link text-secondary" asp-area="" asp-controller="Home" asp-action="Istorija">Istorija</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="InformacijaDonorui">Informacija Donorui</a>
+                            <a class="nav-link text-secondary" asp-area="" asp-controller="Home" asp-action="InformacijaDonorui">Informacija Donorui</a>
                         </li>
+
+                        @*login*@
+                        <li class="nav-item dropdown ml-md-auto ml-lg-auto ml-xl-auto mr-0 ">
+                            <a data-toggle="dropdown" class="nav-link dropdown-toggle btn-danger btn-group-toggle text-white rounded"  href="#">Prisijungti</a>
+                            <ul class="dropdown-menu form-wrapper dropdown-menu-right text-center ">
+                                <li>
+                                    <form action="#" method="post" class="d-flex flex-column  align-items-center px-4 py-3 ">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Vartojo vardas" required="required">
+                                        </div>
+                                        <div class="form-group  ">
+                                            <input type="password" class="form-control " placeholder="Vartotojo slaptažodis" required="required">
+                                        </div>
+                                        <div class="text-center"><input type="submit" class="btn btn-outline-danger px-1 py-2 mt-4 mb-1 pr-4 pl-4" value="Prisijungti"></div>
+                                        <div class="form-footer px-1 py-1">
+                                            <div class="row text-center mt-1">
+                                                <div class="col">Neturite vartotojo?</div>
+                                            </div>
+                                            <div class="row text-center">
+                                                <div class="col" data-toggle="modal" data-target="#registerModal"> <a href="#"> Užsiregistruokite</a></div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+
                     </ul>
                 </div>
             </div>
