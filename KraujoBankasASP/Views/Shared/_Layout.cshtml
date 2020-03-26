@@ -26,7 +26,8 @@
                 @*logo*@
                 <div class="justify-content-between pr-5">
                     @*<a  class="navbar-brand logo" asp-area="" asp-controller="Home" asp-action="Index"></a>*@   @*--- reikes sujungti nauja logo su senais kontroleriais, palieku kaip pvz ---*@
-                    <img class="navbar-brand logo " src="~/visuals/icons/blood-bank.svg" />
+                   
+                    <img class="navbar-brand logo " src="~/visuals/icons/blood-bank.svg" asp-append-version="true" />
                     <span class="logo-text align-middle">KRAUJO-BANKAS</span>
                 </div>
                 
@@ -38,7 +39,7 @@
                                 aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
-
+ 
                 </div>
 
                 @*nav list*@
