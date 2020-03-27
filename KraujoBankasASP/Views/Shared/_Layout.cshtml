@@ -20,15 +20,18 @@
 
            
 
-        <nav class="navbar navbar-expand-md navbar-toggleable-md navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-md navbar-toggleable-md navbar-light bg-white border-bottom box-shadow">
             <div class="container">
 
                 @*logo*@
-                <div class="justify-content-between pr-5">
+                <div class="justify-content-between pr-5 d-flex">
                     @*<a  class="navbar-brand logo" asp-area="" asp-controller="Home" asp-action="Index"></a>*@   @*--- reikes sujungti nauja logo su senais kontroleriais, palieku kaip pvz ---*@
                    
                     <img class="navbar-brand logo " src="~/visuals/icons/blood-bank.svg" asp-append-version="true" />
-                    <span class="logo-text align-middle">KRAUJO-BANKAS</span>
+                    <div class="logo-text align-middle d-flex flex-column justify-content-center">
+                        <span>KRAUJO</span>
+                        <span>BANKAS</span>
+                    </div>
                 </div>
                 
 
@@ -120,11 +123,11 @@
             </div>
         </nav>
     </header>
-    <div class="container">
+   
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
-    </div>
+
 
     <footer class="border-top footer text-muted">
         <div class="container d-flex justify-content-center">

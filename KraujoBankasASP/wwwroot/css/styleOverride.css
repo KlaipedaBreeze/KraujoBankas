@@ -8,6 +8,8 @@
 
 .logo-text {
     color: rgb(190, 32, 38);
+    line-height: 1rem;
+    text-shadow:1px 0px 0px rgba(0, 0, 0, 0.15);
 }
 
 .nav-item {
@@ -76,7 +78,7 @@
     background-position:center;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 250px;
+    height: 345px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -86,7 +88,7 @@
 }
 
 
-.banner-istorija {
+/*.banner-istorija {
     background-image:url(/visuals/images-main/person-blood-check-compressor.jpg);
     background-position: center;
     background-size: cover;
@@ -97,7 +99,7 @@
     align-items: center;
     justify-content: flex-end;
     color: rgba(255, 255, 255, 0.80);
-}
+}*/
 
 
     .display-4 {
