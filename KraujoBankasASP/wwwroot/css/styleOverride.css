@@ -1,5 +1,13 @@
 ﻿@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:700&display=swap');
 
+h1 {
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.19);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: rgba(0, 0, 0, 0.90);
+}
+
 .logo {
     width: 5rem;
     height:5rem;
@@ -12,6 +20,8 @@
     text-shadow:1px 0px 0px rgba(0, 0, 0, 0.15);
 }
 
+
+
 .nav-item {
     margin-left: 0.5rem;
     margin-right: 0.5rem;
@@ -20,6 +30,11 @@
     font-family: 'Roboto Condensed', sans-serif;
 }
 
+.apple-font {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    text-transform:capitalize;
+    letter-spacing: 0.8px;
+}
 
 @media (min-width:1199px ) {
     .container {
@@ -48,6 +63,8 @@
     }
 }
 
+    
+
 @media (min-width:576px ) {
     .container {
         width: 100%;
@@ -71,10 +88,12 @@
 }
 
 
-
+.banner-gradient {
+    background: radial-gradient(rgba(0, 0, 0, 1), rgba(255, 255, 255, 1))
+}
 
 .banner {
-    background-image: url(/visuals/images-main/Blood-donation.png);
+    background-image: url('/visuals/images-main/Kraujo Banko Baneris-05.svg');
     background-position:center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -84,22 +103,17 @@
     align-items: center;
     justify-content: flex-end;
     color: rgba(255, 255, 255, 0.80);
+    
    
 }
 
+.banner h1 {
+    color:#ed6863;
+}
 
-/*.banner-istorija {
-    background-image:url(/visuals/images-main/person-blood-check-compressor.jpg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 250px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    color: rgba(255, 255, 255, 0.80);
-}*/
+.banner button {
+    margin-bottom: 20px;
+}
 
 
     .display-4 {
@@ -111,7 +125,7 @@
 }
 
 .card {
-    background-color:rgba(224, 224, 224, 0.30);
+    background-color:rgb(246, 246, 246);
 }
 
 
@@ -136,3 +150,99 @@
     background-repeat: no-repeat;
 }
 
+/* carousel */
+#quote-carousel {
+    padding: 0 10px 30px 10px;
+    margin-top: 30px;
+}
+
+    /* Control buttons  */
+    #quote-carousel .carousel-control {
+        background: none;
+        color: #222;
+        font-size: 2.3em;
+        text-shadow: none;
+        margin-top: 30px;
+    }
+        /* Previous button  */
+        #quote-carousel .carousel-control.left {
+            left: -12px;
+        }
+        /* Next button  */
+        #quote-carousel .carousel-control.right {
+            right: -12px !important;
+        }
+    /* Changes the position of the indicators */
+    #quote-carousel .carousel-indicators {
+        right: 50%;
+        top: auto;
+        bottom: 0px;
+        margin-right: -19px;
+    }
+        /* Changes the color of the indicators */
+        #quote-carousel .carousel-indicators li {
+            background: #c0c0c0;
+        }
+
+        #quote-carousel .carousel-indicators .active {
+            background: #333333;
+        }
+
+    #quote-carousel img {
+        width: 250px;
+        height: 100px
+    }
+/* End carousel */
+
+.item blockquote {
+    border-left: none;
+    margin: 0;
+}
+
+    .item blockquote img {
+        margin-bottom: 10px;
+    }
+
+    .item blockquote p:before {
+        content: "\f10d";
+        font-family: 'Fontawesome';
+        float: left;
+        margin-right: 10px;
+    }
+
+
+
+/**
+  MEDIA QUERIES
+*/
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    #quote-carousel {
+        margin-bottom: 0;
+        padding: 0 40px 30px 40px;
+    }
+}
+
+/* Small devices (tablets, up to 768px) */
+@media (max-width: 768px) {
+
+    /* Make the indicators larger for easier clicking with fingers/thumb on mobile */
+
+    #quote-carousel .carousel-indicators {
+        bottom: -20px !important;
+    }
+
+        #quote-carousel .carousel-indicators li {
+            display: inline-block;
+            margin: 0px 5px;
+            width: 15px;
+            height: 15px;
+        }
+
+            #quote-carousel .carousel-indicators li.active {
+                margin: 0px 5px;
+                width: 20px;
+                height: 20px;
+            }
+}

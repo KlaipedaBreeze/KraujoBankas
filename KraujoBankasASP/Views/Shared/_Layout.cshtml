@@ -6,21 +6,12 @@
     <title>@ViewData["Title"] - Kraujo Bankas</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="stylesheet" href="~/css/styleOverride.css?Version=1" />
-    
+    <link rel="stylesheet" href="~/css/styleOverride.css" /> @*?Version=1*@
+
 </head>
 <body>
-    <header>
- 
-                @*--- logo columas su 3rem margin-top --*@
-
-
-                @* login screenas*@
-
-
-           
-
-        <nav class="navbar navbar-expand-md navbar-toggleable-md navbar-light bg-white border-bottom box-shadow">
+    <header>          
+        <nav class="navbar navbar-expand-md navbar-toggleable-md navbar-light bg-light border-bottom box-shadow nav ">
             <div class="container">
 
                 @*logo*@
@@ -42,7 +33,6 @@
                                 aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
- 
                 </div>
 
                 @*nav list*@
@@ -63,8 +53,8 @@
 
                     @*login*@
                     <li class="nav-item dropdown ml-md-auto ml-lg-auto ml-xl-auto mr-0 ">
-                        <a data-toggle="dropdown" class="nav-link dropdown-toggle btn-danger btn-group-toggle text-white rounded" href="#">Prisijungti</a>
-                        <ul class="dropdown-menu form-wrapper dropdown-menu-right text-center ">
+                        <a data-toggle="dropdown" class="nav-link dropdown-toggle btn-danger btn-group-toggle text-white rounded apple-font" href="#">Prisijungti</a>
+                        <ul class="dropdown-menu form-wrapper dropdown-menu-right text-center apple-font">
                             <li>
                                 <form action="#" method="post" class="d-flex flex-column  align-items-center px-4 py-3 ">
                                     <div class="form-group">
@@ -76,7 +66,7 @@
                                     <div class="text-center"><input type="submit" class="btn btn-outline-danger px-1 py-2 mt-4 mb-1 pr-4 pl-4" value="Prisijungti"></div>
                                     <div class="form-footer px-1 py-1">
                                         <div class="row text-center mt-1">
-                                            <div class="col">Neturite vartotojo?</div>
+                                            <div class="col font-italic">Neturite vartotojo?</div>
                                         </div>
                                         <div class="row text-center">
                                             <div id="login" class="col" data-toggle="modal" data-target="#registerModal"> <a href="#"> Užsiregistruokite</a></div>
@@ -129,7 +119,7 @@
         </main>
 
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted bg-light">
         <div class="container d-flex justify-content-center">
             &copy; 2020 - Kraujo-Bankas - <a asp-area="" asp-controller="Home" asp-action="ApieMus">&nbsp;Apie Mus</a>
             <a href="https://github.com/KlaipedaBreeze/KraujoBankas" target="_blank" class="footer-icon"><img src="~/visuals/icons/icons8-github.svg" alt="github icon"></a>
