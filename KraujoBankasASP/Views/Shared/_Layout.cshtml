@@ -82,11 +82,22 @@
                         }
                         else
                         {
-                            <li class="nav-item">
-                                @if (User.Identity.IsAuthenticated)
-                                {
-                                    <a class="nav-link text-secondary" asp-controller="Account" asp-action="Logout">Atsijungti</a>
-                                }
+                            <li class="nav-item dropdown ml-md-auto ml-lg-auto ml-xl-auto mr-0 ">
+                                <a data-toggle="dropdown" class="nav-link dropdown-toggle btn-danger btn-group-toggle text-white rounded apple-font" href="#">@User.Identity.Name</a>
+                                <ul class="dropdown-menu form-wrapper dropdown-menu-right text-center apple-font">
+                                    <li>
+                                        <form id="account" method="post" class="d-flex flex-column  align-items-center px-4 py-3 ">
+                                            <div class="form-group">
+                                                <a class="nav-link text-secondary" asp-controller="Home" asp-action="Istorija">Istorija</a>
+                                            </div>
+                                            <div class="form-footer px-1 py-1">
+                                                <div class="row text-center mt-1">
+                                                    <a class="nav-link text-secondary" asp-controller="Account" asp-action="Logout">Atsijungti</a>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </li>
+                                </ul>
                             </li>
                         }
                         @*---------*@
