@@ -27,7 +27,7 @@ namespace KraujoBankasASP
         {
             services.AddControllersWithViews();
             services.AddRazorPages().AddRazorRuntimeCompilation();
-            services.AddIdentity<User, UserRole>(options =>
+           services.AddIdentity<User, UserRole>(options =>
             {
                 options.User.RequireUniqueEmail = true;
             }).AddEntityFrameworkStores<UserDbContext>();
