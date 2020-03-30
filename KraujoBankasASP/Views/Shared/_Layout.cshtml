@@ -36,105 +36,29 @@
                 </div>
 
                 @*nav list*@
-                <div class="navbar-collapse collapse d-md-inline-flex  flex-md-row-reverse text-center">
-                    <ul class="navbar-nav flex-grow-1  d-flex justify-content-center ">
-                        <li class="nav-item my-nav-link">
-                            <a class="nav-link text-secondary  my-nav-link" asp-area="" asp-controller="Home" asp-action="Index">Pradžia</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-secondary" asp-area="" asp-controller="Home" asp-action="ApieMus">Apie Mus</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-secondary" asp-area="" asp-controller="Home" asp-action="Istorija">Istorija</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-secondary" asp-area="" asp-controller="Home" asp-action="InformacijaDonorui">Informacija Donorui</a>
-                        </li>
+            <div class="navbar-collapse collapse d-md-inline-flex  flex-md-row-reverse text-center">
+                <ul class="navbar-nav flex-grow-1  d-flex justify-content-center ">
+                    <li class="nav-item my-nav-link">
+                        <a class="nav-link text-secondary  my-nav-link" asp-area="" asp-controller="Home" asp-action="Index">Pradžia</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-secondary" asp-area="" asp-controller="Home" asp-action="ApieMus">Apie Mus</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-secondary" asp-area="" asp-controller="Home" asp-action="Istorija">Istorija</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-secondary" asp-area="" asp-controller="Home" asp-action="InformacijaDonorui">Informacija Donorui</a>
+                    </li>
 
-                        @*login*@
-                        @if (User.Identity.IsAuthenticated != true)
-                        {
-                            <li class="nav-item dropdown ml-md-auto ml-lg-auto ml-xl-auto mr-0 ">
-                                <a data-toggle="dropdown" class="nav-link dropdown-toggle btn-danger btn-group-toggle text-white rounded apple-font" href="#">Prisijungti</a>
-                                <ul class="dropdown-menu form-wrapper dropdown-menu-right text-center apple-font">
-                                    <li>
-                                        @model LoginViewModel
-                                        <form id="account" method="post" class="d-flex flex-column  align-items-center px-4 py-3 ">
-                                            <div class="form-group">
-                                                <input asp-for="UsernameOrEmail" placeholder="Vartotojo vardas" class="form-control" required="required" />
-                                            </div>
-                                            <div class="form-group  ">
-                                                <input asp-for="Password" class="form-control" placeholder="Vartotojo slaptažodis" required="required" />
-                                            </div>
-                                            <div class="text-center"><input type="submit" asp-controller="Account" asp-action="Login" class="btn btn-outline-danger px-1 py-2 mt-4 mb-1 pr-4 pl-4" value="Prisijungti"></div>
-                                            <div class="form-footer px-1 py-1">
-                                                <div class="row text-center mt-1">
-                                                    <div class="col font-italic">Neturite vartotojo?</div>
-                                                </div>
-                                                <div class="row text-center">
-                                                    <div id="login" class="col" data-toggle="modal" data-target="#registerModal"> <a href="#"> Užsiregistruokite</a></div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        }
-                        else
-                        {
-                            <li class="nav-item dropdown ml-md-auto ml-lg-auto ml-xl-auto mr-0 ">
-                                <a data-toggle="dropdown" class="nav-link dropdown-toggle btn-danger btn-group-toggle text-white rounded apple-font" href="#">@User.Identity.Name</a>
-                                <ul class="dropdown-menu form-wrapper dropdown-menu-right text-center apple-font">
-                                    <li>
-                                        <form id="account" method="post" class="d-flex flex-column  align-items-center px-4 py-3 ">
-                                            <div class="form-group">
-                                                <a class="nav-link text-secondary" asp-controller="Home" asp-action="Istorija">Istorija</a>
-                                            </div>
-                                            <div class="form-footer px-1 py-1">
-                                                <div class="row text-center mt-1">
-                                                    <a class="nav-link text-secondary" asp-controller="Account" asp-action="Logout">Atsijungti</a>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        }
-                        @*---------*@
-                    </ul>
-                    @* register screenas*@
+                    @*login*@
+                    <partial name="LoginPartialView" />
 
-                    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <img class="navbar-brand logo" src="~/visuals/icons/blood-bank.svg">
-                                    <h2>Užsiregistruokite</h2>
-                                    <button type="button" class="close ml-0" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <form role="form" action="" method="post" class="registration-form">
-                                        <div class="form-group">
-                                            <input type="text" name="form-first-name" placeholder="Jūsų vardas..." class="form-first-name form-control" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" name="form-last-name" placeholder="Jūsų pavardė..." class="form-last-name form-control" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" name="form-email" placeholder="El. paštas..." class="form-email form-control" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" name="form-email" placeholder="Pakartokite El. paštą..." class="form-email form-control" required>
-                                        </div>
-                                        <div class="text-center"><button type="submit" class="btn btn-outline-danger">Registruotis</button></div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </ul>
+                @* register screenas*@
+                <partial name="RegisterPartialView" />
+
+            </div>
             </div>
         </nav>
     </header>
