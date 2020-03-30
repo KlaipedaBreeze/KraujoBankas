@@ -1,15 +1,12 @@
-﻿
+﻿@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:700&display=swap');
 
-
-/*.logo {
-    color: #212529;
-    font-size: 2rem;
-    margin-top: 0.5rem;
+h1 {
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.19);
 }
 
-    .logo:hover {
-        color: rgb(190, 32, 38);
-    }*/
+h1, h2, h3, h4, h5, h6 {
+    color: rgba(0, 0, 0, 0.90);
+}
 
 .logo {
     width: 5rem;
@@ -19,49 +16,104 @@
 
 .logo-text {
     color: rgb(190, 32, 38);
+    line-height: 1rem;
+    text-shadow:1px 0px 0px rgba(0, 0, 0, 0.15);
 }
+
+
 
 .nav-item {
     margin-left: 0.5rem;
     margin-right: 0.5rem;
-    font-size: 18px;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
-@media (min-width: 576px) {
+.apple-font {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    text-transform:capitalize;
+    letter-spacing: 0.8px;
+}
+
+@media (min-width:1199px ) {
     .container {
+        width: 90%;
+        max-width: 90%;
+    }
+}
+
+@media (min-width:992px ) {
+    .container {
+        width: 90%;
+        max-width: none;
+        flex-wrap: wrap;
+    }
+}
+
+@media (min-width:768px ) {
+    .container {
+        width: 100%;
+        max-width: none;
+        flex-wrap: wrap !important;
+    }
+    .navbar {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+    
+
+@media (min-width:576px ) {
+    .container {
+        width: 100%;
         max-width: none;
     }
 }
 
-.container {
-    width: 70%;
-}
-
-@media (max-width:769px ) {
+@media (min-width:1200px ) {
     .container {
-        width: 98%;
+        width: 70%;
+        flex-wrap: wrap !important;
     }
 }
 
-.footer-icon {
+
+.form-control {
+    width:auto;
+}
+    .footer-icon {
     margin-left: 0.3rem;
 }
 
+
+.banner-gradient {
+    background: radial-gradient(rgba(0, 0, 0, 1), rgba(255, 255, 255, 1))
+}
+
 .banner {
-    background-image: url(/visuals/images-main/Blood-donation.png);
+    background-image: url('/visuals/images-main/Kraujo Banko Baneris-05.svg');
     background-position:center;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 400px;
+    height: 345px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
     color: rgba(255, 255, 255, 0.80);
+    
+   
 }
 
+.banner h1 {
+    color:#ed6863;
+}
 
-
+.banner button {
+    margin-bottom: 20px;
+}
 
 
     .display-4 {
@@ -73,7 +125,7 @@
 }
 
 .card {
-    background-color:rgba(224, 224, 224, 0.30);
+    background-color:rgb(246, 246, 246);
 }
 
 
