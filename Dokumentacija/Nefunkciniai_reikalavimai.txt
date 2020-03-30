@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿NEFUNKCINIAI REKALAVIMAI
 ************************
 1	Sistema turi tinkamai veikti su šiomis interneto naršyklėmis:
@@ -22,3 +23,8 @@
 duomenis, kartu uztikrinant jų panaudojimo teisėtumą
 16	Pasiekiamumas - galimybė pasinaudoti duomenimis per fiksuotą laiką teisėtiems vartotojams
 17	Prisijungimo informacija koduojama
+=======
+1. Sistemos duomenys matomi realiu laiku
+2. Prieinama is ivairiu platformu
+3. Limitai iki kuriu nukritus informuojami atsakingi zmones
+>>>>>>> develop-martynas

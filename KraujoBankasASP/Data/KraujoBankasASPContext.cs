@@ -4,10 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using KraujoBankasASP.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace KraujoBankasASP.Data
 {
-    public class KraujoBankasASPContext : DbContext
+    public class KraujoBankasASPContext : IdentityDbContext
     {
         public KraujoBankasASPContext (DbContextOptions<KraujoBankasASPContext> options)
             : base(options)
