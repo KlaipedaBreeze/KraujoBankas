@@ -6,40 +6,33 @@
     <title>@ViewData["Title"] - Kraujo Bankas</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="stylesheet" href="~/css/styleOverride.css?Version=1" />
-    
+    <link rel="stylesheet" href="~/css/styleOverride.css" /> @*?Version=1*@
+
 </head>
 <body>
     <header>
- 
-                @*--- logo columas su 3rem margin-top --*@
-
-
-                @* login screenas*@
-
-
-           
-
-        <nav class="navbar navbar-expand-md navbar-toggleable-md navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-md navbar-toggleable-md navbar-light bg-light border-bottom box-shadow nav ">
             <div class="container">
 
                 @*logo*@
-                <div class="justify-content-between pr-5">
+                <div class="justify-content-between pr-5 d-flex">
                     @*<a  class="navbar-brand logo" asp-area="" asp-controller="Home" asp-action="Index"></a>*@   @*--- reikes sujungti nauja logo su senais kontroleriais, palieku kaip pvz ---*@
-                   
+
                     <img class="navbar-brand logo " src="~/visuals/icons/blood-bank.svg" asp-append-version="true" />
-                    <span class="logo-text align-middle">KRAUJO-BANKAS</span>
+                    <div class="logo-text align-middle d-flex flex-column justify-content-center">
+                        <span>KRAUJO</span>
+                        <span>BANKAS</span>
+                    </div>
                 </div>
-                
+
 
                 @*hamburger*@
                 <div class=" ">
-  
-                        <button class="navbar-toggler mr-auto text-center" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                                aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
- 
+
+                    <button class="navbar-toggler mr-auto text-center" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
                 </div>
 
                 @*nav list*@
@@ -59,85 +52,34 @@
                     </li>
 
                     @*login*@
-                    <li class="nav-item dropdown ml-md-auto ml-lg-auto ml-xl-auto mr-0 ">
-                        <a data-toggle="dropdown" class="nav-link dropdown-toggle btn-danger btn-group-toggle text-white rounded" href="#">Prisijungti</a>
-                        <ul class="dropdown-menu form-wrapper dropdown-menu-right text-center ">
-                            <li>
-                                <form action="#" method="post" class="d-flex flex-column  align-items-center px-4 py-3 ">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Vartojo vardas" required="required">
-                                    </div>
-                                    <div class="form-group  ">
-                                        <input type="password" class="form-control " placeholder="Vartotojo slaptažodis" required="required">
-                                    </div>
-                                    <div class="text-center"><input type="submit" class="btn btn-outline-danger px-1 py-2 mt-4 mb-1 pr-4 pl-4" value="Prisijungti"></div>
-                                    <div class="form-footer px-1 py-1">
-                                        <div class="row text-center mt-1">
-                                            <div class="col">Neturite vartotojo?</div>
-                                        </div>
-                                        <div class="row text-center">
-                                            <div id="login" class="col" data-toggle="modal" data-target="#registerModal"> <a href="#"> Užsiregistruokite</a></div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </li>
-                        </ul>
-                    </li>
+                    <partial name="LoginPartialView" />
+
                 </ul>
                 @* register screenas*@
+                <partial name="RegisterPartialView" />
 
-                <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <img class="navbar-brand logo" src="~/visuals/icons/blood-bank.svg">
-                                <h2>Užsiregistruokite</h2>
-                                <button type="button" class="close ml-0" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <form role="form" action="" method="post" class="registration-form">
-                                    <div class="form-group">
-                                        <input  type="text" name="form-first-name" placeholder="Jūsų vardas..." class="form-first-name form-control" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" name="form-last-name" placeholder="Jūsų pavardė..." class="form-last-name form-control" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" name="form-email" placeholder="El. paštas..." class="form-email form-control" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" name="form-email" placeholder="Pakartokite El. paštą..." class="form-email form-control" required>
-                                    </div>
-                                    <div class="text-center"><button type="submit" class="btn btn-outline-danger">Registruotis</button></div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+
+
+    <footer class="border-top footer text-muted bg-light">
         <div class="container d-flex justify-content-center">
             &copy; 2020 - Kraujo-Bankas - <a asp-area="" asp-controller="Home" asp-action="ApieMus">&nbsp;Apie Mus</a>
             <a href="https://github.com/KlaipedaBreeze/KraujoBankas" target="_blank" class="footer-icon"><img src="~/visuals/icons/icons8-github.svg" alt="github icon"></a>
         </div>
-        
+
 
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src ="~/js/login.js"></script>
+    <script src="~/js/login.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>
