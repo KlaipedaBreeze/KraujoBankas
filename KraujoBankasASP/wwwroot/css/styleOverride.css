@@ -83,7 +83,8 @@ h1, h2, h3, h4, h5, h6 {
 .form-control {
     width:auto;
 }
-    .footer-icon {
+
+.footer-icon {
     margin-left: 0.3rem;
 }
 
@@ -102,9 +103,7 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    color: rgba(255, 255, 255, 0.80);
-    
-   
+    color: rgba(255, 255, 255, 0.80); 
 }
 
 .banner h1 {
@@ -116,7 +115,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-    .display-4 {
+.display-4 {
         font-size: 3rem !important;
     }
 
@@ -149,3 +148,4 @@ h1, h2, h3, h4, h5, h6 {
     width: 25px;
     background-repeat: no-repeat;
 }
+
