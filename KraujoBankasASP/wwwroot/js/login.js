@@ -1,4 +1,4 @@
-﻿const loginWindow = document.getElementById("login");
+﻿const loginWindow = document.getElementById("login","login1");
 const registerWindow = document.getElementsByClassName("form-control");
 
 //overwriting BS4 conflicting style between login and registration window
