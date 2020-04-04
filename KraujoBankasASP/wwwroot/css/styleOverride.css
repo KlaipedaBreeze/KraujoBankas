@@ -1,5 +1,13 @@
 ﻿@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:700&display=swap');
 
+h1 {
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.19);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: rgb(48, 48, 48);
+}
+
 .logo {
     width: 5rem;
     height:5rem;
@@ -7,8 +15,13 @@
 }
 
 .logo-text {
-    color: rgb(190, 32, 38);
+    color: rgb(216, 96, 91);
+    line-height: 1rem;
+    text-shadow: 1px 0px 0px rgba(81, 81, 81, 0.50);
 }
+
+
+
 
 .nav-item {
     margin-left: 0.5rem;
@@ -18,6 +31,11 @@
     font-family: 'Roboto Condensed', sans-serif;
 }
 
+.apple-font {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    text-transform:capitalize;
+    letter-spacing: 0.8px;
+}
 
 @media (min-width:1199px ) {
     .container {
@@ -46,6 +64,8 @@
     }
 }
 
+    
+
 @media (min-width:576px ) {
     .container {
         width: 100%;
@@ -60,6 +80,7 @@
     }
 }
 
+
 .form-control {
     width:auto;
 }
@@ -67,32 +88,32 @@
     margin-left: 0.3rem;
 }
 
+
+.banner-gradient {
+    background: radial-gradient(rgba(0, 0, 0, 1), rgba(255, 255, 255, 1))
+}
+
 .banner {
-    background-image: url(/visuals/images-main/Blood-donation.png);
+    background-image: url('/visuals/images-main/Kraujo Banko Baneris-05.svg');
     background-position:center;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 250px;
+    height: 345px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    color: rgba(255, 255, 255, 0.80);
+
+    
    
 }
 
+.banner h1 {
+    color:#ed6863;
+}
 
-.banner-istorija {
-    background-image:url(/visuals/images-main/person-blood-check-compressor.jpg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 250px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    color: rgba(255, 255, 255, 0.80);
+.banner button {
+    margin-bottom: 20px;
 }
 
 
@@ -101,11 +122,11 @@
     }
 
 .text-black-90 {
-    opacity: 0.9;
+    color: rgb(48, 48, 48);
 }
 
 .card {
-    background-color:rgba(224, 224, 224, 0.30);
+    background-color:rgb(246, 246, 246);
 }
 
 
@@ -128,5 +149,90 @@
     height: 25px;
     width: 25px;
     background-repeat: no-repeat;
+}
+
+/*carousel*/
+
+/* Slideshow container */
+.slideshow-container {
+    position: relative;
+    background: #ffffff;
+    border-radius: 5px 5px 0px 0px;
+}
+
+@keyframes mySlidesSmooth {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+} 
+
+/* Slides */
+.mySlides {
+    display: none;
+    padding: 0px 80px 20px;
+    text-align: center;
+    animation: mySlidesSmooth 0.5s ease-in;
+
+}
+
+
+
+
+/* Next & previous buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -30px;
+    padding: 16px;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    position: absolute;
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+
+/* The dot/bullet/indicator container */
+.dot-container {
+    text-align: center;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    border: 1px solid rgb(174, 174, 174);
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+    /* Add a background color to the active dot/circle */
+    .active, .dot:hover {
+        background-color: rgb(174, 174, 174);
+    }
+
+/* Add an italic font style to all quotes */
+q {
+    font-style: italic;
+}
+
+/* Add a blue color to the author */
+.author {
+    color: #ed6863;
 }
 
