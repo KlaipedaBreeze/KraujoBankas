@@ -7,4 +7,8 @@ loginWindow.addEventListener("click", () => {
     for (var i = 0; i < registerWindow.length; i++) {
         registerWindow[i].style.width = "100%";
     }
-});
+})
+
+//registerWindow.addEventListener("click", () => {
+
+//})

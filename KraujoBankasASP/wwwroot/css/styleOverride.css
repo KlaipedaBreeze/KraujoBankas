@@ -5,7 +5,7 @@ h1 {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: rgba(0, 0, 0, 0.90);
+    color: rgb(48, 48, 48);
 }
 
 .logo {
@@ -15,10 +15,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .logo-text {
-    color: rgb(190, 32, 38);
+    color: rgb(216, 96, 91);
     line-height: 1rem;
-    text-shadow:1px 0px 0px rgba(0, 0, 0, 0.15);
+    text-shadow: 1px 0px 0px rgba(81, 81, 81, 0.50);
 }
+
 
 
 
@@ -102,7 +103,7 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    color: rgba(255, 255, 255, 0.80);
+
     
    
 }
@@ -121,7 +122,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 
 .text-black-90 {
-    opacity: 0.9;
+    color: rgb(48, 48, 48);
 }
 
 .card {
@@ -149,3 +150,89 @@ h1, h2, h3, h4, h5, h6 {
     width: 25px;
     background-repeat: no-repeat;
 }
+
+/*carousel*/
+
+/* Slideshow container */
+.slideshow-container {
+    position: relative;
+    background: #ffffff;
+    border-radius: 5px 5px 0px 0px;
+}
+
+@keyframes mySlidesSmooth {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+} 
+
+/* Slides */
+.mySlides {
+    display: none;
+    padding: 0px 80px 20px;
+    text-align: center;
+    animation: mySlidesSmooth 0.5s ease-in;
+
+}
+
+
+
+
+/* Next & previous buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -30px;
+    padding: 16px;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    position: absolute;
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+
+/* The dot/bullet/indicator container */
+.dot-container {
+    text-align: center;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    border: 1px solid rgb(174, 174, 174);
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+    /* Add a background color to the active dot/circle */
+    .active, .dot:hover {
+        background-color: rgb(174, 174, 174);
+    }
+
+/* Add an italic font style to all quotes */
+q {
+    font-style: italic;
+}
+
+/* Add a blue color to the author */
+.author {
+    color: #ed6863;
+}
+
