@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -10,6 +10,7 @@ namespace KraujoBankasASP.Models
     {
         [Required]
         public string UsernameOrEmail { get; set; }
+
         [Required]
         [DataType(DataType.Password)]
         public string Password { get; set; }
