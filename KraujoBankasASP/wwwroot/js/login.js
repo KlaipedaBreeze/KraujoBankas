@@ -1,17 +1,30 @@
-﻿let loginWindow = document.getElementsByClassName("login");
-let registerWindow = document.getElementsByClassName("form-control");
+﻿const loginLink = document.getElementById("loginLink");
+const loginStyle = document.getElementsByClassName("form-control");
 
-//overwriting BS4 conflicting style between login and registration window
-for (var i = 0; i < loginWindow.length; i++) {
-    loginWindow[i].addEventListener("click", () => {
+const registerLink = document.getElementById("registerLink");
+const registerStyle = document.getElementsByClassName("form-control");
 
-        for (var i = 0; i < registerWindow.length; i++) {
-            registerWindow[i].style.width = "100%";
-            console.log("veikia");
-        }
-    })
-}
+const reminderLink = document.getElementById("reminderLink");
+const reminderStyle = document.getElementsByClassName("form-control");
 
-//registerWindow.addEventListener("click", () => {
 
-//})
+
+//overwriting BS4 conflicting style between login and and other pop-up windows
+loginLink.addEventListener("click", () => {
+    for (var i = 0; i < loginStyle.length; i++) {
+        loginStyle[i].style.width = `auto`;
+    }
+})
+
+registerLink.addEventListener("click", () => {
+    for (var i = 0; i < registerStyle.length; i++) {
+        registerStyle[i].style.width = `100%`;
+    }
+})
+
+reminderLink.addEventListener("click", () => {
+    for (var i = 0; i < reminderStyle.length; i++) {
+        reminderStyle[i].style.width = `100%`;
+    }
+})
+

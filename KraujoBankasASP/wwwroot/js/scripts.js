@@ -1,5 +1,4 @@
-﻿
-const carousel = {
+﻿const carousel = {
     prev: document.getElementsByClassName("prev")[0],
     next: document.getElementsByClassName("next")[0]
 }
