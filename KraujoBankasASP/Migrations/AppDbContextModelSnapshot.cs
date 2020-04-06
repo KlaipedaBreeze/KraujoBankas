@@ -429,7 +429,7 @@ namespace KraujoBankasASP.Migrations
                     b.HasOne("KraujoBankasASP.Models.Employee", "Employee")
                         .WithMany("Donations")
                         .HasForeignKey("EmployeeFK")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 

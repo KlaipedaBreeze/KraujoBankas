@@ -34,15 +34,18 @@ namespace KraujoBankasASP.Models
                         .WithOne(d => d.Donor)
                         .HasForeignKey(d => d.DonorFK);
 
+
+
             modelBuilder.Entity<Employee>()
                         .HasOne(e => e.User)
                         .WithOne(u => u.Employee)
                         .HasForeignKey<Employee>(e => e.UserFk);
 
             modelBuilder.Entity<Employee>()
-                        .HasMany(e => e.Donations)
-                        .WithOne(d => d.Employee)
-                        .HasForeignKey(d => d.EmployeeFK);
+                       .HasMany(e => e.Donations)
+                       .WithOne(d => d.Employee)
+                        .HasForeignKey(d => d.EmployeeFK)
+                        .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Employee>()
                         .HasMany(e => e.Receptions)

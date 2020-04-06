@@ -308,7 +308,7 @@ namespace KraujoBankasASP.Migrations
                         column: x => x.EmployeeFK,
                         principalTable: "Employees",
                         principalColumn: "EmployeeId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(

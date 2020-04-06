@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KraujoBankasASP.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200406165729_init")]
+    [Migration("20200406180254_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -431,7 +431,7 @@ namespace KraujoBankasASP.Migrations
                     b.HasOne("KraujoBankasASP.Models.Employee", "Employee")
                         .WithMany("Donations")
                         .HasForeignKey("EmployeeFK")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
