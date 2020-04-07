@@ -18,6 +18,8 @@ namespace KraujoBankasASP.Models
         public DbSet<HealthCareInstitution> HealthCareInstitutions { get; set; }
         public DbSet<Position> Positions { get; set; }
         public DbSet<Reception> Receptions { get; set; }
+        public DbSet<BloodTest> BlodTests { get; set; }
+        public DbSet<Visit> Visits { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -34,6 +36,10 @@ namespace KraujoBankasASP.Models
                         .WithOne(d => d.Donor)
                         .HasForeignKey(d => d.DonorFK);
 
+            modelBuilder.Entity<Donor>()
+            .HasMany(d => d.Visits)
+            .WithOne(v => v.Donor)
+            .HasForeignKey(v => v.DonorFK);
 
 
             modelBuilder.Entity<Employee>()
@@ -73,14 +79,25 @@ namespace KraujoBankasASP.Models
                         .HasForeignKey(u => u.AddressFK);
 
             modelBuilder.Entity<BloodType>()
-                        .HasMany(b => b.Donations)
-                        .WithOne(d => d.BloodType)
+                        .HasMany(b => b.BloodTests)
+                        .WithOne(bt => bt.BloodType)
                         .HasForeignKey(d => d.BoodTypeFK);
 
             modelBuilder.Entity<BloodType>()
                         .HasMany(b => b.Receptions)
                         .WithOne(r => r.BloodType)
                         .HasForeignKey(r => r.BloodTypeFK);
+
+            modelBuilder.Entity<Donation>()
+                        .HasOne(d => d.BloodTest)
+                        .WithOne(bt => bt.Donation)
+                        .HasForeignKey<Donation>(d => d.BloodTestFK);
+
+            modelBuilder.Entity<Donation>()
+                        .HasOne(d => d.Visit)
+                        .WithOne(v => v.Donation)
+                        .HasForeignKey<Donation>(d => d.VisitFK)
+                        .OnDelete(DeleteBehavior.Restrict);
 
             //modelBuilder.Seed();
         }

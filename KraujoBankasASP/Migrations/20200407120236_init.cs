@@ -244,6 +244,33 @@ namespace KraujoBankasASP.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "BlodTests",
+                columns: table => new
+                {
+                    BloodTestId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    IsAbleDonate = table.Column<bool>(nullable: false),
+                    Kell = table.Column<bool>(nullable: false),
+                    Hemoglobin = table.Column<double>(nullable: false),
+                    HBV = table.Column<double>(nullable: false),
+                    HCV = table.Column<double>(nullable: false),
+                    HIV = table.Column<double>(nullable: false),
+                    HTLV = table.Column<double>(nullable: false),
+                    ZIKV = table.Column<double>(nullable: false),
+                    BoodTypeFK = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BlodTests", x => x.BloodTestId);
+                    table.ForeignKey(
+                        name: "FK_BlodTests_BloodTypes_BoodTypeFK",
+                        column: x => x.BoodTypeFK,
+                        principalTable: "BloodTypes",
+                        principalColumn: "BloodId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Employees",
                 columns: table => new
                 {
@@ -277,37 +304,30 @@ namespace KraujoBankasASP.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Donations",
+                name: "Visits",
                 columns: table => new
                 {
-                    DonationId = table.Column<int>(nullable: false)
+                    VisitId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    DonationDate = table.Column<DateTime>(nullable: false),
+                    DonationDateTime = table.Column<DateTime>(nullable: false),
                     DonorFK = table.Column<int>(nullable: false),
-                    EmployeeFK = table.Column<int>(nullable: false),
-                    BoodTypeFK = table.Column<int>(nullable: false),
-                    BloodQnt = table.Column<int>(nullable: false)
+                    InstitutionId = table.Column<int>(nullable: true),
+                    InstitutionFK = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Donations", x => x.DonationId);
+                    table.PrimaryKey("PK_Visits", x => x.VisitId);
                     table.ForeignKey(
-                        name: "FK_Donations_BloodTypes_BoodTypeFK",
-                        column: x => x.BoodTypeFK,
-                        principalTable: "BloodTypes",
-                        principalColumn: "BloodId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Donations_Donors_DonorFK",
+                        name: "FK_Visits_Donors_DonorFK",
                         column: x => x.DonorFK,
                         principalTable: "Donors",
                         principalColumn: "DonorId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Donations_Employees_EmployeeFK",
-                        column: x => x.EmployeeFK,
-                        principalTable: "Employees",
-                        principalColumn: "EmployeeId",
+                        name: "FK_Visits_HealthCareInstitutions_InstitutionId",
+                        column: x => x.InstitutionId,
+                        principalTable: "HealthCareInstitutions",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -337,6 +357,48 @@ namespace KraujoBankasASP.Migrations
                         principalTable: "Employees",
                         principalColumn: "EmployeeId",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Donations",
+                columns: table => new
+                {
+                    DonationId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DonationDate = table.Column<DateTime>(nullable: false),
+                    DonorFK = table.Column<int>(nullable: false),
+                    EmployeeFK = table.Column<int>(nullable: false),
+                    BloodQnt = table.Column<int>(nullable: false),
+                    BloodTestFK = table.Column<int>(nullable: false),
+                    VisitFK = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Donations", x => x.DonationId);
+                    table.ForeignKey(
+                        name: "FK_Donations_BlodTests_BloodTestFK",
+                        column: x => x.BloodTestFK,
+                        principalTable: "BlodTests",
+                        principalColumn: "BloodTestId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Donations_Donors_DonorFK",
+                        column: x => x.DonorFK,
+                        principalTable: "Donors",
+                        principalColumn: "DonorId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Donations_Employees_EmployeeFK",
+                        column: x => x.EmployeeFK,
+                        principalTable: "Employees",
+                        principalColumn: "EmployeeId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Donations_Visits_VisitFK",
+                        column: x => x.VisitFK,
+                        principalTable: "Visits",
+                        principalColumn: "VisitId",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
@@ -379,9 +441,15 @@ namespace KraujoBankasASP.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Donations_BoodTypeFK",
-                table: "Donations",
+                name: "IX_BlodTests_BoodTypeFK",
+                table: "BlodTests",
                 column: "BoodTypeFK");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Donations_BloodTestFK",
+                table: "Donations",
+                column: "BloodTestFK",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Donations_DonorFK",
@@ -392,6 +460,12 @@ namespace KraujoBankasASP.Migrations
                 name: "IX_Donations_EmployeeFK",
                 table: "Donations",
                 column: "EmployeeFK");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Donations_VisitFK",
+                table: "Donations",
+                column: "VisitFK",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Donors_AddressFK",
@@ -436,6 +510,16 @@ namespace KraujoBankasASP.Migrations
                 name: "IX_Receptions_EmployeeFK",
                 table: "Receptions",
                 column: "EmployeeFK");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Visits_DonorFK",
+                table: "Visits",
+                column: "DonorFK");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Visits_InstitutionId",
+                table: "Visits",
+                column: "InstitutionId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -465,13 +549,19 @@ namespace KraujoBankasASP.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "Donors");
+                name: "BlodTests");
+
+            migrationBuilder.DropTable(
+                name: "Visits");
+
+            migrationBuilder.DropTable(
+                name: "Employees");
 
             migrationBuilder.DropTable(
                 name: "BloodTypes");
 
             migrationBuilder.DropTable(
-                name: "Employees");
+                name: "Donors");
 
             migrationBuilder.DropTable(
                 name: "HealthCareInstitutions");

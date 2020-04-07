@@ -15,7 +15,7 @@ namespace KraujoBankasASP.Models
         public string Type { get; set; }
 
         public ICollection<Reception> Receptions { get; set; }
-        public ICollection<Donation> Donations { get; set; }
+        public ICollection<BloodTest> BloodTests { get; set; }
 
     }
 }

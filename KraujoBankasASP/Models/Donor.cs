@@ -20,6 +20,7 @@ namespace KraujoBankasASP.Models
         public int AddressFK { get; set; }
 
         public IEnumerable<Donation> Donations { get; set; }
+        public IEnumerable<Visit> Visits { get; set; }
 
         public AppUser User { get; set; }
         public string UserFk { get; set; }

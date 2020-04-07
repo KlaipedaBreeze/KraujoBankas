@@ -17,7 +17,8 @@ namespace KraujoBankasASP.Models
         public Address Address { get; set; }
         public int AddressFK { get; set; }
 
-        public List<Employee> Employees { get; set; }
+        public IEnumerable<Employee> Employees { get; set; }
+        public IEnumerable<Visit> Visits{ get; set; }
 
     }
 }

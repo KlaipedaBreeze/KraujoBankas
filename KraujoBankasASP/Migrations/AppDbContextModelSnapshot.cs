@@ -108,6 +108,47 @@ namespace KraujoBankasASP.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("KraujoBankasASP.Models.BloodTest", b =>
+                {
+                    b.Property<int>("BloodTestId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BoodTypeFK")
+                        .HasColumnType("int");
+
+                    b.Property<double>("HBV")
+                        .HasColumnType("float");
+
+                    b.Property<double>("HCV")
+                        .HasColumnType("float");
+
+                    b.Property<double>("HIV")
+                        .HasColumnType("float");
+
+                    b.Property<double>("HTLV")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Hemoglobin")
+                        .HasColumnType("float");
+
+                    b.Property<bool>("IsAbleDonate")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Kell")
+                        .HasColumnType("bit");
+
+                    b.Property<double>("ZIKV")
+                        .HasColumnType("float");
+
+                    b.HasKey("BloodTestId");
+
+                    b.HasIndex("BoodTypeFK");
+
+                    b.ToTable("BlodTests");
+                });
+
             modelBuilder.Entity("KraujoBankasASP.Models.BloodType", b =>
                 {
                     b.Property<int>("BloodId")
@@ -133,7 +174,7 @@ namespace KraujoBankasASP.Migrations
                     b.Property<int>("BloodQnt")
                         .HasColumnType("int");
 
-                    b.Property<int>("BoodTypeFK")
+                    b.Property<int>("BloodTestFK")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("DonationDate")
@@ -145,13 +186,20 @@ namespace KraujoBankasASP.Migrations
                     b.Property<int>("EmployeeFK")
                         .HasColumnType("int");
 
+                    b.Property<int>("VisitFK")
+                        .HasColumnType("int");
+
                     b.HasKey("DonationId");
 
-                    b.HasIndex("BoodTypeFK");
+                    b.HasIndex("BloodTestFK")
+                        .IsUnique();
 
                     b.HasIndex("DonorFK");
 
                     b.HasIndex("EmployeeFK");
+
+                    b.HasIndex("VisitFK")
+                        .IsUnique();
 
                     b.ToTable("Donations");
                 });
@@ -279,6 +327,34 @@ namespace KraujoBankasASP.Migrations
                     b.HasIndex("EmployeeFK");
 
                     b.ToTable("Receptions");
+                });
+
+            modelBuilder.Entity("KraujoBankasASP.Models.Visit", b =>
+                {
+                    b.Property<int>("VisitId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DonationDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("DonorFK")
+                        .HasColumnType("int");
+
+                    b.Property<int>("InstitutionFK")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("InstitutionId")
+                        .HasColumnType("int");
+
+                    b.HasKey("VisitId");
+
+                    b.HasIndex("DonorFK");
+
+                    b.HasIndex("InstitutionId");
+
+                    b.ToTable("Visits");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -412,11 +488,20 @@ namespace KraujoBankasASP.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("KraujoBankasASP.Models.Donation", b =>
+            modelBuilder.Entity("KraujoBankasASP.Models.BloodTest", b =>
                 {
                     b.HasOne("KraujoBankasASP.Models.BloodType", "BloodType")
-                        .WithMany("Donations")
+                        .WithMany("BloodTests")
                         .HasForeignKey("BoodTypeFK")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("KraujoBankasASP.Models.Donation", b =>
+                {
+                    b.HasOne("KraujoBankasASP.Models.BloodTest", "BloodTest")
+                        .WithOne("Donation")
+                        .HasForeignKey("KraujoBankasASP.Models.Donation", "BloodTestFK")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -429,6 +514,12 @@ namespace KraujoBankasASP.Migrations
                     b.HasOne("KraujoBankasASP.Models.Employee", "Employee")
                         .WithMany("Donations")
                         .HasForeignKey("EmployeeFK")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("KraujoBankasASP.Models.Visit", "Visit")
+                        .WithOne("Donation")
+                        .HasForeignKey("KraujoBankasASP.Models.Donation", "VisitFK")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
@@ -487,6 +578,19 @@ namespace KraujoBankasASP.Migrations
                         .HasForeignKey("EmployeeFK")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("KraujoBankasASP.Models.Visit", b =>
+                {
+                    b.HasOne("KraujoBankasASP.Models.Donor", "Donor")
+                        .WithMany("Visits")
+                        .HasForeignKey("DonorFK")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("KraujoBankasASP.Models.HealthCareInstitution", "Institution")
+                        .WithMany("Visits")
+                        .HasForeignKey("InstitutionId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

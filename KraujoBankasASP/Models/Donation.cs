@@ -21,9 +21,12 @@ namespace KraujoBankasASP.Models
         public Employee Employee { get; set; }
         public int EmployeeFK { get; set; }
 
-        public BloodType BloodType { get; set; }
-        public int BoodTypeFK { get; set; }
-
         public int BloodQnt { get; set; }
+
+        public BloodTest BloodTest { get; set; }
+        public int BloodTestFK { get; set; }
+
+        public Visit Visit { get; set; }
+        public int VisitFK { get; set; }
     }
 }
