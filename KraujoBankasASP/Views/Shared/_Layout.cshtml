@@ -10,66 +10,83 @@
 
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-md navbar-toggleable-md navbar-light bg-light border-bottom box-shadow nav ">
-            <div class="container">
+    <header class="mb-5">
+        <div class="row mr-0 ml-0 fixed-top">
+            <div class="col-12 pl-0 pr-0">
+                <nav class="navbar navbar-expand-md navbar-toggleable-md navbar-dark bg-dark  box-shadow nav ">
+                    <div class="container">
 
-                @*logo*@
-                <div class="justify-content-between pr-5 d-flex">
-                    @*<a  class="navbar-brand logo" asp-area="" asp-controller="Home" asp-action="Index"></a>*@   @*--- reikes sujungti nauja logo su senais kontroleriais, palieku kaip pvz ---*@
+                        @*logo*@
+                        <div class="justify-content-between pr-5 d-flex">
+                            @*<a  class="navbar-brand logo" asp-area="" asp-controller="Home" asp-action="Index"></a>*@   @*--- reikes sujungti nauja logo su senais kontroleriais, palieku kaip pvz ---*@
 
-                    <img class="navbar-brand logo " src="~/visuals/icons/Kraujo Banko Logotipas-07.svg" asp-append-version="true" />
-                    <div class="logo-text align-middle d-flex flex-column justify-content-center">
-                        <span>KRAUJO</span>
-                        <span>BANKAS</span>
+                            <img class="navbar-brand logo " src="~/visuals/icons/Kraujo Banko Logotipas-07.svg" asp-append-version="true" />
+                            <div class="logo-text align-middle d-flex flex-column justify-content-center">
+                                <span>KRAUJO</span>
+                                <span>BANKAS</span>
+                            </div>
+                        </div>
+
+
+                        @*hamburger*@
+                        <div class=" ">
+
+                            <button class="navbar-toggler mr-auto text-center" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                                    aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                        </div>
+
+                        @*nav list*@
+                        <div class="navbar-collapse collapse d-md-inline-flex  flex-md-row-reverse text-center">
+                            <ul class="navbar-nav flex-grow-1  d-flex justify-content-center ">
+                                <li class="nav-item my-nav-link">
+                                    <a class="nav-link   my-nav-link" asp-area="" asp-controller="Home" asp-action="Index">Pradžia</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link " asp-area="" asp-controller="Home" asp-action="ApieMus">Apie Mus</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Istorija">Istorija</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link " asp-area="" asp-controller="Home" asp-action="InformacijaDonorui">Informacija Donorui</a>
+                                </li>
+
+                                @*login*@
+                                <partial name="LoginPartialView" />
+
+                            </ul>
+                            @* register screenas*@
+                            <partial name="RegisterPartialView" />
+                            @* Password reminder*@
+                            <partial name="PwReminder" />
+
+                        </div>
                     </div>
-                </div>
-
-
-                @*hamburger*@
-                <div class=" ">
-
-                    <button class="navbar-toggler mr-auto text-center" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </div>
-
-                @*nav list*@
-            <div class="navbar-collapse collapse d-md-inline-flex  flex-md-row-reverse text-center">
-                <ul class="navbar-nav flex-grow-1  d-flex justify-content-center ">
-                    <li class="nav-item my-nav-link">
-                        <a class="nav-link text-secondary  my-nav-link" asp-area="" asp-controller="Home" asp-action="Index">Pradžia</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-secondary" asp-area="" asp-controller="Home" asp-action="ApieMus">Apie Mus</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-secondary" asp-area="" asp-controller="Home" asp-action="Istorija">Istorija</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-secondary" asp-area="" asp-controller="Home" asp-action="InformacijaDonorui">Informacija Donorui</a>
-                    </li>
-
-                    @*login*@
-                    <partial name="LoginPartialView" />
-
-                </ul>
-                @* register screenas*@
-                <partial name="RegisterPartialView" />
-                @* Password reminder*@
-                <partial name="PwReminder" />
-
+                </nav>
             </div>
-            </div>
-        </nav>
+        </div>
     </header>
+    @*sidenav*@
+    @if (User.Identity.IsAuthenticated == true)
+    {
+        <div class="row mr-0 ml-0 ">
+            <partial name="~/views/Dashboard/SideNav.cshtml" />
 
-    <main role="main" class="pb-3">
-        @RenderBody()
-    </main>
-
-
+            <div class="col-10 pr-0 pl-0">
+                <main role="main" class="pb-3 mt-5">
+                    @RenderBody()
+                </main>
+            </div>
+        </div>
+    }
+    else
+    {
+        <main role="main" class="pb-3 my-mt-5">
+            @RenderBody()
+        </main>
+    }
     <footer class="border-top footer text-muted bg-light">
         <div class="container d-flex justify-content-center">
             &copy; 2020 - Kraujo-Bankas - <a asp-area="" asp-controller="Home" asp-action="ApieMus">&nbsp;Apie Mus</a>

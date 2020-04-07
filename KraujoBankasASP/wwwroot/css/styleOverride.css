@@ -8,6 +8,10 @@ h1, h2, h3, h4, h5, h6 {
     color: rgb(48, 48, 48);
 }
 
+.my-mt-5 {
+    margin-top: 5rem !important;
+}
+
 .logo {
     width: 5rem;
     height:5rem;
@@ -79,6 +83,9 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+.modal-backdrop {
+    z-index: 0;
+}
 
 .form-control {
     width:auto;
@@ -89,7 +96,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .banner-gradient {
-    background: radial-gradient(rgba(0, 0, 0, 1), rgba(255, 255, 255, 1))
+    background: radial-gradient(rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 1))
 }
 
 .banner {
@@ -235,3 +242,18 @@ q {
     color: #ed6863;
 }
 
+/*sidebar*/
+.sidebar {
+    /*position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding: 48px 0 0;*/
+    
+}
+
+.sidebar-sticky {
+    position: fixed;
+    width: 100%;
+}
