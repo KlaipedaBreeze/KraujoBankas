@@ -1,22 +1,24 @@
 ﻿@if (User.Identity.IsAuthenticated != true)
 {
-      @*login*@
+    @*login*@
     <li class="nav-item dropdown ml-md-auto ml-lg-auto ml-xl-auto mr-0 ">
         <a data-toggle="dropdown" class="nav-link dropdown-toggle btn-danger btn-group-toggle text-white rounded apple-font" href="#">Prisijungti</a>
         <ul class="dropdown-menu form-wrapper dropdown-menu-right text-center apple-font">
             <li>
                 @model LoginViewModel
-                <form id="account" method="post" class="d-flex flex-column  align-items-center px-4 py-3 ">
+                <form asp-controller="DonorAccount" asp-action="Login" id="account" method="post" class="d-flex flex-column  align-items-center px-4 py-3 ">
                     <div class="form-group">
-                        <input asp-for="UsernameOrEmail" placeholder="Vartotojo vardas" class="form-control" required="required" />
+                        <input asp-for="Email" placeholder="Vartotojo vardas" class="form-control" required="required" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <input asp-for="Password" class="form-control" placeholder="Vartotojo slaptažodis" required="required" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
                     </div>
                     <div id="login" data-toggle="modal" data-target="#PassReminderModal">
                         <p class="text-muted text-center"> <a href="#" class="text-reset"> Pamiršote savo slaptažodį?</a></p>
                     </div>
-                    <div class="text-center"><input type="submit" asp-controller="Account" asp-action="Login" class="btn btn-outline-danger px-1 py-2 mt-2 mb-1 pr-4 pl-4" value="Prisijungti"></div>
+                    <div class="text-center"><input type="submit" asp-controller="DonorAccount" asp-action="Login" class="btn btn-outline-danger px-1 py-2 mt-2 mb-1 pr-4 pl-4" value="Prisijungti"></div>
                     <div class="form-footer px-1 py-1">
                         <div class="row text-center mt-1">
                             <div class="col font-italic">Neturite vartotojo?</div>
@@ -46,7 +48,7 @@
                     <form role="form" action="" method="post" class="PassReminder-form ">
                         <div class="form-group">
                             <input type="text" name="form-first-name" placeholder="Jūsų elektroninis paštas" class="form-first-name form-control" required>
-                        </div>                        
+                        </div>
                         <div class="text-center"><button type="submit" class="btn btn-outline-danger">Priminti</button></div>
                     </form>
                 </div>
@@ -66,7 +68,7 @@ else
                     </div>
                     <div class="form-footer px-1 py-1">
                         <div class="row text-center mt-1">
-                            <a class="nav-link text-secondary" asp-controller="Account" asp-action="Logout">Atsijungti</a>
+                            <a class="nav-link text-secondary" asp-controller="DonorAccount" asp-action="Logout">Atsijungti</a>
                         </div>
                     </div>
                 </form>

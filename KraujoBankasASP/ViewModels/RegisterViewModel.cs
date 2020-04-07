@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KraujoBankasASP.Models
 {
-    public class LoginViewModel
+    public class RegisterViewModel
     {
         [Required]
         [EmailAddress]
@@ -15,5 +15,10 @@ namespace KraujoBankasASP.Models
         [Required]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+
+        [DataType(DataType.Password)]
+        [Display(Name ="Pakartokite slaptažodį")]
+        [Compare("Password",ErrorMessage ="Slaptažodžiai nesutampa")]
+        public string ConfirmPassword { get; set; }
     }
 }
