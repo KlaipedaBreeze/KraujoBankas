@@ -1,6 +1,8 @@
 ﻿
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace KraujoBankasASP.Models
 {
@@ -25,6 +27,13 @@ namespace KraujoBankasASP.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<IdentityRole>().HasData(
+                    new IdentityRole { Id = Guid.NewGuid().ToString(), Name = "Admin", NormalizedName = "Admin".ToUpper()},
+                    new IdentityRole { Id = Guid.NewGuid().ToString(), Name = "Institution admin", NormalizedName = "Institution admin".ToUpper()},
+                    new IdentityRole { Id = Guid.NewGuid().ToString(), Name = "Donor", NormalizedName = "Donor".ToUpper()},
+                    new IdentityRole { Id = Guid.NewGuid().ToString(), Name = "Employee", NormalizedName = "Employee".ToUpper()}
+                    );
 
             modelBuilder.Entity<Donor>()
                           .HasOne(d => d.User)
@@ -75,8 +84,8 @@ namespace KraujoBankasASP.Models
 
             modelBuilder.Entity<Address>()
                         .HasMany(a => a.Donors)
-                        .WithOne(u => u.Address)
-                        .HasForeignKey(u => u.AddressFK);
+                        .WithOne(d => d.Address)
+                        .HasForeignKey(d => d.AddressFK);
 
             modelBuilder.Entity<BloodType>()
                         .HasMany(b => b.BloodTests)
@@ -99,7 +108,6 @@ namespace KraujoBankasASP.Models
                         .HasForeignKey<Donation>(d => d.VisitFK)
                         .OnDelete(DeleteBehavior.Restrict);
 
-            //modelBuilder.Seed();
         }
 
     }

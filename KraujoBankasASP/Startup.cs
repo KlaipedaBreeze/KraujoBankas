@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace KraujoBankasASP
 {
@@ -25,19 +26,21 @@ namespace KraujoBankasASP
             services.AddRazorPages().AddRazorRuntimeCompilation();
 
             services.AddDbContext<AppDbContext>(cfg =>
-            {
-                cfg.UseSqlServer(Configuration.GetConnectionString("KraujoBankas"));
-            });
-
+             {
+                 cfg.UseSqlServer(Configuration.GetConnectionString("KraujoBankas"));
+             }
+             );
 
             services.AddIdentity<AppUser, IdentityRole>()
-                .AddEntityFrameworkStores<AppDbContext>();
-
+                    .AddEntityFrameworkStores<AppDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager)
+        {            
+
+            ApplicationDbInitializer.SeedUsers(userManager, roleManager);
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -63,6 +66,8 @@ namespace KraujoBankasASP
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+
         }
     }
 }

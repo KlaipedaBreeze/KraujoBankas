@@ -11,7 +11,7 @@ namespace KraujoBankasASP.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string AddressLine { get; set; }
 
         public IEnumerable<Donor> Donors { get; set; }

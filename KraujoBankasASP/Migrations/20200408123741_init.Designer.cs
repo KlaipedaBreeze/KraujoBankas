@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KraujoBankasASP.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200407120236_init")]
+    [Migration("20200408123741_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,10 +23,9 @@ namespace KraujoBankasASP.Migrations
 
             modelBuilder.Entity("KraujoBankasASP.Models.Address", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("AddressLine")
                         .HasColumnType("nvarchar(max)");
@@ -112,13 +111,12 @@ namespace KraujoBankasASP.Migrations
 
             modelBuilder.Entity("KraujoBankasASP.Models.BloodTest", b =>
                 {
-                    b.Property<int>("BloodTestId")
+                    b.Property<Guid>("BloodTestId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("BoodTypeFK")
-                        .HasColumnType("int");
+                    b.Property<Guid>("BoodTypeFK")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<double>("HBV")
                         .HasColumnType("float");
@@ -153,10 +151,9 @@ namespace KraujoBankasASP.Migrations
 
             modelBuilder.Entity("KraujoBankasASP.Models.BloodType", b =>
                 {
-                    b.Property<int>("BloodId")
+                    b.Property<Guid>("BloodId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Type")
                         .HasColumnType("nvarchar(max)");
@@ -168,28 +165,27 @@ namespace KraujoBankasASP.Migrations
 
             modelBuilder.Entity("KraujoBankasASP.Models.Donation", b =>
                 {
-                    b.Property<int>("DonationId")
+                    b.Property<Guid>("DonationId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("BloodQnt")
                         .HasColumnType("int");
 
-                    b.Property<int>("BloodTestFK")
-                        .HasColumnType("int");
+                    b.Property<Guid>("BloodTestFK")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("DonationDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("DonorFK")
-                        .HasColumnType("int");
+                    b.Property<Guid>("DonorFK")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("EmployeeFK")
-                        .HasColumnType("int");
+                    b.Property<Guid>("EmployeeFK")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("VisitFK")
-                        .HasColumnType("int");
+                    b.Property<Guid>("VisitFK")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("DonationId");
 
@@ -208,13 +204,12 @@ namespace KraujoBankasASP.Migrations
 
             modelBuilder.Entity("KraujoBankasASP.Models.Donor", b =>
                 {
-                    b.Property<int>("DonorId")
+                    b.Property<Guid>("DonorId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("AddressFK")
-                        .HasColumnType("int");
+                    b.Property<Guid>("AddressFK")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("datetime2");
@@ -241,16 +236,15 @@ namespace KraujoBankasASP.Migrations
 
             modelBuilder.Entity("KraujoBankasASP.Models.Employee", b =>
                 {
-                    b.Property<int>("EmployeeId")
+                    b.Property<Guid>("EmployeeId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("InstitutionFK")
-                        .HasColumnType("int");
+                    b.Property<Guid>("InstitutionFK")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("PositionKF")
-                        .HasColumnType("int");
+                    b.Property<Guid>("PositionKF")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("UserFk")
                         .HasColumnType("nvarchar(450)");
@@ -270,13 +264,12 @@ namespace KraujoBankasASP.Migrations
 
             modelBuilder.Entity("KraujoBankasASP.Models.HealthCareInstitution", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("AddressFK")
-                        .HasColumnType("int");
+                    b.Property<Guid>("AddressFK")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Type")
                         .HasColumnType("nvarchar(max)");
@@ -290,10 +283,9 @@ namespace KraujoBankasASP.Migrations
 
             modelBuilder.Entity("KraujoBankasASP.Models.Position", b =>
                 {
-                    b.Property<int>("PositionId")
+                    b.Property<Guid>("PositionId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Type")
                         .HasColumnType("nvarchar(max)");
@@ -305,22 +297,21 @@ namespace KraujoBankasASP.Migrations
 
             modelBuilder.Entity("KraujoBankasASP.Models.Reception", b =>
                 {
-                    b.Property<int>("ReceptionId")
+                    b.Property<Guid>("ReceptionId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("BloodQnt")
                         .HasColumnType("int");
 
-                    b.Property<int>("BloodTypeFK")
-                        .HasColumnType("int");
+                    b.Property<Guid>("BloodTypeFK")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("DonationDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("EmployeeFK")
-                        .HasColumnType("int");
+                    b.Property<Guid>("EmployeeFK")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("ReceptionId");
 
@@ -333,22 +324,21 @@ namespace KraujoBankasASP.Migrations
 
             modelBuilder.Entity("KraujoBankasASP.Models.Visit", b =>
                 {
-                    b.Property<int>("VisitId")
+                    b.Property<Guid>("VisitId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("DonationDateTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("DonorFK")
-                        .HasColumnType("int");
+                    b.Property<Guid>("DonorFK")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("InstitutionFK")
-                        .HasColumnType("int");
+                    b.Property<Guid>("InstitutionFK")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("InstitutionId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("InstitutionId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("VisitId");
 
@@ -384,6 +374,36 @@ namespace KraujoBankasASP.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "d4b4f27a-14bb-499e-9e2f-4b872009981d",
+                            ConcurrencyStamp = "22fe13f9-ede7-4bdc-a280-7ca7ce42ca0a",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "2f77b228-9847-4c23-a205-4715e5c3272f",
+                            ConcurrencyStamp = "f2cb234c-803d-4c93-9b0d-fcc901ce6e45",
+                            Name = "Institution admin",
+                            NormalizedName = "INSTITUTION ADMIN"
+                        },
+                        new
+                        {
+                            Id = "ec3a0acc-a189-441d-b29b-7b17bc767433",
+                            ConcurrencyStamp = "1e2fcbc8-f0b6-484a-bbc4-d30e2b684181",
+                            Name = "Donor",
+                            NormalizedName = "DONOR"
+                        },
+                        new
+                        {
+                            Id = "fd8468a1-8113-48c2-afcd-14ec0f89c7de",
+                            ConcurrencyStamp = "1eef200a-62e6-4ca7-a736-caf988362566",
+                            Name = "Employee",
+                            NormalizedName = "EMPLOYEE"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

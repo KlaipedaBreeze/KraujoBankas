@@ -11,8 +11,7 @@ namespace KraujoBankasASP.Migrations
                 name: "Address",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(nullable: false),
                     AddressLine = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -66,8 +65,7 @@ namespace KraujoBankasASP.Migrations
                 name: "BloodTypes",
                 columns: table => new
                 {
-                    BloodId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    BloodId = table.Column<Guid>(nullable: false),
                     Type = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -79,8 +77,7 @@ namespace KraujoBankasASP.Migrations
                 name: "Positions",
                 columns: table => new
                 {
-                    PositionId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    PositionId = table.Column<Guid>(nullable: false),
                     Type = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -92,10 +89,9 @@ namespace KraujoBankasASP.Migrations
                 name: "HealthCareInstitutions",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(nullable: false),
                     Type = table.Column<string>(nullable: true),
-                    AddressFK = table.Column<int>(nullable: false)
+                    AddressFK = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -218,12 +214,11 @@ namespace KraujoBankasASP.Migrations
                 name: "Donors",
                 columns: table => new
                 {
-                    DonorId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DonorId = table.Column<Guid>(nullable: false),
                     WeightInKg = table.Column<int>(nullable: false),
                     HeightInCM = table.Column<int>(nullable: false),
                     BirthDate = table.Column<DateTime>(nullable: false),
-                    AddressFK = table.Column<int>(nullable: false),
+                    AddressFK = table.Column<Guid>(nullable: false),
                     UserFk = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -247,8 +242,7 @@ namespace KraujoBankasASP.Migrations
                 name: "BlodTests",
                 columns: table => new
                 {
-                    BloodTestId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    BloodTestId = table.Column<Guid>(nullable: false),
                     IsAbleDonate = table.Column<bool>(nullable: false),
                     Kell = table.Column<bool>(nullable: false),
                     Hemoglobin = table.Column<double>(nullable: false),
@@ -257,7 +251,7 @@ namespace KraujoBankasASP.Migrations
                     HIV = table.Column<double>(nullable: false),
                     HTLV = table.Column<double>(nullable: false),
                     ZIKV = table.Column<double>(nullable: false),
-                    BoodTypeFK = table.Column<int>(nullable: false)
+                    BoodTypeFK = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -274,11 +268,10 @@ namespace KraujoBankasASP.Migrations
                 name: "Employees",
                 columns: table => new
                 {
-                    EmployeeId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    PositionKF = table.Column<int>(nullable: false),
+                    EmployeeId = table.Column<Guid>(nullable: false),
+                    PositionKF = table.Column<Guid>(nullable: false),
                     UserFk = table.Column<string>(nullable: true),
-                    InstitutionFK = table.Column<int>(nullable: false)
+                    InstitutionFK = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -307,12 +300,11 @@ namespace KraujoBankasASP.Migrations
                 name: "Visits",
                 columns: table => new
                 {
-                    VisitId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    VisitId = table.Column<Guid>(nullable: false),
                     DonationDateTime = table.Column<DateTime>(nullable: false),
-                    DonorFK = table.Column<int>(nullable: false),
-                    InstitutionId = table.Column<int>(nullable: true),
-                    InstitutionFK = table.Column<int>(nullable: false)
+                    DonorFK = table.Column<Guid>(nullable: false),
+                    InstitutionId = table.Column<Guid>(nullable: true),
+                    InstitutionFK = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -335,12 +327,11 @@ namespace KraujoBankasASP.Migrations
                 name: "Receptions",
                 columns: table => new
                 {
-                    ReceptionId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    EmployeeFK = table.Column<int>(nullable: false),
+                    ReceptionId = table.Column<Guid>(nullable: false),
+                    EmployeeFK = table.Column<Guid>(nullable: false),
                     DonationDate = table.Column<DateTime>(nullable: false),
                     BloodQnt = table.Column<int>(nullable: false),
-                    BloodTypeFK = table.Column<int>(nullable: false)
+                    BloodTypeFK = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -363,14 +354,13 @@ namespace KraujoBankasASP.Migrations
                 name: "Donations",
                 columns: table => new
                 {
-                    DonationId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DonationId = table.Column<Guid>(nullable: false),
                     DonationDate = table.Column<DateTime>(nullable: false),
-                    DonorFK = table.Column<int>(nullable: false),
-                    EmployeeFK = table.Column<int>(nullable: false),
+                    DonorFK = table.Column<Guid>(nullable: false),
+                    EmployeeFK = table.Column<Guid>(nullable: false),
                     BloodQnt = table.Column<int>(nullable: false),
-                    BloodTestFK = table.Column<int>(nullable: false),
-                    VisitFK = table.Column<int>(nullable: false)
+                    BloodTestFK = table.Column<Guid>(nullable: false),
+                    VisitFK = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -399,6 +389,17 @@ namespace KraujoBankasASP.Migrations
                         principalTable: "Visits",
                         principalColumn: "VisitId",
                         onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[,]
+                {
+                    { "d4b4f27a-14bb-499e-9e2f-4b872009981d", "22fe13f9-ede7-4bdc-a280-7ca7ce42ca0a", "Admin", "ADMIN" },
+                    { "2f77b228-9847-4c23-a205-4715e5c3272f", "f2cb234c-803d-4c93-9b0d-fcc901ce6e45", "Institution admin", "INSTITUTION ADMIN" },
+                    { "ec3a0acc-a189-441d-b29b-7b17bc767433", "1e2fcbc8-f0b6-484a-bbc4-d30e2b684181", "Donor", "DONOR" },
+                    { "fd8468a1-8113-48c2-afcd-14ec0f89c7de", "1eef200a-62e6-4ca7-a736-caf988362566", "Employee", "EMPLOYEE" }
                 });
 
             migrationBuilder.CreateIndex(

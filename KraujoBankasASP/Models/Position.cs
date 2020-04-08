@@ -11,10 +11,9 @@ namespace KraujoBankasASP.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int PositionId { get; set; }
+        public Guid PositionId { get; set; }
         public string Type { get; set; }
 
         public IEnumerable<Employee> Employees { get; set; }
-
     }
 }

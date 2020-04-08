@@ -40,8 +40,7 @@ namespace KraujoBankasASP.Controllers
 
                 var resultCreateUser = await userManager.CreateAsync(user, model.Password);
 
-
-                var resultAddRole = await userManager.AddToRoleAsync(user, "Donoras");
+                var resultAddRole = await userManager.AddToRoleAsync(user, "Donor");
 
                 if (resultCreateUser.Succeeded && resultAddRole.Succeeded)
                 {

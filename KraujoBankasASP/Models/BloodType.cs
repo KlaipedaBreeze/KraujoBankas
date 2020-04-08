@@ -11,7 +11,7 @@ namespace KraujoBankasASP.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int BloodId { get; set; }
+        public Guid BloodId { get; set; }
         public string Type { get; set; }
 
         public ICollection<Reception> Receptions { get; set; }

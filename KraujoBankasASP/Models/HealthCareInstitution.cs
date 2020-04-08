@@ -11,11 +11,11 @@ namespace KraujoBankasASP.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string Type { get; set; }
 
         public Address Address { get; set; }
-        public int AddressFK { get; set; }
+        public Guid AddressFK { get; set; }
 
         public IEnumerable<Employee> Employees { get; set; }
         public IEnumerable<Visit> Visits{ get; set; }

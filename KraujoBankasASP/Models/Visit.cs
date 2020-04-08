@@ -11,16 +11,16 @@ namespace KraujoBankasASP.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int VisitId { get; set; }
+        public Guid VisitId { get; set; }
 
         public DateTime DonationDateTime { get; set; }
 
         public Donor Donor { get; set; }
-        public int DonorFK { get; set; }
+        public Guid DonorFK { get; set; }
 
         public Donation Donation { get; set; }
         public HealthCareInstitution Institution { get; set; }
-        public int InstitutionFK { get; set; }
+        public Guid InstitutionFK { get; set; }
 
     }
 }
