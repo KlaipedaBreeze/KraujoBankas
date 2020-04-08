@@ -1,8 +1,7 @@
-﻿const loginLink = document.getElementById("loginLink");
+﻿const navFixed = document.getElementById("fixed");
+const loginLink = document.getElementById("loginLink");
 const loginStyle = document.getElementsByClassName("form-control");
 const showLoginModal = document.getElementById("show-login-modal")
-//turn login window off when other forms gets open selector
-var login = document.getElementById("loginLink").getAttribute("aria-expanded");
 
 const registerLink = document.getElementById("registerLink");
 const registerStyle = document.getElementsByClassName("form-control");
@@ -20,27 +19,36 @@ loginLink.addEventListener("click", () => {
     }
 })
 
+//register form
 registerLink.addEventListener("click", () => {
     for (var i = 0; i < registerStyle.length; i++) {
         registerStyle[i].style.width = `100%`;       
     }
     showLoginModal.style.display = "none";
+    //removing fixed-top class to solve z-index issues
+    navFixed.className = "row mr-0 ml-0";
    
    
            
 })
 
+//reminder form
 reminderLink.addEventListener("click", () => {
     for (var i = 0; i < reminderStyle.length; i++) {
         reminderStyle[i].style.width = `100%`;       
     }
     showLoginModal.style.display = "none";
+    //removing fixed-top class to solve z-index issues
+    navFixed.className = "row mr-0 ml-0";
    
 })
 
+//click outside of modal
 window.addEventListener('click', function (e) {
     if (!document.getElementById('show-login-modal').contains(e.target)) {
         // Clicked outside of the box
         showLoginModal.style.display = "none";
+        //after closing modal, returning fixed-top class
+        navFixed.className = "row mr-0 ml-0 fixed-top";
     } 
 });
