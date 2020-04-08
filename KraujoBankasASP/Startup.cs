@@ -30,8 +30,8 @@ namespace KraujoBankasASP
            services.AddIdentity<User, UserRole>(options =>
             {
                 options.User.RequireUniqueEmail = true;
-            }).AddEntityFrameworkStores<UserDbContext>();
-            services.AddDbContext<UserDbContext>(cfg =>
+            }).AddEntityFrameworkStores<AppDbContext>();
+            services.AddDbContext<AppDbContext>(cfg =>
             {
                 cfg.UseSqlServer(Configuration.GetConnectionString("KraujoBankas"));
             });

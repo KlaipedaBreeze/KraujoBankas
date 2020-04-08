@@ -9,9 +9,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace KraujoBankasASP.Models
 {
-    public class UserDbContext : IdentityDbContext<User, UserRole, int>
+    public class AppDbContext : IdentityDbContext<User, UserRole, int>
     {
-        public UserDbContext(DbContextOptions<UserDbContext> options) : base(options)
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
         }
 

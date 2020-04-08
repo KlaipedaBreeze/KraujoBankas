@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace KraujoBankasASP.Migrations
 {
-    public partial class Testas : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -42,12 +42,29 @@ namespace KraujoBankasASP.Migrations
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
-                    Vardas = table.Column<string>(nullable: true),
-                    Pavarde = table.Column<string>(nullable: true)
+                    FName = table.Column<string>(nullable: true),
+                    LName = table.Column<string>(nullable: true),
+                    BirthDate = table.Column<DateTime>(nullable: false),
+                    PersonalIDNumber = table.Column<string>(nullable: true),
+                    RegComplete = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "IdentityRole",
+                columns: table => new
+                {
+                    Id = table.Column<string>(nullable: false),
+                    Name = table.Column<string>(nullable: true),
+                    NormalizedName = table.Column<string>(nullable: true),
+                    ConcurrencyStamp = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_IdentityRole", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -156,6 +173,17 @@ namespace KraujoBankasASP.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.InsertData(
+                table: "IdentityRole",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[,]
+                {
+                    { "f4204aa3-b7ec-44d3-886c-80b8feefd6f3", "dec4d262-3ffb-4ef5-a61d-621c917c14b3", "Donor", "DONOR" },
+                    { "376207ed-5f8f-439d-b1d8-02c28274d320", "5ec892a9-2036-484d-9bee-752cbb9393ec", "Employee", "EMPLOYEE" },
+                    { "a80e9dee-455e-407b-9329-f885842f4e96", "e9b801c1-3443-4d04-ae94-b93a8fd5fc98", "Moderator", "MODERATOR" },
+                    { "0b2a9139-33f8-4d19-bce0-4e207e00673b", "b1ff8525-58a8-4f6e-8f43-52e43d78baf0", "Admin", "ADMIN" }
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -212,6 +240,9 @@ namespace KraujoBankasASP.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "IdentityRole");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

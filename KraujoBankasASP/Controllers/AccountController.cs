@@ -24,7 +24,7 @@ namespace KraujoBankasASP.Controllers
             if (ModelState.IsValid)
             {
                 var result = await SignInMgr.PasswordSignInAsync(
-                    model.UsernameOrEmail, model.Password, false, false);
+model.UsernameOrEmail, model.Password, false, false);
 
                 if (result.Succeeded)
                 {
@@ -42,25 +42,25 @@ namespace KraujoBankasASP.Controllers
             await SignInMgr.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
-
-        public async Task<IActionResult> Register()
+        [HttpPost]
+        public async Task<IActionResult> Register(RegisterViewModel model)
         {
             try
             {
-                ViewBag.Message = "User already registered";
-                User usr = await UserMgr.FindByNameAsync("TestUser");
+                ViewBag.Message = "Toks vartotojo vardas jau registruotas";
+                User usr = await UserMgr.FindByNameAsync(model.UserName);
                 if (usr == null)
                 {
                     usr = new User();
-                    usr.UserName = "TestUser";
-                    usr.Vardas = "Vardenis";
-                    usr.Pavarde = "Pavardenis";
-                    usr.Email = "testas@testas.lt";
+                    usr.UserName = model.UserName;
+                    usr.FName = model.Name;
+                    usr.LName = model.Surname;
+                    usr.Email = model.Email;
 
-                    IdentityResult result = await UserMgr.CreateAsync(usr,"Test123!");
+                    IdentityResult result = await UserMgr.CreateAsync(usr, model.Password);
                     if (result.Succeeded)
                     {
-                        ViewBag.Message = "User has been created";
+                        ViewBag.Message = "Vartotojas sukurtas";
                     }
                     else
                     {

@@ -8,7 +8,10 @@ namespace KraujoBankasASP.Models
 {
     public class User : IdentityUser<int>
     {
-        public string Vardas { get; set; }
-        public string Pavarde { get; set; }
+        public string FName { get; set; }
+        public string LName { get; set; }
+        public DateTime BirthDate { get; set; }
+        public string PersonalIDNumber { get; set; }
+        public bool RegComplete { get; set; }
     }
 }
