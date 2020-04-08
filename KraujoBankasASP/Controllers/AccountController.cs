@@ -23,18 +23,21 @@ namespace KraujoBankasASP.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result = await SignInMgr.PasswordSignInAsync(
-model.UsernameOrEmail, model.Password, false, false);
+
+                var result = await SignInMgr.PasswordSignInAsync(model.Email, model.Password, false, false);
+
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("index", "home");
+                    return RedirectToAction("Index", "Home");
+                    //return View("Login");
                 }
 
                 ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
+
             }
 
-            return View(model);
+            return View();
         }
 
         public async Task<IActionResult> Logout()
@@ -48,13 +51,11 @@ model.UsernameOrEmail, model.Password, false, false);
             try
             {
                 ViewBag.Message = "Toks vartotojo vardas jau registruotas";
-                User usr = await UserMgr.FindByNameAsync(model.UserName);
+                User usr = await UserMgr.FindByNameAsync(model.Email);
                 if (usr == null)
                 {
                     usr = new User();
-                    usr.UserName = model.UserName;
-                    usr.FName = model.Name;
-                    usr.LName = model.Surname;
+                    usr.UserName = model.Email;
                     usr.Email = model.Email;
 
                     IdentityResult result = await UserMgr.CreateAsync(usr, model.Password);
