@@ -5,13 +5,13 @@ using System.Threading.Tasks;
 
 namespace KraujoBankasASP.Controllers
 {
-    public class DonorAccountController : Controller
+    public class AccountController : Controller
     {
         private readonly UserManager<AppUser> userManager;
         private readonly SignInManager<AppUser> signInManager;
 
 
-        public DonorAccountController(UserManager<AppUser> userManager,
+        public AccountController(UserManager<AppUser> userManager,
             SignInManager<AppUser> signInManager)
         {
             this.userManager = userManager;
@@ -69,14 +69,14 @@ namespace KraujoBankasASP.Controllers
                
                 if (result.Succeeded)
                 {
-                    return View("DonorAcount");
+                    return View("~/Views/Dashboard/Donor/Index.cshtml");
                 }
 
-                ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
+                ModelState.AddModelError(string.Empty, "Blogas prisijungimas");
 
             }
 
-            return RedirectToAction("index", "home", model);
+            return RedirectToAction("index", "home");
         }
     }
 }

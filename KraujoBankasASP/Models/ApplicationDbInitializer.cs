@@ -5,7 +5,7 @@ namespace KraujoBankasASP.Models
     public static class ApplicationDbInitializer
     {
         
-        public static void SeedUsers(UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager)
+        public static void SeedUsers(UserManager<AppUser> userManager)
         {
 
 
