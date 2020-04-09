@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using KraujoBankasASP.Configuration;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace KraujoBankasASP.Models
 {
-    public class AppDbContext : IdentityDbContext<User, UserRole, int>
+    public class AppDbContext : IdentityDbContext<User>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
@@ -26,16 +22,15 @@ namespace KraujoBankasASP.Models
         public DbSet<BloodTest> BlodTests { get; set; }
         public DbSet<Visit> Visits { get; set; }
 
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<IdentityRole>().HasData(
-                    new IdentityRole { Id = Guid.NewGuid().ToString(), Name = "Admin", NormalizedName = "Admin".ToUpper()},
-                    new IdentityRole { Id = Guid.NewGuid().ToString(), Name = "Institution admin", NormalizedName = "Institution admin".ToUpper()},
-                    new IdentityRole { Id = Guid.NewGuid().ToString(), Name = "Donor", NormalizedName = "Donor".ToUpper()},
-                    new IdentityRole { Id = Guid.NewGuid().ToString(), Name = "Employee", NormalizedName = "Employee".ToUpper()}
+                    new IdentityRole { Id = Guid.NewGuid().ToString(), Name = "Admin", NormalizedName = "Admin".ToUpper() },
+                    new IdentityRole { Id = Guid.NewGuid().ToString(), Name = "Institution admin", NormalizedName = "Institution admin".ToUpper() },
+                    new IdentityRole { Id = Guid.NewGuid().ToString(), Name = "Donor", NormalizedName = "Donor".ToUpper() },
+                    new IdentityRole { Id = Guid.NewGuid().ToString(), Name = "Employee", NormalizedName = "Employee".ToUpper() }
                     );
 
             modelBuilder.Entity<Donor>()
@@ -49,10 +44,9 @@ namespace KraujoBankasASP.Models
                         .HasForeignKey(d => d.DonorFK);
 
             modelBuilder.Entity<Donor>()
-            .HasMany(d => d.Visits)
-            .WithOne(v => v.Donor)
-            .HasForeignKey(v => v.DonorFK);
-
+                        .HasMany(d => d.Visits)
+                        .WithOne(v => v.Donor)
+                        .HasForeignKey(v => v.DonorFK);
 
             modelBuilder.Entity<Employee>()
                         .HasOne(e => e.User)
@@ -78,7 +72,7 @@ namespace KraujoBankasASP.Models
             modelBuilder.Entity<Position>()
                         .HasMany(a => a.Employees)
                         .WithOne(e => e.Position)
-                        .HasForeignKey(p => p.PositionKF);
+                        .HasForeignKey(p => p.PositionFk);
 
             modelBuilder.Entity<Address>()
                         .HasMany(a => a.Institutions)
@@ -110,7 +104,6 @@ namespace KraujoBankasASP.Models
                         .WithOne(v => v.Donation)
                         .HasForeignKey<Donation>(d => d.VisitFK)
                         .OnDelete(DeleteBehavior.Restrict);
-
         }
     }
 }

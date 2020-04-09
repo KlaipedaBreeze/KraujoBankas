@@ -13,12 +13,9 @@ namespace KraujoBankasASP.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
         public string Type { get; set; }
-
         public Address Address { get; set; }
         public Guid AddressFK { get; set; }
-
         public IEnumerable<Employee> Employees { get; set; }
         public IEnumerable<Visit> Visits{ get; set; }
-
     }
 }

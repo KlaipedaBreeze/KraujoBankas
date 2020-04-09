@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace KraujoBankasASP.Migrations
 {
-    public partial class init : Migration
+    public partial class initDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -23,10 +23,11 @@ namespace KraujoBankasASP.Migrations
                 name: "AspNetRoles",
                 columns: table => new
                 {
-                    Id = table.Column<string>(nullable: false),
+                    Id = table.Column<Guid>(nullable: false),
                     Name = table.Column<string>(maxLength: 256, nullable: true),
                     NormalizedName = table.Column<string>(maxLength: 256, nullable: true),
-                    ConcurrencyStamp = table.Column<string>(nullable: true)
+                    ConcurrencyStamp = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -37,7 +38,7 @@ namespace KraujoBankasASP.Migrations
                 name: "AspNetUsers",
                 columns: table => new
                 {
-                    Id = table.Column<string>(nullable: false),
+                    Id = table.Column<Guid>(nullable: false),
                     UserName = table.Column<string>(maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(maxLength: 256, nullable: true),
                     Email = table.Column<string>(maxLength: 256, nullable: true),
@@ -52,9 +53,12 @@ namespace KraujoBankasASP.Migrations
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    Surname = table.Column<string>(nullable: true),
-                    phones = table.Column<string>(nullable: true)
+                    FName = table.Column<string>(nullable: true),
+                    LName = table.Column<string>(nullable: true),
+                    Phone = table.Column<string>(nullable: true),
+                    BirthDate = table.Column<DateTime>(nullable: false),
+                    PersonalIDNumber = table.Column<string>(nullable: true),
+                    RegComplete = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -71,6 +75,20 @@ namespace KraujoBankasASP.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_BloodTypes", x => x.BloodId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "IdentityRole",
+                columns: table => new
+                {
+                    Id = table.Column<string>(nullable: false),
+                    Name = table.Column<string>(nullable: true),
+                    NormalizedName = table.Column<string>(nullable: true),
+                    ConcurrencyStamp = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_IdentityRole", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -110,7 +128,7 @@ namespace KraujoBankasASP.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    RoleId = table.Column<string>(nullable: false),
+                    RoleId = table.Column<Guid>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
                     ClaimValue = table.Column<string>(nullable: true)
                 },
@@ -131,7 +149,7 @@ namespace KraujoBankasASP.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<string>(nullable: false),
+                    UserId = table.Column<Guid>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
                     ClaimValue = table.Column<string>(nullable: true)
                 },
@@ -153,7 +171,7 @@ namespace KraujoBankasASP.Migrations
                     LoginProvider = table.Column<string>(nullable: false),
                     ProviderKey = table.Column<string>(nullable: false),
                     ProviderDisplayName = table.Column<string>(nullable: true),
-                    UserId = table.Column<string>(nullable: false)
+                    UserId = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -170,8 +188,8 @@ namespace KraujoBankasASP.Migrations
                 name: "AspNetUserRoles",
                 columns: table => new
                 {
-                    UserId = table.Column<string>(nullable: false),
-                    RoleId = table.Column<string>(nullable: false)
+                    UserId = table.Column<Guid>(nullable: false),
+                    RoleId = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -194,7 +212,7 @@ namespace KraujoBankasASP.Migrations
                 name: "AspNetUserTokens",
                 columns: table => new
                 {
-                    UserId = table.Column<string>(nullable: false),
+                    UserId = table.Column<Guid>(nullable: false),
                     LoginProvider = table.Column<string>(nullable: false),
                     Name = table.Column<string>(nullable: false),
                     Value = table.Column<string>(nullable: true)
@@ -215,11 +233,11 @@ namespace KraujoBankasASP.Migrations
                 columns: table => new
                 {
                     DonorId = table.Column<Guid>(nullable: false),
-                    WeightInKg = table.Column<int>(nullable: false),
                     HeightInCM = table.Column<int>(nullable: false),
+                    WeightOver50 = table.Column<bool>(nullable: false),
                     BirthDate = table.Column<DateTime>(nullable: false),
                     AddressFK = table.Column<Guid>(nullable: false),
-                    UserFk = table.Column<string>(nullable: true)
+                    UserFk = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -235,7 +253,7 @@ namespace KraujoBankasASP.Migrations
                         column: x => x.UserFk,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -269,8 +287,8 @@ namespace KraujoBankasASP.Migrations
                 columns: table => new
                 {
                     EmployeeId = table.Column<Guid>(nullable: false),
-                    PositionKF = table.Column<Guid>(nullable: false),
-                    UserFk = table.Column<string>(nullable: true),
+                    PositionFk = table.Column<Guid>(nullable: false),
+                    UserFk = table.Column<Guid>(nullable: false),
                     InstitutionFK = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
@@ -283,8 +301,8 @@ namespace KraujoBankasASP.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Employees_Positions_PositionKF",
-                        column: x => x.PositionKF,
+                        name: "FK_Employees_Positions_PositionFk",
+                        column: x => x.PositionFk,
                         principalTable: "Positions",
                         principalColumn: "PositionId",
                         onDelete: ReferentialAction.Cascade);
@@ -293,7 +311,7 @@ namespace KraujoBankasASP.Migrations
                         column: x => x.UserFk,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -392,14 +410,14 @@ namespace KraujoBankasASP.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "AspNetRoles",
+                table: "IdentityRole",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "d4b4f27a-14bb-499e-9e2f-4b872009981d", "22fe13f9-ede7-4bdc-a280-7ca7ce42ca0a", "Admin", "ADMIN" },
-                    { "2f77b228-9847-4c23-a205-4715e5c3272f", "f2cb234c-803d-4c93-9b0d-fcc901ce6e45", "Institution admin", "INSTITUTION ADMIN" },
-                    { "ec3a0acc-a189-441d-b29b-7b17bc767433", "1e2fcbc8-f0b6-484a-bbc4-d30e2b684181", "Donor", "DONOR" },
-                    { "fd8468a1-8113-48c2-afcd-14ec0f89c7de", "1eef200a-62e6-4ca7-a736-caf988362566", "Employee", "EMPLOYEE" }
+                    { "48a496e6-0ff4-4cc5-bafc-e32de864ff9b", "988fbe02-74eb-41b6-b8c8-23305b7a032e", "Admin", "ADMIN" },
+                    { "097d6d8d-b8ef-4021-985f-9bd74bb5b9c6", "a310fd01-e10f-41e4-b2de-f11753e2fb78", "Institution admin", "INSTITUTION ADMIN" },
+                    { "b61409b3-cfa6-43fc-8e80-21abb3341103", "64180a04-9539-4043-b420-560f31bfde75", "Donor", "DONOR" },
+                    { "35628c1b-3ca1-43f3-b1b9-e70b71e7db99", "eb35cd66-3086-4223-bebc-9962de50b1b0", "Employee", "EMPLOYEE" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -477,8 +495,7 @@ namespace KraujoBankasASP.Migrations
                 name: "IX_Donors_UserFk",
                 table: "Donors",
                 column: "UserFk",
-                unique: true,
-                filter: "[UserFk] IS NOT NULL");
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Employees_InstitutionFK",
@@ -486,16 +503,15 @@ namespace KraujoBankasASP.Migrations
                 column: "InstitutionFK");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Employees_PositionKF",
+                name: "IX_Employees_PositionFk",
                 table: "Employees",
-                column: "PositionKF");
+                column: "PositionFk");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Employees_UserFk",
                 table: "Employees",
                 column: "UserFk",
-                unique: true,
-                filter: "[UserFk] IS NOT NULL");
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_HealthCareInstitutions_AddressFK",
@@ -542,6 +558,9 @@ namespace KraujoBankasASP.Migrations
 
             migrationBuilder.DropTable(
                 name: "Donations");
+
+            migrationBuilder.DropTable(
+                name: "IdentityRole");
 
             migrationBuilder.DropTable(
                 name: "Receptions");

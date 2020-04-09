@@ -28,7 +28,7 @@ namespace KraujoBankasASP
         {
             services.AddControllersWithViews();
             services.AddRazorPages().AddRazorRuntimeCompilation();
-           services.AddIdentity<User, UserRole>(options =>
+           services.AddIdentity<User, IdentityRole>(options =>
             {
                 options.User.RequireUniqueEmail = true;
             }).AddEntityFrameworkStores<AppDbContext>();
@@ -38,12 +38,12 @@ namespace KraujoBankasASP
              }
              );
 
-            services.AddIdentity<AppUser, IdentityRole>()
+            services.AddIdentity<User, IdentityRole>()
                     .AddEntityFrameworkStores<AppDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, UserManager<AppUser> userManager)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, UserManager<User> userManager)
         {            
 
             ApplicationDbInitializer.SeedUsers(userManager);

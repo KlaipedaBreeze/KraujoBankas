@@ -54,9 +54,11 @@ namespace KraujoBankasASP.Controllers
                 User usr = await UserMgr.FindByNameAsync(model.Email);
                 if (usr == null)
                 {
-                    usr = new User();
-                    usr.UserName = model.Email;
-                    usr.Email = model.Email;
+                    usr = new User
+                    {
+                        UserName = model.Email,
+                        Email = model.Email
+                    };
 
                     IdentityResult result = await UserMgr.CreateAsync(usr, model.Password);
                     if (result.Succeeded)
