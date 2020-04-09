@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using KraujoBankasASP.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -24,7 +28,10 @@ namespace KraujoBankasASP
         {
             services.AddControllersWithViews();
             services.AddRazorPages().AddRazorRuntimeCompilation();
-
+           services.AddIdentity<User, UserRole>(options =>
+            {
+                options.User.RequireUniqueEmail = true;
+            }).AddEntityFrameworkStores<AppDbContext>();
             services.AddDbContext<AppDbContext>(cfg =>
              {
                  cfg.UseSqlServer(Configuration.GetConnectionString("KraujoBankas"));
@@ -66,8 +73,6 @@ namespace KraujoBankasASP
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
-
-
         }
     }
 }

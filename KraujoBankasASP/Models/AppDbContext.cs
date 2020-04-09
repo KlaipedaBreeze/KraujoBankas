@@ -1,16 +1,19 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using KraujoBankasASP.Configuration;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
 
 namespace KraujoBankasASP.Models
 {
-    public class AppDbContext : IdentityDbContext<AppUser>
+    public class AppDbContext : IdentityDbContext<User, UserRole, int>
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options)
-                : base(options)
-        { }
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        {
+        }
 
         public DbSet<Address> Address { get; set; }
         public DbSet<BloodType> BloodTypes { get; set; }
@@ -109,6 +112,5 @@ namespace KraujoBankasASP.Models
                         .OnDelete(DeleteBehavior.Restrict);
 
         }
-
     }
 }

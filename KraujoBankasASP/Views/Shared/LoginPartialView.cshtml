@@ -5,10 +5,10 @@
         <a data-toggle="dropdown" id="loginLink" class="nav-link dropdown-toggle btn-danger btn-group-toggle text-white rounded apple-font" href="#">Prisijungti</a>
         <ul id="show-login-modal"  class="dropdown-menu form-wrapper dropdown-menu-right text-center apple-font">
             <li>
-                @model LoginViewModel
+@model LoginViewModel
                 <form id="account" method="post" class="d-flex flex-column  align-items-center px-4 py-3 ">
                     <div class="form-group">
-                        <input asp-for="Email" placeholder="Vartotojo vardas" class="form-control" required="required" />
+                        <input asp-for="Email" placeholder="E-Paštas" class="form-control" required="required" />
                     </div>
                     <div class="form-group">
                         <input asp-for="Password" class="form-control" placeholder="Vartotojo slaptažodis" required="required" />
@@ -16,7 +16,7 @@
                     <div class"login" data-toggle="modal" data-target="#PassReminderModal">
                         <p class="text-muted text-center"> <a href="#" class="text-reset" id="reminderLink"> Pamiršote savo slaptažodį?</a></p>
                     </div>
-                    <div class="text-center"><input type="submit" asp-controller="Account" asp-action="Login" class="btn btn-outline-danger px-1 py-2 mt-2 mb-1 pr-4 pl-4" value="Prisijungti"></div>
+                    <div class="text-center"><input type="submit" asp-controller="Account" asp-action="Login" class="btn btn-outline-danger px-1 py-2 mt-4 mb-1 pr-4 pl-4" value="Prisijungti"></div>
                     <div class="form-footer px-1 py-1">
                         <div class="row text-center mt-1">
                             <div class="col font-italic">Neturite vartotojo?</div>
@@ -38,7 +38,7 @@ else
             <li>
                 <form id="account" method="post" class="d-flex flex-column  align-items-center px-4 py-3 ">
                     <div class="form-group">
-                        <a class="nav-link text-secondary" asp-controller="Home" asp-action="Istorija">Istorija</a>
+                        <a class="nav-link text-secondary" asp-controller="Dashboard" asp-action="Index">Valdymo centras</a>
                     </div>
                     <div class="form-footer px-1 py-1">
                         <div class="row text-center mt-1">
@@ -50,4 +50,3 @@ else
         </ul>
     </li>
 }
-
