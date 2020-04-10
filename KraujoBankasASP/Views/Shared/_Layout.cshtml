@@ -10,7 +10,7 @@
 
 </head>
 <body>
-    <header class="mb-5">
+    <header class="mb-5 border-bottom">
         <div id="fixed" class="row mr-0 ml-0 fixed-top">
             <div class="col-12 pl-0 pr-0">
                 <nav class="navbar navbar-expand-md navbar-toggleable-md navbar-light bg-light  box-shadow nav ">
@@ -69,7 +69,7 @@
         </div>
     </header>
     @*sidenav*@
-    @if (User.Identity.IsAuthenticated == true)
+    @*@if (User.Identity.IsAuthenticated == true)
         {
         <div class="row mr-0 ml-0 ">
             <partial name="~/Views/Dashboard/SideNav.cshtml" />
@@ -86,20 +86,23 @@
         <main role="main" class="pb-3 my-mt-5">
             @RenderBody()
         </main>
-        }
-        <footer class="border-top footer text-muted bg-light">
-            <div class="container d-flex justify-content-center">
-                &copy; 2020 - Kraujo-Bankas - <a asp-area="" asp-controller="Home" asp-action="ApieMus">&nbsp;Apie Mus</a>
-                <a href="https://github.com/KlaipedaBreeze/KraujoBankas" target="_blank" class="footer-icon"><img src="~/visuals/icons/icons8-github.svg" alt="github icon"></a>
-            </div>
+        }*@
+    <main role="main" class=" ">
+        @RenderBody()
+    </main>
+    <footer class="border-top footer text-muted bg-light">
+        <div class="container d-flex justify-content-center">
+            &copy; 2020 - Kraujo-Bankas - <a asp-area="" asp-controller="Home" asp-action="ApieMus">&nbsp;Apie Mus</a>
+            <a href="https://github.com/KlaipedaBreeze/KraujoBankas" target="_blank" class="footer-icon"><img src="~/visuals/icons/icons8-github.svg" alt="github icon"></a>
+        </div>
 
 
-        </footer>
-        <script src="~/lib/jquery/dist/jquery.min.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-        <script src="~/js/login.js"></script>
-        <script src="~/js/scripts.js"></script>
-        @RenderSection("Scripts", required: false)
-    </body>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/login.js"></script>
+    <script src="~/js/scripts.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
 </html>

@@ -1,61 +1,21 @@
-﻿using KraujoBankasASP.Models;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using KraujoBankasASP.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 
 namespace KraujoBankasASP.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly UserManager<AppUser> userManager;
-        private readonly SignInManager<AppUser> signInManager;
-
-
-        public AccountController(UserManager<AppUser> userManager,
-            SignInManager<AppUser> signInManager)
+        private UserManager<User> UserMgr { get; }
+        private SignInManager<User> SignInMgr { get; }
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
         {
-            this.userManager = userManager;
-            this.signInManager = signInManager;
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> Logout(RegisterViewModel model)
-        {
-            await signInManager.SignOutAsync();
-            return RedirectToAction("index", "home");
-
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Register(RegisterViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-
-                var user = new AppUser
-                {
-                    UserName = model.Email,
-                    Email = model.Email
-                };
-
-                var resultCreateUser = await userManager.CreateAsync(user, model.Password);
-
-                var resultAddRole = await userManager.AddToRoleAsync(user, "Donor");
-
-                if (resultCreateUser.Succeeded && resultAddRole.Succeeded)
-                {
-                    await signInManager.SignInAsync(user, isPersistent: false);
-                    return View("DonorAcount");
-                }
-
-                foreach (var error in resultCreateUser.Errors)
-                {
-                    ModelState.AddModelError(string.Empty, error.Description);
-                }
-
-            }
-
-            return RedirectToAction("index", "home");
+            UserMgr = userManager;
+            SignInMgr = signInManager;
         }
 
         [HttpPost]
@@ -64,19 +24,58 @@ namespace KraujoBankasASP.Controllers
             if (ModelState.IsValid)
             {
 
-                var result = await signInManager.PasswordSignInAsync(model.Email, model.Password, false, false);
+                var result = await SignInMgr.PasswordSignInAsync(model.Email, model.Password, false, false);
 
-               
+
                 if (result.Succeeded)
                 {
-                    return View("~/Views/Dashboard/Donor/Index.cshtml");
+                    return RedirectToAction("Index", "Dashboard");
                 }
 
-                ModelState.AddModelError(string.Empty, "Blogas prisijungimas");
+                ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
 
             }
 
-            return RedirectToAction("index", "home");
+            return View();
         }
+
+        public async Task<IActionResult> Logout()
+        {
+            await SignInMgr.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+        }
+        [HttpPost]
+        public async Task<IActionResult> Register(RegisterViewModel model)
+        {
+            try
+            {
+                ViewBag.Message = "Toks vartotojo vardas jau registruotas";
+                User usr = await UserMgr.FindByNameAsync(model.Email);
+                if (usr == null)
+                {
+                    usr = new User
+                    {
+                        UserName = model.Email,
+                        Email = model.Email
+                    };
+
+                    IdentityResult result = await UserMgr.CreateAsync(usr, model.Password);
+                    if (result.Succeeded)
+                    {
+                        ViewBag.Message = "Vartotojas sukurtas";
+                    }
+                    else
+                    {
+                        ViewBag.Message = result.ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Message = ex.Message;
+            }
+            return View();
+        }
+
     }
 }

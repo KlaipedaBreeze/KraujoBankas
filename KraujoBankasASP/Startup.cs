@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using KraujoBankasASP.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -24,19 +28,22 @@ namespace KraujoBankasASP
         {
             services.AddControllersWithViews();
             services.AddRazorPages().AddRazorRuntimeCompilation();
-
+           services.AddIdentity<User, IdentityRole>(options =>
+            {
+                options.User.RequireUniqueEmail = true;
+            }).AddEntityFrameworkStores<AppDbContext>();
             services.AddDbContext<AppDbContext>(cfg =>
              {
                  cfg.UseSqlServer(Configuration.GetConnectionString("KraujoBankas"));
              }
              );
 
-            services.AddIdentity<AppUser, IdentityRole>()
-                    .AddEntityFrameworkStores<AppDbContext>();
+            //services.AddIdentity<User, IdentityRole>()
+            //        .AddEntityFrameworkStores<AppDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, UserManager<AppUser> userManager)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, UserManager<User> userManager)
         {            
 
             ApplicationDbInitializer.SeedUsers(userManager);
@@ -66,8 +73,6 @@ namespace KraujoBankasASP
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
-
-
         }
     }
 }

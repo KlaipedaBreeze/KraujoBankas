@@ -13,9 +13,7 @@ namespace KraujoBankasASP.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid BloodId { get; set; }
         public string Type { get; set; }
-
         public ICollection<Reception> Receptions { get; set; }
         public ICollection<BloodTest> BloodTests { get; set; }
-
     }
 }

@@ -13,7 +13,6 @@ namespace KraujoBankasASP.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
         public string AddressLine { get; set; }
-
         public IEnumerable<Donor> Donors { get; set; }
         public IEnumerable<HealthCareInstitution> Institutions { get; set; }
     }

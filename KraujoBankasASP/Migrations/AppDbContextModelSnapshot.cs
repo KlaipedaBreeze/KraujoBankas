@@ -33,80 +33,6 @@ namespace KraujoBankasASP.Migrations
                     b.ToTable("Address");
                 });
 
-            modelBuilder.Entity("KraujoBankasASP.Models.AppUser", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("AccessFailedCount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
-
-                    b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NormalizedEmail")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
-
-                    b.Property<string>("NormalizedUserName")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
-
-                    b.Property<string>("PasswordHash")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("SecurityStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Surname")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
-
-                    b.Property<string>("phones")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NormalizedEmail")
-                        .HasName("EmailIndex");
-
-                    b.HasIndex("NormalizedUserName")
-                        .IsUnique()
-                        .HasName("UserNameIndex")
-                        .HasFilter("[NormalizedUserName] IS NOT NULL");
-
-                    b.ToTable("AspNetUsers");
-                });
-
             modelBuilder.Entity("KraujoBankasASP.Models.BloodTest", b =>
                 {
                     b.Property<Guid>("BloodTestId")
@@ -218,8 +144,8 @@ namespace KraujoBankasASP.Migrations
                     b.Property<string>("UserFk")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("WeightInKg")
-                        .HasColumnType("int");
+                    b.Property<bool>("WeightOver50")
+                        .HasColumnType("bit");
 
                     b.HasKey("DonorId");
 
@@ -241,7 +167,7 @@ namespace KraujoBankasASP.Migrations
                     b.Property<Guid>("InstitutionFK")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("PositionKF")
+                    b.Property<Guid>("PositionFk")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("UserFk")
@@ -251,7 +177,7 @@ namespace KraujoBankasASP.Migrations
 
                     b.HasIndex("InstitutionFK");
 
-                    b.HasIndex("PositionKF");
+                    b.HasIndex("PositionFk");
 
                     b.HasIndex("UserFk")
                         .IsUnique()
@@ -320,6 +246,89 @@ namespace KraujoBankasASP.Migrations
                     b.ToTable("Receptions");
                 });
 
+            modelBuilder.Entity("KraujoBankasASP.Models.User", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("BirthDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("FName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PersonalIDNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("RegComplete")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers");
+                });
+
             modelBuilder.Entity("KraujoBankasASP.Models.Visit", b =>
                 {
                     b.Property<Guid>("VisitId")
@@ -376,29 +385,29 @@ namespace KraujoBankasASP.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "d6cae2c4-8d5e-4268-9a68-810dd1131b65",
-                            ConcurrencyStamp = "bf6b4529-7270-4742-843f-6c2c4cb0adc5",
+                            Id = "b0085954-e9ba-4f1b-8ef5-c5381b654b95",
+                            ConcurrencyStamp = "37dcd47f-5a3c-45e9-b31b-ae7684ac9002",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "91eca320-ca07-4489-906e-91e05262ca59",
-                            ConcurrencyStamp = "f49f67c6-6431-4d1c-8c82-e57e3bcae019",
+                            Id = "e5f45ae6-1850-4db9-9f22-e3d278919566",
+                            ConcurrencyStamp = "c6bd210c-bf89-4814-8e47-49e3e6be754f",
                             Name = "Institution admin",
                             NormalizedName = "INSTITUTION ADMIN"
                         },
                         new
                         {
-                            Id = "82e73db9-b24b-423d-9fe0-10ca4389e41e",
-                            ConcurrencyStamp = "28f39478-e404-4f4e-a490-7702dbba6bb9",
+                            Id = "58d2a04c-3f8b-47cf-b4cb-609a60d6b6b3",
+                            ConcurrencyStamp = "69520678-7a4a-44f6-87cd-406e0d6eee43",
                             Name = "Donor",
                             NormalizedName = "DONOR"
                         },
                         new
                         {
-                            Id = "06e187ca-9dcf-47ee-856a-5f6dcaa69878",
-                            ConcurrencyStamp = "ef888c85-14b1-47b9-9f1a-d74d1d89924e",
+                            Id = "f5df542a-f14e-43ea-a709-1c8bbc9605c4",
+                            ConcurrencyStamp = "7456c7f0-0d90-4366-8200-98420dbb1d88",
                             Name = "Employee",
                             NormalizedName = "EMPLOYEE"
                         });
@@ -552,7 +561,7 @@ namespace KraujoBankasASP.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("KraujoBankasASP.Models.AppUser", "User")
+                    b.HasOne("KraujoBankasASP.Models.User", "User")
                         .WithOne("Donor")
                         .HasForeignKey("KraujoBankasASP.Models.Donor", "UserFk");
                 });
@@ -567,11 +576,11 @@ namespace KraujoBankasASP.Migrations
 
                     b.HasOne("KraujoBankasASP.Models.Position", "Position")
                         .WithMany("Employees")
-                        .HasForeignKey("PositionKF")
+                        .HasForeignKey("PositionFk")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("KraujoBankasASP.Models.AppUser", "User")
+                    b.HasOne("KraujoBankasASP.Models.User", "User")
                         .WithOne("Employee")
                         .HasForeignKey("KraujoBankasASP.Models.Employee", "UserFk");
                 });
@@ -624,7 +633,7 @@ namespace KraujoBankasASP.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("KraujoBankasASP.Models.AppUser", null)
+                    b.HasOne("KraujoBankasASP.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -633,7 +642,7 @@ namespace KraujoBankasASP.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("KraujoBankasASP.Models.AppUser", null)
+                    b.HasOne("KraujoBankasASP.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -648,7 +657,7 @@ namespace KraujoBankasASP.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("KraujoBankasASP.Models.AppUser", null)
+                    b.HasOne("KraujoBankasASP.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -657,7 +666,7 @@ namespace KraujoBankasASP.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("KraujoBankasASP.Models.AppUser", null)
+                    b.HasOne("KraujoBankasASP.Models.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

@@ -11,7 +11,6 @@ namespace KraujoBankasASP.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-
         public Guid BloodTestId { get; set; }
         public bool IsAbleDonate { get; set; }
         public bool Kell { get; set; }

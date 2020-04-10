@@ -12,16 +12,14 @@ namespace KraujoBankasASP.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid DonorId { get; set; }
-        public int WeightInKg { get; set; }
         public int HeightInCM { get; set; }
+        public bool WeightOver50 { get; set; }
         public DateTime BirthDate { get; set; }
-
         public Address Address { get; set; }
         public Guid AddressFK { get; set; }
-
         public IEnumerable<Donation> Donations { get; set; }
         public IEnumerable<Visit> Visits { get; set; }
-        public AppUser User { get; set; }
-        public String UserFk { get; set; }
+        public User User { get; set; }
+        public string UserFk { get; set; }
     }
 }
