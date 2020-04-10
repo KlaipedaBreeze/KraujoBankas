@@ -1,22 +1,22 @@
-﻿<div class="col-2 d-none d-block sidebar navbar-light bg-light navbar nav border-top border-right mt-5">
+﻿<div class="col-2 d-none d-block sidebar navbar-light bg-light navbar nav vh-100 border-right">
     <div class="sidebar-sticky ">
         <div class="row">
             <div class="col-2">
                 @*ul's here*@
                 <div> @*Padaryti collapsable Divus ir vienu metu jei dvi roles tures daryti tik viena atvira*@
-                    <label>Admin</label>
+                    @*admin*@
                     <partial name="~/Views/Dashboard/NavLists/AdmNavList.cshtml" />
                 </div>
                 <div>
-                    <label>Moderator</label>
+                    @*moderator*@
                     <partial name="~/Views/Dashboard/NavLists/ModNavList.cshtml" />
                 </div>
                 <div>
-                    <label>Employee</label>
+                    @*employee*@                   
                     <partial name="~/Views/Dashboard/NavLists/EmpNavList.cshtml" />
                 </div>
-                <div>
-                    <label>Donor</label>
+                <div >
+                    @*donor*@
                     <partial name="~/Views/Dashboard/NavLists/DonNavList.cshtml" />
                 </div>
             </div>
