@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace KraujoBankasASP.Migrations
 {
-    public partial class init : Migration
+    public partial class initDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -396,10 +396,10 @@ namespace KraujoBankasASP.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "d4b4f27a-14bb-499e-9e2f-4b872009981d", "22fe13f9-ede7-4bdc-a280-7ca7ce42ca0a", "Admin", "ADMIN" },
-                    { "2f77b228-9847-4c23-a205-4715e5c3272f", "f2cb234c-803d-4c93-9b0d-fcc901ce6e45", "Institution admin", "INSTITUTION ADMIN" },
-                    { "ec3a0acc-a189-441d-b29b-7b17bc767433", "1e2fcbc8-f0b6-484a-bbc4-d30e2b684181", "Donor", "DONOR" },
-                    { "fd8468a1-8113-48c2-afcd-14ec0f89c7de", "1eef200a-62e6-4ca7-a736-caf988362566", "Employee", "EMPLOYEE" }
+                    { "d6cae2c4-8d5e-4268-9a68-810dd1131b65", "bf6b4529-7270-4742-843f-6c2c4cb0adc5", "Admin", "ADMIN" },
+                    { "91eca320-ca07-4489-906e-91e05262ca59", "f49f67c6-6431-4d1c-8c82-e57e3bcae019", "Institution admin", "INSTITUTION ADMIN" },
+                    { "82e73db9-b24b-423d-9fe0-10ca4389e41e", "28f39478-e404-4f4e-a490-7702dbba6bb9", "Donor", "DONOR" },
+                    { "06e187ca-9dcf-47ee-856a-5f6dcaa69878", "ef888c85-14b1-47b9-9f1a-d74d1d89924e", "Employee", "EMPLOYEE" }
                 });
 
             migrationBuilder.CreateIndex(

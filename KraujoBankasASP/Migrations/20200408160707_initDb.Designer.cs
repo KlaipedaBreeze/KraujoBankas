@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KraujoBankasASP.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200408123741_init")]
-    partial class init
+    [Migration("20200408160707_initDb")]
+    partial class initDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -378,29 +378,29 @@ namespace KraujoBankasASP.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "d4b4f27a-14bb-499e-9e2f-4b872009981d",
-                            ConcurrencyStamp = "22fe13f9-ede7-4bdc-a280-7ca7ce42ca0a",
+                            Id = "d6cae2c4-8d5e-4268-9a68-810dd1131b65",
+                            ConcurrencyStamp = "bf6b4529-7270-4742-843f-6c2c4cb0adc5",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "2f77b228-9847-4c23-a205-4715e5c3272f",
-                            ConcurrencyStamp = "f2cb234c-803d-4c93-9b0d-fcc901ce6e45",
+                            Id = "91eca320-ca07-4489-906e-91e05262ca59",
+                            ConcurrencyStamp = "f49f67c6-6431-4d1c-8c82-e57e3bcae019",
                             Name = "Institution admin",
                             NormalizedName = "INSTITUTION ADMIN"
                         },
                         new
                         {
-                            Id = "ec3a0acc-a189-441d-b29b-7b17bc767433",
-                            ConcurrencyStamp = "1e2fcbc8-f0b6-484a-bbc4-d30e2b684181",
+                            Id = "82e73db9-b24b-423d-9fe0-10ca4389e41e",
+                            ConcurrencyStamp = "28f39478-e404-4f4e-a490-7702dbba6bb9",
                             Name = "Donor",
                             NormalizedName = "DONOR"
                         },
                         new
                         {
-                            Id = "fd8468a1-8113-48c2-afcd-14ec0f89c7de",
-                            ConcurrencyStamp = "1eef200a-62e6-4ca7-a736-caf988362566",
+                            Id = "06e187ca-9dcf-47ee-856a-5f6dcaa69878",
+                            ConcurrencyStamp = "ef888c85-14b1-47b9-9f1a-d74d1d89924e",
                             Name = "Employee",
                             NormalizedName = "EMPLOYEE"
                         });
