@@ -15,7 +15,7 @@ namespace KraujoBankasASP.Models
         public Position Position { get; set; }
         public Guid PositionFk { get; set; }
         public User User { get; set; }
-        public Guid UserFk { get; set; }
+        public string UserFk { get; set; }
         public HealthCareInstitution Institution { get; set; }
         public Guid InstitutionFK { get; set; }
         public IEnumerable<Donation> Donations { get; set; }

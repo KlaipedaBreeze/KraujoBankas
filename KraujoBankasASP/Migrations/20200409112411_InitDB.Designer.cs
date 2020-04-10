@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KraujoBankasASP.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200409101122_initDB")]
-    partial class initDB
+    [Migration("20200409112411_InitDB")]
+    partial class InitDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -143,8 +143,8 @@ namespace KraujoBankasASP.Migrations
                     b.Property<int>("HeightInCM")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("UserFk")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("UserFk")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<bool>("WeightOver50")
                         .HasColumnType("bit");
@@ -154,7 +154,8 @@ namespace KraujoBankasASP.Migrations
                     b.HasIndex("AddressFK");
 
                     b.HasIndex("UserFk")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[UserFk] IS NOT NULL");
 
                     b.ToTable("Donors");
                 });
@@ -171,8 +172,8 @@ namespace KraujoBankasASP.Migrations
                     b.Property<Guid>("PositionFk")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("UserFk")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("UserFk")
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("EmployeeId");
 
@@ -181,7 +182,8 @@ namespace KraujoBankasASP.Migrations
                     b.HasIndex("PositionFk");
 
                     b.HasIndex("UserFk")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[UserFk] IS NOT NULL");
 
                     b.ToTable("Employees");
                 });
@@ -248,9 +250,8 @@ namespace KraujoBankasASP.Migrations
 
             modelBuilder.Entity("KraujoBankasASP.Models.User", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
@@ -330,37 +331,6 @@ namespace KraujoBankasASP.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("KraujoBankasASP.Models.UserRole", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
-
-                    b.Property<string>("NormalizedName")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NormalizedName")
-                        .IsUnique()
-                        .HasName("RoleNameIndex")
-                        .HasFilter("[NormalizedName] IS NOT NULL");
-
-                    b.ToTable("AspNetRoles");
-                });
-
             modelBuilder.Entity("KraujoBankasASP.Models.Visit", b =>
                 {
                     b.Property<Guid>("VisitId")
@@ -394,50 +364,58 @@ namespace KraujoBankasASP.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
 
                     b.Property<string>("NormalizedName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
 
                     b.HasKey("Id");
 
-                    b.ToTable("IdentityRole");
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("AspNetRoles");
 
                     b.HasData(
                         new
                         {
-                            Id = "48a496e6-0ff4-4cc5-bafc-e32de864ff9b",
-                            ConcurrencyStamp = "988fbe02-74eb-41b6-b8c8-23305b7a032e",
+                            Id = "b0085954-e9ba-4f1b-8ef5-c5381b654b95",
+                            ConcurrencyStamp = "37dcd47f-5a3c-45e9-b31b-ae7684ac9002",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "097d6d8d-b8ef-4021-985f-9bd74bb5b9c6",
-                            ConcurrencyStamp = "a310fd01-e10f-41e4-b2de-f11753e2fb78",
+                            Id = "e5f45ae6-1850-4db9-9f22-e3d278919566",
+                            ConcurrencyStamp = "c6bd210c-bf89-4814-8e47-49e3e6be754f",
                             Name = "Institution admin",
                             NormalizedName = "INSTITUTION ADMIN"
                         },
                         new
                         {
-                            Id = "b61409b3-cfa6-43fc-8e80-21abb3341103",
-                            ConcurrencyStamp = "64180a04-9539-4043-b420-560f31bfde75",
+                            Id = "58d2a04c-3f8b-47cf-b4cb-609a60d6b6b3",
+                            ConcurrencyStamp = "69520678-7a4a-44f6-87cd-406e0d6eee43",
                             Name = "Donor",
                             NormalizedName = "DONOR"
                         },
                         new
                         {
-                            Id = "35628c1b-3ca1-43f3-b1b9-e70b71e7db99",
-                            ConcurrencyStamp = "eb35cd66-3086-4223-bebc-9962de50b1b0",
+                            Id = "f5df542a-f14e-43ea-a709-1c8bbc9605c4",
+                            ConcurrencyStamp = "7456c7f0-0d90-4366-8200-98420dbb1d88",
                             Name = "Employee",
                             NormalizedName = "EMPLOYEE"
                         });
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -450,8 +428,9 @@ namespace KraujoBankasASP.Migrations
                     b.Property<string>("ClaimValue")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("RoleId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("RoleId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
@@ -460,7 +439,7 @@ namespace KraujoBankasASP.Migrations
                     b.ToTable("AspNetRoleClaims");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<System.Guid>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -473,8 +452,9 @@ namespace KraujoBankasASP.Migrations
                     b.Property<string>("ClaimValue")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
@@ -483,7 +463,7 @@ namespace KraujoBankasASP.Migrations
                     b.ToTable("AspNetUserClaims");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<System.Guid>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
                         .HasColumnType("nvarchar(450)");
@@ -494,8 +474,9 @@ namespace KraujoBankasASP.Migrations
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("LoginProvider", "ProviderKey");
 
@@ -504,13 +485,13 @@ namespace KraujoBankasASP.Migrations
                     b.ToTable("AspNetUserLogins");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<Guid>("RoleId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("RoleId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("UserId", "RoleId");
 
@@ -519,10 +500,10 @@ namespace KraujoBankasASP.Migrations
                     b.ToTable("AspNetUserRoles");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
                         .HasColumnType("nvarchar(450)");
@@ -584,9 +565,7 @@ namespace KraujoBankasASP.Migrations
 
                     b.HasOne("KraujoBankasASP.Models.User", "User")
                         .WithOne("Donor")
-                        .HasForeignKey("KraujoBankasASP.Models.Donor", "UserFk")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("KraujoBankasASP.Models.Donor", "UserFk");
                 });
 
             modelBuilder.Entity("KraujoBankasASP.Models.Employee", b =>
@@ -605,9 +584,7 @@ namespace KraujoBankasASP.Migrations
 
                     b.HasOne("KraujoBankasASP.Models.User", "User")
                         .WithOne("Employee")
-                        .HasForeignKey("KraujoBankasASP.Models.Employee", "UserFk")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("KraujoBankasASP.Models.Employee", "UserFk");
                 });
 
             modelBuilder.Entity("KraujoBankasASP.Models.HealthCareInstitution", b =>
@@ -647,16 +624,16 @@ namespace KraujoBankasASP.Migrations
                         .HasForeignKey("InstitutionId");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
-                    b.HasOne("KraujoBankasASP.Models.UserRole", null)
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<System.Guid>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
                     b.HasOne("KraujoBankasASP.Models.User", null)
                         .WithMany()
@@ -665,7 +642,7 @@ namespace KraujoBankasASP.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<System.Guid>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.HasOne("KraujoBankasASP.Models.User", null)
                         .WithMany()
@@ -674,9 +651,9 @@ namespace KraujoBankasASP.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
-                    b.HasOne("KraujoBankasASP.Models.UserRole", null)
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -689,7 +666,7 @@ namespace KraujoBankasASP.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
                     b.HasOne("KraujoBankasASP.Models.User", null)
                         .WithMany()

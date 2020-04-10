@@ -29,8 +29,7 @@ namespace KraujoBankasASP.Controllers
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home");
-                    //return View("Login");
+                    return RedirectToAction("Index", "Dashboard");
                 }
 
                 ModelState.AddModelError(string.Empty, "Invalid Login Attempt");

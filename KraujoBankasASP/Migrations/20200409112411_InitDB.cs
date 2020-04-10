@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace KraujoBankasASP.Migrations
 {
-    public partial class initDB : Migration
+    public partial class InitDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -23,11 +23,10 @@ namespace KraujoBankasASP.Migrations
                 name: "AspNetRoles",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
+                    Id = table.Column<string>(nullable: false),
                     Name = table.Column<string>(maxLength: 256, nullable: true),
                     NormalizedName = table.Column<string>(maxLength: 256, nullable: true),
-                    ConcurrencyStamp = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true)
+                    ConcurrencyStamp = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -38,7 +37,7 @@ namespace KraujoBankasASP.Migrations
                 name: "AspNetUsers",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
+                    Id = table.Column<string>(nullable: false),
                     UserName = table.Column<string>(maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(maxLength: 256, nullable: true),
                     Email = table.Column<string>(maxLength: 256, nullable: true),
@@ -78,20 +77,6 @@ namespace KraujoBankasASP.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "IdentityRole",
-                columns: table => new
-                {
-                    Id = table.Column<string>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    NormalizedName = table.Column<string>(nullable: true),
-                    ConcurrencyStamp = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_IdentityRole", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Positions",
                 columns: table => new
                 {
@@ -128,7 +113,7 @@ namespace KraujoBankasASP.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    RoleId = table.Column<Guid>(nullable: false),
+                    RoleId = table.Column<string>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
                     ClaimValue = table.Column<string>(nullable: true)
                 },
@@ -149,7 +134,7 @@ namespace KraujoBankasASP.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<Guid>(nullable: false),
+                    UserId = table.Column<string>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
                     ClaimValue = table.Column<string>(nullable: true)
                 },
@@ -171,7 +156,7 @@ namespace KraujoBankasASP.Migrations
                     LoginProvider = table.Column<string>(nullable: false),
                     ProviderKey = table.Column<string>(nullable: false),
                     ProviderDisplayName = table.Column<string>(nullable: true),
-                    UserId = table.Column<Guid>(nullable: false)
+                    UserId = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -188,8 +173,8 @@ namespace KraujoBankasASP.Migrations
                 name: "AspNetUserRoles",
                 columns: table => new
                 {
-                    UserId = table.Column<Guid>(nullable: false),
-                    RoleId = table.Column<Guid>(nullable: false)
+                    UserId = table.Column<string>(nullable: false),
+                    RoleId = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -212,7 +197,7 @@ namespace KraujoBankasASP.Migrations
                 name: "AspNetUserTokens",
                 columns: table => new
                 {
-                    UserId = table.Column<Guid>(nullable: false),
+                    UserId = table.Column<string>(nullable: false),
                     LoginProvider = table.Column<string>(nullable: false),
                     Name = table.Column<string>(nullable: false),
                     Value = table.Column<string>(nullable: true)
@@ -237,7 +222,7 @@ namespace KraujoBankasASP.Migrations
                     WeightOver50 = table.Column<bool>(nullable: false),
                     BirthDate = table.Column<DateTime>(nullable: false),
                     AddressFK = table.Column<Guid>(nullable: false),
-                    UserFk = table.Column<Guid>(nullable: false)
+                    UserFk = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -253,7 +238,7 @@ namespace KraujoBankasASP.Migrations
                         column: x => x.UserFk,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -288,7 +273,7 @@ namespace KraujoBankasASP.Migrations
                 {
                     EmployeeId = table.Column<Guid>(nullable: false),
                     PositionFk = table.Column<Guid>(nullable: false),
-                    UserFk = table.Column<Guid>(nullable: false),
+                    UserFk = table.Column<string>(nullable: true),
                     InstitutionFK = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
@@ -311,7 +296,7 @@ namespace KraujoBankasASP.Migrations
                         column: x => x.UserFk,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -410,14 +395,14 @@ namespace KraujoBankasASP.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "IdentityRole",
+                table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "48a496e6-0ff4-4cc5-bafc-e32de864ff9b", "988fbe02-74eb-41b6-b8c8-23305b7a032e", "Admin", "ADMIN" },
-                    { "097d6d8d-b8ef-4021-985f-9bd74bb5b9c6", "a310fd01-e10f-41e4-b2de-f11753e2fb78", "Institution admin", "INSTITUTION ADMIN" },
-                    { "b61409b3-cfa6-43fc-8e80-21abb3341103", "64180a04-9539-4043-b420-560f31bfde75", "Donor", "DONOR" },
-                    { "35628c1b-3ca1-43f3-b1b9-e70b71e7db99", "eb35cd66-3086-4223-bebc-9962de50b1b0", "Employee", "EMPLOYEE" }
+                    { "b0085954-e9ba-4f1b-8ef5-c5381b654b95", "37dcd47f-5a3c-45e9-b31b-ae7684ac9002", "Admin", "ADMIN" },
+                    { "e5f45ae6-1850-4db9-9f22-e3d278919566", "c6bd210c-bf89-4814-8e47-49e3e6be754f", "Institution admin", "INSTITUTION ADMIN" },
+                    { "58d2a04c-3f8b-47cf-b4cb-609a60d6b6b3", "69520678-7a4a-44f6-87cd-406e0d6eee43", "Donor", "DONOR" },
+                    { "f5df542a-f14e-43ea-a709-1c8bbc9605c4", "7456c7f0-0d90-4366-8200-98420dbb1d88", "Employee", "EMPLOYEE" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -495,7 +480,8 @@ namespace KraujoBankasASP.Migrations
                 name: "IX_Donors_UserFk",
                 table: "Donors",
                 column: "UserFk",
-                unique: true);
+                unique: true,
+                filter: "[UserFk] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Employees_InstitutionFK",
@@ -511,7 +497,8 @@ namespace KraujoBankasASP.Migrations
                 name: "IX_Employees_UserFk",
                 table: "Employees",
                 column: "UserFk",
-                unique: true);
+                unique: true,
+                filter: "[UserFk] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_HealthCareInstitutions_AddressFK",
@@ -558,9 +545,6 @@ namespace KraujoBankasASP.Migrations
 
             migrationBuilder.DropTable(
                 name: "Donations");
-
-            migrationBuilder.DropTable(
-                name: "IdentityRole");
 
             migrationBuilder.DropTable(
                 name: "Receptions");

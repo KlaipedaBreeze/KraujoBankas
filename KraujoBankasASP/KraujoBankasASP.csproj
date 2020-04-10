@@ -5,13 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\**" />
-    <Content Remove="Migrations\**" />
-    <EmbeddedResource Remove="Migrations\**" />
-    <None Remove="Migrations\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     
     <Content Remove="Views\Home\apie_mus.cshtml" />
     <Content Remove="wwwroot\css\StyleSheet.css" />
@@ -19,12 +12,6 @@
 
   <ItemGroup>
     <None Remove="Views\Home\apie_mus.html" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="Migrations\20200409101122_initDB.cs" />
-    <Compile Include="Migrations\20200409101122_initDB.Designer.cs" />
-    <Compile Include="Migrations\AppDbContextModelSnapshot.cs" />
   </ItemGroup>
 
   <ItemGroup>

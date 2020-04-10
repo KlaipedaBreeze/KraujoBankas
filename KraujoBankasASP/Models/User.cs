@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KraujoBankasASP.Models
 {
-    public class User : IdentityUser<Guid>
+    public class User : IdentityUser
     {
         public string FName { get; set; }
         public string LName { get; set; }

@@ -38,8 +38,8 @@ namespace KraujoBankasASP
              }
              );
 
-            services.AddIdentity<User, IdentityRole>()
-                    .AddEntityFrameworkStores<AppDbContext>();
+            //services.AddIdentity<User, IdentityRole>()
+            //        .AddEntityFrameworkStores<AppDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
