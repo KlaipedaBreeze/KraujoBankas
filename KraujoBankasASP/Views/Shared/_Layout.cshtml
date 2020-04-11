@@ -13,7 +13,7 @@
     <header class="mb-5 border-bottom">
         <div id="fixed" class="row mr-0 ml-0 fixed-top">
             <div class="col-12 pl-0 pr-0">
-                <nav class="navbar navbar-expand-md navbar-toggleable-md navbar-light bg-light  box-shadow nav ">
+                <nav class="navbar navbar-expand-lg navbar-toggleable-lg navbar-light bg-light box-shadow nav ">
                     <div class="container">
 
                         @*logo*@
@@ -38,7 +38,7 @@
                         </div>
 
                         @*nav list*@
-                        <div class="navbar-collapse collapse d-md-inline-flex  flex-md-row-reverse text-center">
+                        <div class="navbar-collapse collapse d-lg-inline-flex  flex-lg-row-reverse text-center">
                             <ul class="navbar-nav flex-grow-1  d-flex justify-content-center ">
                                 <li class="nav-item my-nav-link">
                                     <a class="nav-link   my-nav-link" asp-area="" asp-controller="Home" asp-action="Index">Pradžia</a>
@@ -87,7 +87,7 @@
             @RenderBody()
         </main>
         }*@
-    <main role="main" class=" ">
+    <main role="main" class="">
         @RenderBody()
     </main>
     <footer class="border-top footer text-muted bg-light">
@@ -100,9 +100,9 @@
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script defer src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/login.js"></script>
-    <script src="~/js/scripts.js"></script>
+    
     @RenderSection("Scripts", required: false)
 </body>
 </html>

@@ -1,0 +1,24 @@
+﻿.sidebar-sticky {
+    position: fixed;
+    width: 100%;
+}
+
+.mySideNavUl li {
+    padding-bottom: 10px;
+}
+
+.mySideNavUl  li:hover {
+    background-color: #7c7c7d;
+    
+}
+
+.mySideNavUl  a {
+    color: #7c7c7d;
+}
+
+.mySideNavUl a:hover {
+    color: white;
+}
+
+
+
