@@ -20,7 +20,7 @@ namespace KraujoBankasASP.Controllers
         }
 
         [HttpPost]
-
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
             if (ModelState.IsValid)
@@ -61,11 +61,14 @@ namespace KraujoBankasASP.Controllers
             return View("IncorectLoging");
         }
 
+
+        [HttpGet]
         public async Task<IActionResult> Logout()
         {
             await SignInMgr.SignOutAsync();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("index", "home");
         }
+
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
