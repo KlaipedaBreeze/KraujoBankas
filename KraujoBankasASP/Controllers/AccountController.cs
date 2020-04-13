@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using KraujoBankasASP.Models;
+﻿using KraujoBankasASP.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Threading.Tasks;
 
 namespace KraujoBankasASP.Controllers
 {
@@ -12,31 +10,55 @@ namespace KraujoBankasASP.Controllers
     {
         private UserManager<User> UserMgr { get; }
         private SignInManager<User> SignInMgr { get; }
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
+
+        private RoleManager<User> RoleMgr { get; }
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, RoleManager<User> RoleManager)
         {
             UserMgr = userManager;
             SignInMgr = signInManager;
+            RoleMgr = RoleManager;
         }
 
         [HttpPost]
+
         public async Task<IActionResult> Login(LoginViewModel model)
         {
             if (ModelState.IsValid)
             {
 
                 var result = await SignInMgr.PasswordSignInAsync(model.Email, model.Password, false, false);
-
+                
+                var user = await UserMgr.FindByEmailAsync(model.Email);
+                var roles = await UserMgr.GetRolesAsync(user);
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Dashboard");
+                    if (roles.Contains("Admin"))
+                    {
+                        return RedirectToAction("Index", "Admin");
+                    }
+
+                    if (User.IsInRole("Iadmin"))
+                    {
+                        return RedirectToAction("Index", "Moderator");
+                    }
+
+                    if (User.IsInRole("Employee"))
+                    {
+                        return RedirectToAction("Index", "Employee");
+                    }
+
+                    if (User.IsInRole("Donor"))
+                    {
+                        return RedirectToAction("Index", "Donor");
+                    }
                 }
 
-                ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
+                ModelState.AddModelError(string.Empty, "Slaptažodis arba prisijungimo vardas netinkamas");
 
             }
 
-            return View();
+            return View("IncorectLoging");
         }
 
         public async Task<IActionResult> Logout()

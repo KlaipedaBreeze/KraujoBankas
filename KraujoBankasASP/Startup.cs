@@ -32,6 +32,7 @@ namespace KraujoBankasASP
             {
                 options.User.RequireUniqueEmail = true;
             }).AddEntityFrameworkStores<AppDbContext>();
+
             services.AddDbContext<AppDbContext>(cfg =>
              {
                  cfg.UseSqlServer(Configuration.GetConnectionString("KraujoBankas"));

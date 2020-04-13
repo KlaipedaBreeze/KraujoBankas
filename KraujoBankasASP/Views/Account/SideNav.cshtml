@@ -1,0 +1,33 @@
+﻿<link rel="stylesheet" href="~/css/Sidenav.css" />
+
+<div class="col-2 d-none d-block sidebar navbar-light bg-light navbar nav vh-100 border-right my-pt-40">
+    <div class="sidebar-sticky ">
+        <div class="row">
+            <div class="col-2">
+                @*ul's here*@
+
+                @if (User.IsInRole("Admin"))
+                {
+                    <partial name="~/Views/Account/NavLists/AdmNavList.cshtml" />
+                }
+
+                @if (User.IsInRole("Institution admin"))
+                {
+                    <partial name="~/Views/Account/NavLists/ModNavList.cshtml" />
+                }
+
+                @if (User.IsInRole("Employee"))
+                {
+                    <partial name="~/Views/Account/NavLists/EmpNavList.cshtml" />
+                }
+
+                @if (User.IsInRole("Donor"))
+                {
+                    <partial name="~/Views/Account/NavLists/DonNavList.cshtml" />
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+

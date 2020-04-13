@@ -87,7 +87,15 @@
             @RenderBody()
         </main>
         }*@
-    <main role="main" class="">
+
+    @if (User.Identity.IsAuthenticated)
+    {
+     <div>
+         <partial name="~/Views/Account/SideNav.cshtml" />;
+     </div>
+    }
+
+    <main role="main" class="" style="padding-top:70px">
         @RenderBody()
     </main>
     <footer class="border-top footer text-muted bg-light">
@@ -102,7 +110,7 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script defer src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/login.js"></script>
-    
+
     @RenderSection("Scripts", required: false)
 </body>
 </html>

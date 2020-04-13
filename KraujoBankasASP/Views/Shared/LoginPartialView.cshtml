@@ -1,11 +1,11 @@
 ﻿@if (User.Identity.IsAuthenticated != true)
 {
-      @*login*@
+    @*login*@
     <li class="nav-item dropdown ml-md-auto ml-lg-auto ml-xl-auto mr-0 ">
         <a data-toggle="dropdown" id="loginLink" class="nav-link dropdown-toggle btn-danger btn-group-toggle text-white rounded apple-font" href="#">Prisijungti</a>
-        <ul id="show-login-modal"  class="dropdown-menu form-wrapper dropdown-menu-right text-center apple-font">
+        <ul id="show-login-modal" class="dropdown-menu form-wrapper dropdown-menu-right text-center apple-font">
             <li>
-@model LoginViewModel
+                @model LoginViewModel
                 <form id="account" method="post" class="d-flex flex-column  align-items-center px-4 py-3 ">
                     <div class="form-group">
                         <input asp-for="Email" placeholder="E-Paštas" class="form-control" required="required" />
