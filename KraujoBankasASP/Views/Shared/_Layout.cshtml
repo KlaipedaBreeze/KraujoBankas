@@ -87,17 +87,18 @@
             @RenderBody()
         </main>
         }*@
+    <div style="display:flex">
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div>
+                <partial name="~/Views/Account/SideNav.cshtml" />
+            </div>
+        }
 
-    @if (User.Identity.IsAuthenticated)
-    {
-     <div>
-         <partial name="~/Views/Account/SideNav.cshtml" />;
-     </div>
-    }
-
-    <main role="main" class="" style="padding-top:70px">
-        @RenderBody()
-    </main>
+        <main role="main" class="" style="padding-top:70px">
+            @RenderBody()
+        </main>
+    </div>
     <footer class="border-top footer text-muted bg-light">
         <div class="container d-flex justify-content-center">
             &copy; 2020 - Kraujo-Bankas - <a asp-area="" asp-controller="Home" asp-action="ApieMus">&nbsp;Apie Mus</a>

@@ -11,12 +11,10 @@ namespace KraujoBankasASP.Controllers
         private UserManager<User> UserMgr { get; }
         private SignInManager<User> SignInMgr { get; }
 
-        private RoleManager<User> RoleMgr { get; }
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, RoleManager<User> RoleManager)
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
         {
             UserMgr = userManager;
             SignInMgr = signInManager;
-            RoleMgr = RoleManager;
         }
 
         [HttpPost]
@@ -38,17 +36,17 @@ namespace KraujoBankasASP.Controllers
                         return RedirectToAction("Index", "Admin");
                     }
 
-                    if (User.IsInRole("Iadmin"))
+                    if (roles.Contains("Institution admin"))
                     {
                         return RedirectToAction("Index", "Moderator");
                     }
 
-                    if (User.IsInRole("Employee"))
+                    if (roles.Contains("Employee"))
                     {
                         return RedirectToAction("Index", "Employee");
                     }
 
-                    if (User.IsInRole("Donor"))
+                    if (roles.Contains("Donor"))
                     {
                         return RedirectToAction("Index", "Donor");
                     }
