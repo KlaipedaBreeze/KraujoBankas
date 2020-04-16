@@ -31,6 +31,8 @@ namespace KraujoBankasASP.Controllers
 
                 if (result.Succeeded)
                 {
+
+
                     if (roles.Contains("Admin"))
                     {
                         return RedirectToAction("Index", "Admin");
@@ -50,6 +52,7 @@ namespace KraujoBankasASP.Controllers
                     {
                         return RedirectToAction("Index", "Donor");
                     }
+
                 }
 
                 ModelState.AddModelError(string.Empty, "Slaptažodis arba prisijungimo vardas netinkamas");

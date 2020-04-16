@@ -88,7 +88,7 @@
         </main>
         }*@
     <div style="display:flex">
-        @if (User.Identity.IsAuthenticated)
+        @if (User.Identity.IsAuthenticated && !ViewData.ContainsKey("IsShowSideNav"))
         {
             <div id="nav">
                 <partial name="~/Views/Account/SideNav.cshtml" />
