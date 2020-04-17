@@ -288,6 +288,28 @@ q {
     left: 0;
     z-index: 100;
     padding: 48px 0 0;*/
-    
+    min-height: 100vh;
+
 }
 
+
+.sidebar-sticky {
+    position: fixed;
+    width: 100%;
+}
+
+.mySideNavUl li {
+    padding-bottom: 10px;
+}
+
+    .mySideNavUl li a:hover {
+        background-color: #7c7c7d;
+    }
+
+.mySideNavUl a {
+    color: #7c7c7d;
+}
+
+    .mySideNavUl a:hover {
+        color: white;
+    }

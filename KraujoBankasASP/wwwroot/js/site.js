@@ -8,7 +8,7 @@ if (pathName == "/") {
 }
 
 //padding bottom if dashboard is not active
-if (dashboard.indexOf("/Dashboard") < 0) {
+if (dashboard.indexOf("/Dashboard") > 0) {
     let paddingBot = document.querySelectorAll('main');
     paddingBot.forEach(element => element.className = "my-pb-40");
 }
