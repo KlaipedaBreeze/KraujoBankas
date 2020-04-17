@@ -5,11 +5,12 @@ using System.Threading.Tasks;
 using KraujoBankasASP.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace KraujoBankasASP
 {
@@ -27,19 +28,29 @@ namespace KraujoBankasASP
         {
             services.AddControllersWithViews();
             services.AddRazorPages().AddRazorRuntimeCompilation();
-           services.AddIdentity<User, UserRole>(options =>
-            {
-                options.User.RequireUniqueEmail = true;
-            }).AddEntityFrameworkStores<UserDbContext>();
-            services.AddDbContext<UserDbContext>(cfg =>
-            {
-                cfg.UseSqlServer(Configuration.GetConnectionString("KraujoBankas"));
-            });
+
+            services.AddIdentity<User, IdentityRole>(options =>
+             {
+                 options.User.RequireUniqueEmail = true;
+             })
+                 .AddEntityFrameworkStores<AppDbContext>();
+
+            services.AddDbContext<AppDbContext>(cfg =>
+             {
+                 cfg.UseSqlServer(Configuration.GetConnectionString("KraujoBankas"));
+             }
+             );
+
+            //services.AddIdentity<User, IdentityRole>()
+            //        .AddEntityFrameworkStores<AppDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, UserManager<User> userManager)
+        {            
+
+            ApplicationDbInitializer.SeedUsers(userManager);
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
