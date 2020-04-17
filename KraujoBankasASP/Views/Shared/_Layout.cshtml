@@ -6,138 +6,119 @@
     <title>@ViewData["Title"] - Kraujo Bankas</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="stylesheet" href="~/css/styleOverride.css?Version=1" />
-    
+    <link rel="stylesheet" href="~/css/styleOverride.css" /> @*?Version=1*@
+
 </head>
 <body>
-    <header>
- 
-                @*--- logo columas su 3rem margin-top --*@
+    <header class="mb-5 border-bottom">
+        <div id="fixed" class="row mr-0 ml-0 fixed-top">
+            <div class="col-12 pl-0 pr-0">
+                <nav class="navbar navbar-expand-lg navbar-toggleable-lg navbar-light bg-light box-shadow nav ">
+                    <div class="container">
 
+                        @*logo*@
+                        <div class="justify-content-between pr-5 d-flex">
+                            @*<a  class="navbar-brand logo" asp-area="" asp-controller="Home" asp-action="Index"></a>*@   @*--- reikes sujungti nauja logo su senais kontroleriais, palieku kaip pvz ---*@
 
-                @* login screenas*@
-
-
-           
-
-        <nav class="navbar navbar-expand-md navbar-toggleable-md navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-
-                @*logo*@
-                <div class="justify-content-between pr-5">
-                    @*<a  class="navbar-brand logo" asp-area="" asp-controller="Home" asp-action="Index"></a>*@   @*--- reikes sujungti nauja logo su senais kontroleriais, palieku kaip pvz ---*@
-                   
-                    <img class="navbar-brand logo " src="~/visuals/icons/blood-bank.svg" asp-append-version="true" />
-                    <span class="logo-text align-middle">KRAUJO-BANKAS</span>
-                </div>
-                
-
-                @*hamburger*@
-                <div class=" ">
-  
-                        <button class="navbar-toggler mr-auto text-center" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                                aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
- 
-                </div>
-
-                @*nav list*@
-            <div class="navbar-collapse collapse d-md-inline-flex  flex-md-row-reverse text-center">
-                <ul class="navbar-nav flex-grow-1  d-flex justify-content-center ">
-                    <li class="nav-item my-nav-link">
-                        <a class="nav-link text-secondary  my-nav-link" asp-area="" asp-controller="Home" asp-action="Index">Pradžia</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-secondary" asp-area="" asp-controller="Home" asp-action="ApieMus">Apie Mus</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-secondary" asp-area="" asp-controller="Home" asp-action="Istorija">Istorija</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-secondary" asp-area="" asp-controller="Home" asp-action="InformacijaDonorui">Informacija Donorui</a>
-                    </li>
-
-                    @*login*@
-                    <li class="nav-item dropdown ml-md-auto ml-lg-auto ml-xl-auto mr-0 ">
-                        <a data-toggle="dropdown" class="nav-link dropdown-toggle btn-danger btn-group-toggle text-white rounded" href="#">Prisijungti</a>
-                        <ul class="dropdown-menu form-wrapper dropdown-menu-right text-center ">
-                            <li>
-                                <form action="#" method="post" class="d-flex flex-column  align-items-center px-4 py-3 ">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Vartojo vardas" required="required">
-                                    </div>
-                                    <div class="form-group  ">
-                                        <input type="password" class="form-control " placeholder="Vartotojo slaptažodis" required="required">
-                                    </div>
-                                    <div class="text-center"><input type="submit" class="btn btn-outline-danger px-1 py-2 mt-4 mb-1 pr-4 pl-4" value="Prisijungti"></div>
-                                    <div class="form-footer px-1 py-1">
-                                        <div class="row text-center mt-1">
-                                            <div class="col">Neturite vartotojo?</div>
-                                        </div>
-                                        <div class="row text-center">
-                                            <div id="login" class="col" data-toggle="modal" data-target="#registerModal"> <a href="#"> Užsiregistruokite</a></div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                @* register screenas*@
-
-                <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <img class="navbar-brand logo" src="~/visuals/icons/blood-bank.svg">
-                                <h2>Užsiregistruokite</h2>
-                                <button type="button" class="close ml-0" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <form role="form" action="" method="post" class="registration-form">
-                                    <div class="form-group">
-                                        <input  type="text" name="form-first-name" placeholder="Jūsų vardas..." class="form-first-name form-control" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" name="form-last-name" placeholder="Jūsų pavardė..." class="form-last-name form-control" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" name="form-email" placeholder="El. paštas..." class="form-email form-control" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" name="form-email" placeholder="Pakartokite El. paštą..." class="form-email form-control" required>
-                                    </div>
-                                    <div class="text-center"><button type="submit" class="btn btn-outline-danger">Registruotis</button></div>
-                                </form>
+                            <img class="navbar-brand logo " src="~/visuals/icons/Kraujo Banko Logotipas-07.svg" asp-append-version="true" />
+                            <div class="logo-text align-middle d-flex flex-column justify-content-center">
+                                <span>KRAUJO</span>
+                                <span>BANKAS</span>
                             </div>
                         </div>
+
+
+                        @*hamburger*@
+                        <div class=" ">
+
+                            <button class="navbar-toggler mr-auto text-center" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                                    aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                        </div>
+
+                        @*nav list*@
+                        <div class="navbar-collapse collapse d-lg-inline-flex  flex-lg-row-reverse text-center">
+                            <ul class="navbar-nav flex-grow-1  d-flex justify-content-center ">
+                                <li class="nav-item my-nav-link">
+                                    <a class="nav-link   my-nav-link" asp-area="" asp-controller="Home" asp-action="Index">Pradžia</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link " asp-area="" asp-controller="Home" asp-action="ApieMus">Apie Mus</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Istorija">Istorija</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link " asp-area="" asp-controller="Home" asp-action="InformacijaDonorui">Informacija Donorui</a>
+                                </li>
+
+                                @*login*@
+                                <partial name="LoginPartialView" />
+
+                            </ul>
+                            @* register screenas*@
+                            <partial name="RegisterPartialView" />
+                            @* Password reminder*@
+                            <partial name="PwReminder" />
+
+                        </div>
                     </div>
-                </div>
+                </nav>
             </div>
-            </div>
-        </nav>
+        </div>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+    @*sidenav*@
+    @*@if (User.Identity.IsAuthenticated == true)
+        {
+        <div class="row mr-0 ml-0 ">
+            <partial name="~/Views/Dashboard/SideNav.cshtml" />
+
+            <div class="col-10 pr-0 pl-0">
+                <main role="main" class="pb-3 mt-5">
+                    @RenderBody()
+                </main>
+            </div>
+        </div>
+        }
+        else
+        {
+        <main role="main" class="pb-3 my-mt-5">
             @RenderBody()
         </main>
-    </div>
+        }*@
 
-    <footer class="border-top footer text-muted">
+    @if (User.Identity.IsAuthenticated && !ViewData.ContainsKey("IsShowSideNav"))
+    {
+        <div class="row mr-0 ml-0 ">
+            <partial name="~/Views/Account/SideNav.cshtml" />
+
+
+            <div class="col-10 pr-0 pl-0 my-pt-40">
+                <main role="main" class="my-pt-40 pl-5">
+                    @RenderBody()
+                </main>
+            </div>
+        </div>
+    }
+
+    <main role="main">
+        @RenderBody()
+    </main>
+
+    <footer class="border-top footer text-muted bg-light">
         <div class="container d-flex justify-content-center">
             &copy; 2020 - Kraujo-Bankas - <a asp-area="" asp-controller="Home" asp-action="ApieMus">&nbsp;Apie Mus</a>
             <a href="https://github.com/KlaipedaBreeze/KraujoBankas" target="_blank" class="footer-icon"><img src="~/visuals/icons/icons8-github.svg" alt="github icon"></a>
         </div>
-        
+
 
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src ="~/js/login.js"></script>
+    <script defer src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/login.js"></script>
+
     @RenderSection("Scripts", required: false)
 </body>
 </html>

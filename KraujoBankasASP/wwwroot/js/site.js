@@ -1,4 +1,14 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿//finding url location
+const pathName = window.location.pathname;
+const dashboard = window.location.href;
+//checking if current page is index
+if (pathName == "/") {
+    let marginTop = document.querySelectorAll(".my-mt-10");
+    marginTop.forEach(element => element.className = "container mt-5");
+}
 
-// Write your JavaScript code.
+//padding bottom if dashboard is not active
+if (dashboard.indexOf("/Dashboard") > 0) {
+    let paddingBot = document.querySelectorAll('main');
+    paddingBot.forEach(element => element.className = "my-pb-40");
+}

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="linear-gradient" x1="69.23" y1="171.15" x2="69.23" y2="28.91" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#eb6863"/>
+      <stop offset="1" stop-color="#b24f4a"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="130.8" y1="92.96" x2="130.8" y2="53.61" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-3" x1="130.8" y1="107.01" x2="130.8" y2="146.4" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-4" x1="100" y1="174.71" x2="100" y2="25.29" xlink:href="#linear-gradient"/>
+  </defs>
+  <title>Kraujo Banko Logotipas</title>
+  <g id="Layer_10" data-name="Layer 10">
+    <g>
+      <path d="M100,28.91,85.72,37.17v45L51.33,57,38.5,64.46l47.22,35.76-47.25,35.3,14,8.15,33.23-25.44,0,44.64L100,171.15Z" style="fill: url(#linear-gradient)"/>
+      <polygon points="147.55 92.96 114.05 92.96 114.05 53.61 147.55 72.69 147.55 92.96" style="fill: url(#linear-gradient-2)"/>
+      <polygon points="147.55 107.01 114.05 107.01 114.05 146.4 147.55 127.31 147.55 107.01" style="fill: url(#linear-gradient-3)"/>
+      <path d="M100,38l53.64,31v62L100,162,46.36,131V69L100,38m0-12.7L35.36,62.64v74.72L100,174.71l64.64-37.35V62.64L100,25.29Z" style="fill: url(#linear-gradient-4)"/>
+    </g>
+  </g>
+</svg>
