@@ -87,18 +87,25 @@
             @RenderBody()
         </main>
         }*@
-    <div style="display:flex">
-        @if (User.Identity.IsAuthenticated && !ViewData.ContainsKey("IsShowSideNav"))
-        {
-            <div id="nav">
-                <partial name="~/Views/Account/SideNav.cshtml" />
-            </div>
-        }
 
-        <main role="main" class="" style="padding-top:70px">
-            @RenderBody()
-        </main>
-    </div>
+    @if (User.Identity.IsAuthenticated && !ViewData.ContainsKey("IsShowSideNav"))
+    {
+        <div class="row mr-0 ml-0 ">
+            <partial name="~/Views/Account/SideNav.cshtml" />
+
+
+            <div class="col-xl-10 col-lg-9 col-8 pr-0 pl-0 my-pt-40">
+                <main role="main" class="my-pt-40 pl-5">
+                    @RenderBody()
+                </main>
+            </div>
+        </div>
+    }
+
+    <main role="main">
+        @RenderBody()
+    </main>
+
     <footer class="border-top footer text-muted bg-light">
         <div class="container d-flex justify-content-center">
             &copy; 2020 - Kraujo-Bankas - <a asp-area="" asp-controller="Home" asp-action="ApieMus">&nbsp;Apie Mus</a>
