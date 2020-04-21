@@ -12,5 +12,9 @@ namespace KraujoBankasASP.Controllers
         {
             return View();
         }
+        public IActionResult DonorDetails()
+        {
+            return View();
+        }
     }
 }
