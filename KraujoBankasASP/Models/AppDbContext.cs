@@ -7,6 +7,10 @@ namespace KraujoBankasASP.Models
 {
     public class AppDbContext : IdentityDbContext<User>
     {
+        public AppDbContext()
+        {
+        }
+
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
         }

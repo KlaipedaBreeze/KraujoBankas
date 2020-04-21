@@ -138,14 +138,17 @@ namespace KraujoBankasASP.Migrations
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Gender")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("HeightInCM")
                         .HasColumnType("int");
 
                     b.Property<string>("UserFk")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<bool>("WeightOver50")
-                        .HasColumnType("bit");
+                    b.Property<int>("Weight")
+                        .HasColumnType("int");
 
                     b.HasKey("DonorId");
 
@@ -253,9 +256,6 @@ namespace KraujoBankasASP.Migrations
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
-
-                    b.Property<DateTime>("BirthDate")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -385,29 +385,29 @@ namespace KraujoBankasASP.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "8f9bb096-5cdf-4662-841f-6ac48176a568",
-                            ConcurrencyStamp = "aea22bf8-408e-4437-b82e-736e4e957556",
+                            Id = "5e61c5b8-143f-4f1b-81d6-5e8749230879",
+                            ConcurrencyStamp = "f4c2d0d0-094b-4235-8f82-f9a14bb4eff0",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "2ceaaf69-0d7c-4d9f-af63-c1c1cf16d5e5",
-                            ConcurrencyStamp = "cdc11597-6545-4d78-b3aa-145875e0986c",
+                            Id = "3a3a0f30-ffb9-4e0b-8860-fe4aae36aa1b",
+                            ConcurrencyStamp = "c1652709-b716-41f6-b707-cba15b8401e4",
                             Name = "Institution admin",
                             NormalizedName = "INSTITUTION ADMIN"
                         },
                         new
                         {
-                            Id = "813509db-6a5e-4518-918c-c4471cc0294d",
-                            ConcurrencyStamp = "f692de80-e2f8-4868-acf5-ffd995eb9f7d",
+                            Id = "1b920ac3-1365-490c-976a-765f71fc8151",
+                            ConcurrencyStamp = "88ca9a19-ca73-4e18-83c5-ee1594a7d864",
                             Name = "Donor",
                             NormalizedName = "DONOR"
                         },
                         new
                         {
-                            Id = "28f7e677-a22a-4e0b-814d-515c55f7a081",
-                            ConcurrencyStamp = "78fe9696-fbdf-4538-9db4-92839ab512a4",
+                            Id = "20e55959-736b-4a99-ae91-94ba42e74d30",
+                            ConcurrencyStamp = "d149a96b-4625-4654-b0ee-c7d861cd3754",
                             Name = "Employee",
                             NormalizedName = "EMPLOYEE"
                         });

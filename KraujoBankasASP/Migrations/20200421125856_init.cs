@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace KraujoBankasASP.Migrations
 {
-    public partial class new_DB_Version : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -55,7 +55,6 @@ namespace KraujoBankasASP.Migrations
                     FName = table.Column<string>(nullable: true),
                     LName = table.Column<string>(nullable: true),
                     Phone = table.Column<string>(nullable: true),
-                    BirthDate = table.Column<DateTime>(nullable: false),
                     PersonalIDNumber = table.Column<string>(nullable: true),
                     RegComplete = table.Column<bool>(nullable: false)
                 },
@@ -219,7 +218,8 @@ namespace KraujoBankasASP.Migrations
                 {
                     DonorId = table.Column<Guid>(nullable: false),
                     HeightInCM = table.Column<int>(nullable: false),
-                    WeightOver50 = table.Column<bool>(nullable: false),
+                    Weight = table.Column<int>(nullable: false),
+                    Gender = table.Column<string>(nullable: true),
                     BirthDate = table.Column<DateTime>(nullable: false),
                     AddressFK = table.Column<Guid>(nullable: false),
                     UserFk = table.Column<string>(nullable: true)
@@ -399,10 +399,10 @@ namespace KraujoBankasASP.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "8f9bb096-5cdf-4662-841f-6ac48176a568", "aea22bf8-408e-4437-b82e-736e4e957556", "Admin", "ADMIN" },
-                    { "2ceaaf69-0d7c-4d9f-af63-c1c1cf16d5e5", "cdc11597-6545-4d78-b3aa-145875e0986c", "Institution admin", "INSTITUTION ADMIN" },
-                    { "813509db-6a5e-4518-918c-c4471cc0294d", "f692de80-e2f8-4868-acf5-ffd995eb9f7d", "Donor", "DONOR" },
-                    { "28f7e677-a22a-4e0b-814d-515c55f7a081", "78fe9696-fbdf-4538-9db4-92839ab512a4", "Employee", "EMPLOYEE" }
+                    { "5e61c5b8-143f-4f1b-81d6-5e8749230879", "f4c2d0d0-094b-4235-8f82-f9a14bb4eff0", "Admin", "ADMIN" },
+                    { "3a3a0f30-ffb9-4e0b-8860-fe4aae36aa1b", "c1652709-b716-41f6-b707-cba15b8401e4", "Institution admin", "INSTITUTION ADMIN" },
+                    { "1b920ac3-1365-490c-976a-765f71fc8151", "88ca9a19-ca73-4e18-83c5-ee1594a7d864", "Donor", "DONOR" },
+                    { "20e55959-736b-4a99-ae91-94ba42e74d30", "d149a96b-4625-4654-b0ee-c7d861cd3754", "Employee", "EMPLOYEE" }
                 });
 
             migrationBuilder.CreateIndex(
