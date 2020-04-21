@@ -20,27 +20,26 @@ namespace KraujoBankasASP.Controllers
 
         public IActionResult Index()
         {
-            ViewData["IsShowSideNav"] = true;
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            ViewData["IsShowSideNav"] = true;
-
-            return View();
-        }
-
-        public IActionResult ApieMus()
-        {
-            ViewData["IsShowSideNav"] = true;
+            ViewData["IsShowSideNav"] = false;
+            return View();              
+        }                               
+        public IActionResult Privacy()  
+        {                               
+            ViewData["IsShowSideNav"] = false;
+                                        
+            return View();              
+        }                               
+                                        
+        public IActionResult ApieMus()  
+        {                               
+            ViewData["IsShowSideNav"] = false;
 
             return View();
         }
 
         public IActionResult Istorija()
         {
-            ViewData["IsShowSideNav"] = true;
+            ViewData["IsShowSideNav"] = false;
 
             return View();
         }
