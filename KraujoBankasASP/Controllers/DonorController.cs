@@ -1,7 +1,6 @@
 ﻿using KraujoBankasASP.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Threading.Tasks;
 
 namespace KraujoBankasASP.Controllers
@@ -18,7 +17,7 @@ namespace KraujoBankasASP.Controllers
             _context = context;
             UserMgr = userManager;
         }
-        
+
         public IActionResult Index()
         {
             return View();
@@ -29,32 +28,34 @@ namespace KraujoBankasASP.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(DonorDetailsViewModel model)
+        public async Task<IActionResult> Create(UserDetailsViewModel model)
         {
 
             if (!ModelState.IsValid)
             {
-                return View("DonorDetails", model);
+                return RedirectToAction("InfoToConfirm", "Account");
             }
 
-            if (model.Donor != null) {
-            var adressFk = _context.Address.Add(model.Address).Entity.Id;
-
-            User user = await UserMgr.GetUserAsync(HttpContext.User);
-
-            var donor = new Donor
+            if (model.Donor != null)
             {
-                HeightInCM = model.Donor.HeightInCM,
-                Weight = model.Donor.Weight,
-                Gender = model.Donor.Gender,
-                BirthDate = model.Donor.BirthDate,
-                AddressFK = adressFk,
-                UserFk = user.Id
-            };
 
-            _context.Donors.Add(donor);
+                var adressFk = _context.Address.Add(model.Address).Entity.Id;
 
-            _context.SaveChanges();
+                User user = await UserMgr.GetUserAsync(HttpContext.User);
+
+                var donor = new Donor
+                {
+                    HeightInCM = model.Donor.HeightInCM,
+                    Weight = model.Donor.Weight,
+                    Gender = model.Donor.Gender,
+                    BirthDate = model.Donor.BirthDate,
+                    AddressFK = adressFk,
+                    UserFk = user.Id
+                };
+
+                _context.Donors.Add(donor);
+
+                _context.SaveChanges();
             }
 
             return RedirectToAction("Update", "Account", model.User);

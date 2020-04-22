@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace KraujoBankasASP.Models
 {
-    public class DonorDetailsViewModel
+    public class UserDetailsViewModel
     {
-        public User User;
+        public User User { get; set; }
         public Donor Donor { get; set; }
         public Address Address { get; set; }
     

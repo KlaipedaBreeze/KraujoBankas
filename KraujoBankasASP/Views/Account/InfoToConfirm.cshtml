@@ -1,24 +1,31 @@
-﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-@model DonorDetailsViewModel
-<h1 class="display-4 mb-5">P</h1>
+﻿@model UserDetailsViewModel
+<h1 class="display-4 mb-5">Donoro Kortelė</h1>
 <div class="row ml-0 mr-0">
     <div class="card col-8">
         <div class="card-body">
-
-            @if (User.Identity.IsAuthenticated == true) { 
-            <div>prisijungta </div>
-                    }
-
-            VYTO FORMA
             <form asp-action="Create" asp-controller="Donor"
                   class="d-flex flex-column form-group">
                 <label>Vardas</label>
                 <input asp-for=User.FName type="text" value="" />
                 <label>Pavardė</label>
                 <input asp-for=User.LName type="text" value="" />
+                <label>Lytis</label>
+                <div class="form-check">
+                    <label>vyras</label>
+                    <input asp-for=Donor.Gender class="" type="radio" value="vyras" />
+                    <label>moteris</label>
+                    <input asp-for=Donor.Gender type="radio" value="moteris" />
+                </div>
+                <label>Svoris</label>
+                <input asp-for=Donor.Weight type="number" value="50" />
+                <label>Gim. Data</label>
+                <input asp-for=Donor.BirthDate type="date" value="" />
+                <label>Adresas</label>
+                <input asp-for=Address.AddressLine type="text" value="" />
+                <label>Telefonas</label>
+                <input asp-for=User.Phone type="tel" value="" />
+
+
                 <div class="d-flex justify-content-center mt-5 mb-3 ">
                     <button class="btn btn-dark mr-3">Atšaukti</button>
                     <button type="submit" class="btn btn-danger">Patvirtinti</button>

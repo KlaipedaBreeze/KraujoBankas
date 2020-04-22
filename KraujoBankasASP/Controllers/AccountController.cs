@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -19,11 +18,24 @@ namespace KraujoBankasASP.Controllers
             SignInMgr = signInManager;
         }
 
+        public async Task<IActionResult> ControlCenter()
+        {
+            User user = await UserMgr.GetUserAsync(HttpContext.User);
+            var roles = await UserMgr.GetRolesAsync(user);
+            var IsCompleted = user.RegComplete;
+            return Index(roles, IsCompleted);
+        }
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-
-        public IActionResult Index(IList<string> roles)
+        public IActionResult Index(IList<string> roles, bool completed)
         {
+            if (!completed)
+            {
+                ViewData["IsShowSideNav"] = false;
+                return View("InfoToConfirm");
+            }
 
             if (roles.Contains("Admin"))
             {
@@ -42,33 +54,29 @@ namespace KraujoBankasASP.Controllers
 
             if (roles.Contains("Donor"))
             {
-                //ViewData["role"] = "Donor";
                 return RedirectToAction("Index", "Donor");
             }
             return RedirectToAction("Home", "Index");
         }
 
+        [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var result = await SignInMgr.PasswordSignInAsync(model.Email, model.Password, false, false);
+                var result = await SignInMgr.PasswordSignInAsync(model.Email, model.Password, false, true);
 
                 if (result.Succeeded)
                 {
                     var user = await UserMgr.FindByEmailAsync(model.Email);
                     var roles = await UserMgr.GetRolesAsync(user);
 
-                    if(!user.RegComplete){
-                        return View("InfoToConfirm");
-                    }
-
-                    return Index(roles);
+                    return Index(roles, user.RegComplete);
                 }
 
                 ModelState.AddModelError(string.Empty, "Slaptažodis arba prisijungimo vardas netinkamas");
             }
-            return View("IncorectLogin",model);
+            return View("IncorectLogin");
         }
 
 
@@ -76,7 +84,7 @@ namespace KraujoBankasASP.Controllers
         public async Task<IActionResult> Logout()
         {
             await SignInMgr.SignOutAsync();
-            return RedirectToAction("index", "home");
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
@@ -95,7 +103,8 @@ namespace KraujoBankasASP.Controllers
                 if (result.Succeeded)
                 {
                     await SignInMgr.SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("Index", "Donor");
+                    var roles = new List<string> { "Donor" };
+                    return Index(roles, false);
                 }
 
                 foreach (var error in result.Errors)
@@ -113,16 +122,19 @@ namespace KraujoBankasASP.Controllers
 
             user.FName = model.FName;
             user.FName = model.LName;
+            user.RegComplete = true;
 
             IdentityResult result = await UserMgr.UpdateAsync(user);
             if (result.Succeeded)
             {
                 var roles = await UserMgr.GetRolesAsync(user);
-                return Index(roles);
+                return Index(roles, true);
             }
             else
-                Errors(result);
-            return View("UpdateInfoError");
+            {
+                ModelState.AddModelError(string.Empty, "Atnaujinimas neĮvyko");
+                return RedirectToAction("InfoToConfirm", "Account");
+            }
         }
 
         private void Errors(IdentityResult result)

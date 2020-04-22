@@ -1,4 +1,4 @@
-﻿@model DonorDetailsViewModel
+﻿@model UserDetailsViewModel
     <h1 class="display-4 mb-5">Donoro Kortelė</h1>
     <div class="row ml-0 mr-0">
         <div class="card col-8">
@@ -6,9 +6,9 @@
                 <form asp-action="Create" asp-controller="Donor"
                       class="d-flex flex-column form-group">
                     <label>Vardas</label>
-                    <input asp-for=User.FName type="text" value="" />
+                    <input asp-for=User.FName type="text" value="" required="required" />
                     <label>Pavardė</label>
-                    <input asp-for=User.LName type="text" value="" />
+                    <input asp-for=User.LName type="text" value="" required="required" />
                     <label>Lytis</label>
                     <div class="form-check">
                         <label>vyras</label>
@@ -17,13 +17,13 @@
                         <input asp-for=Donor.Gender type="radio" value="moteris" />
                     </div>
                     <label>Svoris</label>
-                    <input asp-for=Donor.Weight type="number" value="50" />
+                    <input asp-for=Donor.Weight type="number" value="50"  required="required"/>
                     <label>Gim. Data</label>
-                    <input asp-for=Donor.BirthDate type="date" value="" />
+                    <input asp-for=Donor.BirthDate type="date" value="" required="required"/>
                     <label>Adresas</label>
-                    <input asp-for=Address.AddressLine type="text" value="" />
+                    <input asp-for=Address.AddressLine type="text" value="" required="required"/>
                     <label>Telefonas</label>
-                    <input asp-for=User.Phone type="tel" value="" />
+                    <input asp-for=User.Phone type="tel" value="" required="required"/>
 
 
                     <div class="d-flex justify-content-center mt-5 mb-3 ">
