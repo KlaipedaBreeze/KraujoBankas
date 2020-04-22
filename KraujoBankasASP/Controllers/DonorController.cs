@@ -1,6 +1,8 @@
 ﻿using KraujoBankasASP.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Threading.Tasks;
 
 namespace KraujoBankasASP.Controllers
 {
@@ -8,10 +10,15 @@ namespace KraujoBankasASP.Controllers
     {
         private AppDbContext _context;
 
-        public DonorController(AppDbContext context)
+        private UserManager<User> UserMgr { get; set; }
+
+
+        public DonorController(AppDbContext context, UserManager<User> userManager)
         {
             _context = context;
+            UserMgr = userManager;
         }
+        
         public IActionResult Index()
         {
             return View();
@@ -22,7 +29,7 @@ namespace KraujoBankasASP.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(DonorDetailsViewModel model)
+        public async Task<IActionResult> Create(DonorDetailsViewModel model)
         {
 
             if (!ModelState.IsValid)
@@ -30,9 +37,10 @@ namespace KraujoBankasASP.Controllers
                 return View("DonorDetails", model);
             }
 
+            if (model.Donor != null) {
             var adressFk = _context.Address.Add(model.Address).Entity.Id;
 
-            _context.SaveChanges();
+            User user = await UserMgr.GetUserAsync(HttpContext.User);
 
             var donor = new Donor
             {
@@ -41,12 +49,13 @@ namespace KraujoBankasASP.Controllers
                 Gender = model.Donor.Gender,
                 BirthDate = model.Donor.BirthDate,
                 AddressFK = adressFk,
-                UserFk = "19d8723f-2734-4e87-bfd5-7e0c43933f47"
+                UserFk = user.Id
             };
 
             _context.Donors.Add(donor);
 
             _context.SaveChanges();
+            }
 
             return RedirectToAction("Update", "Account", model.User);
         }

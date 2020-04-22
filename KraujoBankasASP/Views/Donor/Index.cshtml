@@ -1,15 +1,21 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-    <div class=" mb-4">
-        <h1 class="display-4">Donor render body</h1>
-    </div>
-    
-    @*patikrinti su "if" ar yra atlikta registracija
-      greiciausiai cia turetu buti privalomas pop up*@ 
+
+<div class=" mb-4">
+    <h1 class="display-4">Donor render body</h1>
+</div>
+
+
+@*@if (TempData["IsClarifyData"].ToString() == "False")
+{
 <p><a asp-area="" asp-controller="Donor" asp-action="DonorDetails">Prašome atlikti registracijos užbaigimą</a></p>
+}*@
+
+<p><a asp-area="" asp-controller="Donor" asp-action="DonorDetails">Prašome atlikti registracijos užbaigimą</a></p>
+
+
 
 <p> <a href="#">Kvietimas registruotis donacijai</a></p>
 <div class="row mr-0 ml-0 mb-5">

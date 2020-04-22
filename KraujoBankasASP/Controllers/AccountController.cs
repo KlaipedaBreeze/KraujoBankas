@@ -1,4 +1,5 @@
 ﻿using KraujoBankasASP.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -21,7 +22,7 @@ namespace KraujoBankasASP.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
 
-        public IActionResult Index(List<string> roles)
+        public IActionResult Index(IList<string> roles)
         {
 
             if (roles.Contains("Admin"))
@@ -43,32 +44,32 @@ namespace KraujoBankasASP.Controllers
             {
                 //ViewData["role"] = "Donor";
                 return RedirectToAction("Index", "Donor");
-
             }
             return RedirectToAction("Home", "Index");
         }
+
         public async Task<IActionResult> Login(LoginViewModel model)
         {
             if (ModelState.IsValid)
             {
-
                 var result = await SignInMgr.PasswordSignInAsync(model.Email, model.Password, false, false);
-
-                var user = await UserMgr.FindByEmailAsync(model.Email);
-                var roles = await UserMgr.GetRolesAsync(user);
 
                 if (result.Succeeded)
                 {
-                    TempData["CurrentUser"] = user.Id;
-                    RedirectToAction("Index", roles);
+                    var user = await UserMgr.FindByEmailAsync(model.Email);
+                    var roles = await UserMgr.GetRolesAsync(user);
+
+                    if(!user.RegComplete){
+                        return View("InfoToConfirm");
+                    }
+
+                    return Index(roles);
                 }
 
                 ModelState.AddModelError(string.Empty, "Slaptažodis arba prisijungimo vardas netinkamas");
             }
-
-            return View("IncorectLoging");
+            return View("IncorectLogin",model);
         }
-
 
 
         [HttpGet]
@@ -81,64 +82,47 @@ namespace KraujoBankasASP.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
-            try
+            if (ModelState.IsValid)
             {
-                ViewBag.Message = "Toks vartotojo vardas jau registruotas";
-                User usr = await UserMgr.FindByNameAsync(model.Email);
-                if (usr == null)
+                var user = new User
                 {
-                    usr = new User
-                    {
-                        UserName = model.Email,
-                        Email = model.Email
-                    };
+                    UserName = model.Email,
+                    Email = model.Email
+                };
 
-                    IdentityResult result = await UserMgr.CreateAsync(usr, model.Password);
-                    if (result.Succeeded)
-                    {
-                        ViewBag.Message = "Vartotojas sukurtas";
-                    }
-                    else
-                    {
-                        ViewBag.Message = result.ToString();
-                    }
+                var result = await UserMgr.CreateAsync(user, model.Password);
+
+                if (result.Succeeded)
+                {
+                    await SignInMgr.SignInAsync(user, isPersistent: false);
+                    return RedirectToAction("Index", "Donor");
+                }
+
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
                 }
             }
-            catch (Exception ex)
-            {
-                ViewBag.Message = ex.Message;
-            }
-            return View();
+
+            return View(model);
         }
 
         public async Task<IActionResult> Update(User model)
         {
-            User user = await UserMgr.FindByNameAsync(model.UserName);
+            User user = await UserMgr.GetUserAsync(HttpContext.User);
 
-            if (user != null)
+            user.FName = model.FName;
+            user.FName = model.LName;
+
+            IdentityResult result = await UserMgr.UpdateAsync(user);
+            if (result.Succeeded)
             {
-                if (!string.IsNullOrEmpty(model.FName))
-                    user.FName = model.FName;
-                else
-                    ModelState.AddModelError("", "Vardas negali buti tuščias");
-
-                if (!string.IsNullOrEmpty(model.LName))
-                    user.FName = model.LName;
-                else
-                    ModelState.AddModelError("", "Pavarde negali buti tuščias");
-
-                IdentityResult result = await UserMgr.UpdateAsync(user);
-                if (result.Succeeded)
-                {
-                    var roles = await UserMgr.GetRolesAsync(user);
-                    return RedirectToAction("Index", roles);
-                }
-                else
-                    Errors(result);
+                var roles = await UserMgr.GetRolesAsync(user);
+                return Index(roles);
             }
             else
-                ModelState.AddModelError("", "User Not Found");
-            return View(user);
+                Errors(result);
+            return View("UpdateInfoError");
         }
 
         private void Errors(IdentityResult result)

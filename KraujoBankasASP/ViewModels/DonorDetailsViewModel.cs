@@ -10,7 +10,6 @@ namespace KraujoBankasASP.Models
     {
         public User User;
         public Donor Donor { get; set; }
-
         public Address Address { get; set; }
     
     }
