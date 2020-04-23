@@ -62,8 +62,6 @@ namespace KraujoBankasASP.Models
                     
                     context.HealthCareInstitutions.Add(Institution);
                     
-                    
-
                     context.SaveChanges();
 
                     userManager.AddToRoleAsync(user,"Moderator").Wait();

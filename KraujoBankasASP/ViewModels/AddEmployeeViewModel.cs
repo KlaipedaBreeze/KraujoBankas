@@ -29,6 +29,5 @@ namespace KraujoBankasASP.ViewModels
 
         [Required]
         List<SelectListItem> PositionsList { get; set; }
-
     }
 }

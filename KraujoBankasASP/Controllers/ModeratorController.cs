@@ -30,7 +30,7 @@ namespace KraujoBankasASP.Controllers
             {
                     new Employee{PositionFk=emp[0].PositionFk}
             };
-            return View("Index");
+            return View("Index", employees);
         }
 
         [HttpGet]

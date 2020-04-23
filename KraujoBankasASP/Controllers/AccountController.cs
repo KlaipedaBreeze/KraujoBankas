@@ -64,7 +64,7 @@ namespace KraujoBankasASP.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result = await SignInMgr.PasswordSignInAsync(model.Email, model.Password, false, true);
+                var result = await SignInMgr.PasswordSignInAsync(model.Email, model.Password, false, false);
 
                 if (result.Succeeded)
                 {
