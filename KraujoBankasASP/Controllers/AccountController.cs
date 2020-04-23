@@ -59,6 +59,12 @@ namespace KraujoBankasASP.Controllers
             return RedirectToAction("Index","Home");
         }
 
+        [HttpGet]
+        public IActionResult Login()
+        {
+            return View("Login");
+        }
+
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
@@ -76,7 +82,7 @@ namespace KraujoBankasASP.Controllers
 
                 ModelState.AddModelError(string.Empty, "Slaptažodis arba prisijungimo vardas netinkamas");
             }
-            return View("IncorectLogin");
+            return View(model);
         }
 
 
@@ -85,6 +91,12 @@ namespace KraujoBankasASP.Controllers
         {
             await SignInMgr.SignOutAsync();
             return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        public IActionResult Register()
+        {
+            return View("Register");
         }
 
         [HttpPost]
