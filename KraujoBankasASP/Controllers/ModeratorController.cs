@@ -2,7 +2,6 @@
 using KraujoBankasASP.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -24,30 +23,23 @@ namespace KraujoBankasASP.Controllers
         {
             User CurrentUser = await UserMgr.GetUserAsync(HttpContext.User);
 
-            var emp = _context.Employees.ToList();
+            var employees = _context.Employees.Join(_context.Users,
+                e => e.UserFk,
+                u => u.Id,
+                (emp, user) => new EmployeesSummaryViewModel
+                {
+                   FName = user.FName,
+                   LName = user.LName,
+                  // Position = emp.PositionFK
+                }
+           );
 
-            List<Employee> employees = new List<Employee>()
-            {
-                    new Employee{PositionFk=emp[0].PositionFk}
-            };
             return View("Index", employees);
         }
 
         [HttpGet]
         public IActionResult CreateEmployee()
         {
-            List<SelectListItem> Options = _context.Positions.Select(a =>
-                              new SelectListItem
-                              {
-                                  Value= a.PositionId.ToString(),
-                                  Text = a.Type
-                              }).ToList();
-
-
-            //var model = new AddEmployeeViewModel
-            //{
-            //    PositionsList = Options
-            //};
 
             return View("AddEmployee");
         }
@@ -78,8 +70,6 @@ namespace KraujoBankasASP.Controllers
                 _context.Employees.Add(epmloyee);
                 _context.SaveChanges();
             }
-
-
 
             return View("AddEmployee", model);
         }

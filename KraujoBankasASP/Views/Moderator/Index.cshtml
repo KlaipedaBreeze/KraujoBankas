@@ -1,35 +1,43 @@
-﻿@model List<Employee>
-@*@{
-    ViewData["Title"] = "Index";
+﻿@model IQueryable<EmployeesSummaryViewModel>
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
-}*@
+}
 
 
-<h1>Jūsų Įstaigos darbuotojai,užregistruoti sistemoje</h1>
+<h1>Jūsų Įstaigos darbuotojai</h1>
 
 <p>
-    <a asp-action="Create">Pridėti naują darbuotoją</a>
+    <a asp-action="CreateEmployee">Pridėti naują darbuotoją</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                Darbuotojo Id 
+                Darbuotojo Vardas
             </th>
             <th>
-
+                Darbuotojo Pavardė
+            </th>
+            <th>
+                Pareigos
             </th>
         </tr>
     </thead>
     <tbody>
-        @*@foreach (var item in Model)*@
+        @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                   @* @Html.DisplayFor(modelItem => item.EmployeeId)*@
-                </td>
-                
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Position)
+            </td>
+
+        </tr>
         }
     </tbody>
 </table>

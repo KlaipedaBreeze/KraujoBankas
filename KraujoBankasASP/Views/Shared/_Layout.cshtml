@@ -12,7 +12,7 @@
 <body>
     <header class="mb-5 border-bottom">
         <div id="fixed" class="row mr-0 ml-0 fixed-top">
-            <div class="col-12 pl-0 pr-0">
+            <di class="col-12 pl-0 pr-0">
                 <nav class="navbar navbar-expand-lg navbar-toggleable-lg navbar-light bg-light box-shadow nav ">
                     <div class="container">
 
@@ -53,20 +53,31 @@
                                     <a class="nav-link " asp-area="" asp-controller="Home" asp-action="InformacijaDonorui">Informacija Donorui</a>
                                 </li>
 
+                                @if (!User.Identity.IsAuthenticated)
+                                {
+                                    <a asp-action="Login" asp-controller="Account"> Prisijungti(Lauros laikinas) </a>
+                                }
                                 @*login*@
-                                <partial name="LoginPartialView" />
+                                <partial name = "LoginPartialView" />
 
-                            </ul>
-                            @* register screenas*@
-                            @*<partial name="RegisterPartialView" />*@
-                            @* Password reminder*@
-                            <partial name="PwReminder" />
+
+                                </ul>
+                                @* register screenas*@
+                                @*<partial name="RegisterPartialView" />*@
+                                @* Password reminder*@
+                                <partial name = "PwReminder" />
+
 
                         </div>
+
                     </div>
+
                 </nav>
-            </div>
+
+            </di>
+
         </div>
+
     </header>
     @*sidenav*@
     @*@if (User.Identity.IsAuthenticated == true)

@@ -27,7 +27,9 @@ namespace KraujoBankasASP.Models
                 User user = new User
                 {
                     UserName = "mod@mod.com",
-                    Email = "mod@mod.com"
+                    Email = "mod@mod.com",
+                    FName="Laura",
+                    LName="Eimulė"
                 };
                 IdentityResult result = userManager.CreateAsync(user, "Mod123!").Result;
 
