@@ -4,14 +4,16 @@ using KraujoBankasASP.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace KraujoBankasASP.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200423095156_Created_aeployee_to_seed")]
+    partial class Created_aeployee_to_seed
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -385,29 +387,29 @@ namespace KraujoBankasASP.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "110cec46-21e6-484b-b274-d02922ec55eb",
-                            ConcurrencyStamp = "db882df3-6183-45f8-82ee-f582764d0944",
+                            Id = "ece133e8-0786-48c0-ae54-feecf54cb36d",
+                            ConcurrencyStamp = "9f6e9d86-48bd-4ccc-9661-9400172d7aa1",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "2de602b5-15fb-47b7-a48c-7ae9a19ef161",
-                            ConcurrencyStamp = "bdd77ee3-24df-48a4-9470-bf5abc56bc79",
-                            Name = "Moderator",
-                            NormalizedName = "MODERATOR"
+                            Id = "49f8be9f-0d7a-495a-8298-d5657fdd95dc",
+                            ConcurrencyStamp = "44f3b174-46e6-4b2a-b8ac-a7d3ce89e9ce",
+                            Name = "Institution admin",
+                            NormalizedName = "INSTITUTION ADMIN"
                         },
                         new
                         {
-                            Id = "09d94689-5b63-480e-a855-0d2014573837",
-                            ConcurrencyStamp = "717193bd-5847-45d9-984b-3261d8d51747",
+                            Id = "93a25a44-26dc-46ac-a80d-af2f3b2fd898",
+                            ConcurrencyStamp = "addd271a-3db2-4ca1-98c3-f78962bbbffc",
                             Name = "Donor",
                             NormalizedName = "DONOR"
                         },
                         new
                         {
-                            Id = "cd8de821-7cee-463d-9b4e-2b9ebfb8b09c",
-                            ConcurrencyStamp = "b01bbd59-e3c7-4522-bf34-a603f4741b59",
+                            Id = "0efe163c-7cd2-4c22-a3bf-2c7e7b865290",
+                            ConcurrencyStamp = "889fd188-27e1-480d-bca3-1ebb5010bc66",
                             Name = "Employee",
                             NormalizedName = "EMPLOYEE"
                         });

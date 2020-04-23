@@ -4,7 +4,7 @@ namespace KraujoBankasASP.Models
 {
     public static class ApplicationDbInitializer
     {
-        public static void SeedUsers(UserManager<User> userManager)
+        public static void SeedUsers(UserManager<User> userManager, AppDbContext context)
         {
             //asign Admin
             if (userManager.FindByEmailAsync("admin@admin.com").Result == null)
@@ -21,17 +21,52 @@ namespace KraujoBankasASP.Models
                 }
             }
             //asign institution Admin
-            if (userManager.FindByEmailAsync("Iadmin@admin.com").Result == null)
+
+            if (userManager.FindByEmailAsync("mod@mod.com").Result == null)
             {
                 User user = new User
                 {
-                    UserName = "Iadmin@admin.com",
-                    Email = "Iadmin@admin.com"
+                    UserName = "mod@mod.com",
+                    Email = "mod@mod.com"
                 };
-                IdentityResult result = userManager.CreateAsync(user, "Iadmin123!").Result;
+                IdentityResult result = userManager.CreateAsync(user, "Mod123!").Result;
+
                 if (result.Succeeded)
                 {
-                    userManager.AddToRoleAsync(user, "Institution admin").Wait();
+                    Address Address = new Address
+                    {
+                        AddressLine = " Naikupės g. 28, Klaipėda"
+                    };
+                    context.Address.Add(Address);
+
+                    HealthCareInstitution Institution = new HealthCareInstitution
+                    {
+                        Type = "Nacionalinis kraujo centras",
+                        AddressFK= Address.Id
+                    };
+                    context.HealthCareInstitutions.Add(Institution);
+
+                    Position Position = new Position
+                    {
+                        Type = "Director"
+                    };
+                    context.Positions.Add(Position);
+
+                    Employee Epmloyee = new Employee
+                    {
+                        UserFk= user.Id,
+                        PositionFk = Position.PositionId,
+                        InstitutionFK = Institution.Id
+                    };
+                    context.Employees.Add(Epmloyee);
+                    
+                    context.HealthCareInstitutions.Add(Institution);
+                    
+                    
+
+                    context.SaveChanges();
+
+                    userManager.AddToRoleAsync(user,"Moderator").Wait();
                 }
             }
             //asign Donor

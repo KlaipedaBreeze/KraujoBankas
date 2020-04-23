@@ -9,7 +9,7 @@
                 <partial name="~/Views/Account/NavLists/AdmNavList.cshtml" />
             }
 
-            @if (User.IsInRole("Institution admin"))
+            @if (User.IsInRole("Moderator"))
             {
                 <partial name="~/Views/Account/NavLists/ModNavList.cshtml" />
             }

@@ -31,18 +31,18 @@ namespace KraujoBankasASP.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Index(IList<string> roles, bool completed)
         {
-            if (!completed)
-            {
-                ViewData["IsShowSideNav"] = false;
-                return View("InfoToConfirm");
-            }
+            //if (!completed)
+            //{
+            //    ViewData["IsShowSideNav"] = false;
+            //    return View("InfoToConfirm");
+            //}
 
             if (roles.Contains("Admin"))
             {
                 return RedirectToAction("Index", "Admin");
             }
 
-            if (roles.Contains("Institution admin"))
+            if (roles.Contains("Moderator"))
             {
                 return RedirectToAction("Index", "Moderator");
             }
@@ -56,7 +56,7 @@ namespace KraujoBankasASP.Controllers
             {
                 return RedirectToAction("Index", "Donor");
             }
-            return RedirectToAction("Home", "Index");
+            return RedirectToAction("Index","Home");
         }
 
         [HttpPost]
@@ -115,6 +115,7 @@ namespace KraujoBankasASP.Controllers
 
             return View(model);
         }
+
 
         public async Task<IActionResult> Update(User model)
         {

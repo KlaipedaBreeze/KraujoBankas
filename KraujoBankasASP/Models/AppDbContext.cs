@@ -32,7 +32,7 @@ namespace KraujoBankasASP.Models
 
             modelBuilder.Entity<IdentityRole>().HasData(
                     new IdentityRole { Id = Guid.NewGuid().ToString(), Name = "Admin", NormalizedName = "Admin".ToUpper() },
-                    new IdentityRole { Id = Guid.NewGuid().ToString(), Name = "Institution admin", NormalizedName = "Institution admin".ToUpper() },
+                    new IdentityRole { Id = Guid.NewGuid().ToString(), Name = "Moderator", NormalizedName = "Moderator".ToUpper() },
                     new IdentityRole { Id = Guid.NewGuid().ToString(), Name = "Donor", NormalizedName = "Donor".ToUpper() },
                     new IdentityRole { Id = Guid.NewGuid().ToString(), Name = "Employee", NormalizedName = "Employee".ToUpper() }
                     );

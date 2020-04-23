@@ -58,10 +58,10 @@ namespace KraujoBankasASP
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, UserManager<User> userManager)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, UserManager<User> userManager, AppDbContext context)
         {            
 
-            ApplicationDbInitializer.SeedUsers(userManager);
+            ApplicationDbInitializer.SeedUsers(userManager, context);
 
             if (env.IsDevelopment())
             {
