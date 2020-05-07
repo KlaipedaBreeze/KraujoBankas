@@ -1,8 +1,48 @@
-﻿
+﻿@model List<KraujoBankasASP.ViewModels.InstitutionsViewModel>
 @{
-    ViewData["Title"] = "INdex";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Admin render body</h1>
+<h1>Įstaigų sąrašas</h1>
+
+<p>
+    <a asp-action="InstitutionAdd" asp-controller="Admin">Pridėti naują įstaigą</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Pavadinimas
+            </th>
+            <th>
+               Tipas
+            </th>
+            <th>
+                Adresas
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Adress)
+                </td>
+                <td>
+                    <a asp-action="InstitutionEdit" asp-route-id="@item.Id" >Redaguoti</a> |
+                    <a asp-action="InstitutionGet" asp-route-id="@item.Id">Detaliau</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
 

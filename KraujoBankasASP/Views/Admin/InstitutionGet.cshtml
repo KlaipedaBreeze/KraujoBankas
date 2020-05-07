@@ -1,0 +1,52 @@
+﻿@model KraujoBankasASP.ViewModels.InstitutionViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <h1>@Model.Title</h1>
+
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Tipas</th>
+                    <th scope="col">Adresas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Model.Type</td>
+                    <td>@Model.Address</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr/>
+
+        <h4>Įstaigos moderatoriai</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Vardas</th>
+                    <th scope="col">Pavardė</th>
+                    <th scope="col">Telefonas</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model.Moderators)
+                {
+                <tr>
+                    <td>@user.FName</td>
+                    <td>@user.LName</td>
+                    <td>@user.Phone</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+<div>
+    <a asp-action="InstitutionEdit" asp-route-id="@Model.Id">Redaguoti įstaigą</a> |
+    <a asp-action="Index">Į sąrašą</a>
+</div>

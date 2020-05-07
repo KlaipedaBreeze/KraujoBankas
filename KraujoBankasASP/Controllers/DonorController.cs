@@ -27,38 +27,38 @@ namespace KraujoBankasASP.Controllers
             return View();
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Create(UserDetailsViewModel model)
-        {
+       //[HttpPost]
+        //public async Task<IActionResult> Create(UserDetailsViewModel model)
+        //{
 
-            if (!ModelState.IsValid)
-            {
-                return RedirectToAction("InfoToConfirm", "Account");
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return RedirectToAction("InfoToConfirm", "Account");
+            //}
 
-            if (model.Donor != null)
-            {
+            //if (model.Donor != null)
+            //{
 
-                var adressFk = _context.Address.Add(model.Address).Entity.Id;
+            //    var adressFk = _context.Address.Add(model.Address).Entity.Id;
 
-                User user = await UserMgr.GetUserAsync(HttpContext.User);
+            //    User user = await UserMgr.GetUserAsync(HttpContext.User);
 
-                var donor = new Donor
-                {
-                    HeightInCM = model.Donor.HeightInCM,
-                    Weight = model.Donor.Weight,
-                    Gender = model.Donor.Gender,
-                    BirthDate = model.Donor.BirthDate,
-                    AddressFK = adressFk,
-                    UserFk = user.Id
-                };
+            //    var donor = new Donor
+            //    {
+            //        HeightInCM = model.Donor.HeightInCM,
+            //        Weight = model.Donor.Weight,
+            //        Gender = model.Donor.Gender,
+            //        BirthDate = model.Donor.BirthDate,
+            //        AddressFK = adressFk,
+            //        UserFk = user.Id
+            //    };
 
-                _context.Donors.Add(donor);
+            //    _context.Donors.Add(donor);
 
-                _context.SaveChanges();
-            }
+            //    _context.SaveChanges();
+            //}
 
-            return RedirectToAction("Update", "Account", model.User);
-        }
-    }
+           // return RedirectToAction("Update", "Account", model.User);
+     // }
+   }
 }

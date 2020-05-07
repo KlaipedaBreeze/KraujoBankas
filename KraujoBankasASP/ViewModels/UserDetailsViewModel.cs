@@ -8,9 +8,9 @@ namespace KraujoBankasASP.Models
 {
     public class UserDetailsViewModel
     {
-        public User User { get; set; }
-        public Donor Donor { get; set; }
-        public Address Address { get; set; }
-    
+            public User User { get; set; }
+            public Donor Donor { get; set; }
+            public Address Address { get; set; }
+
     }
 }

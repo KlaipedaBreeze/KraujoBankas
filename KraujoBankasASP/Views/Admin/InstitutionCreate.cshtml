@@ -1,0 +1,58 @@
+﻿@model KraujoBankasASP.ViewModels.InstitutionViewModel
+@{
+    ViewData["Title"] = "InstitutionCreate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Nauja sveikatos įstaiga</h1>
+
+<form method="post" asp-action="InstitutionCreate" asp-controller="Admin">
+    <div class="form-group">
+        <label class="control-label">Pavadinimas</label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label class="control-label">Tipas</label>
+        <input asp-for="Type" class="form-control" />
+        <span asp-validation-for="Type" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label class="control-label">Adresas</label>
+        <input asp-for="Address" class="form-control" />
+        <span asp-validation-for="Address" class="text-danger"></span>
+    </div>
+
+
+</form>
+<button onclick="add()"  id="add_field_button">Pridėti moderatorių </button>
+    <div id="input_fields_wrap">
+        <div id="datarow"><input type="text" name="mytext[]"></div>
+        <div><input type="text" name="mytext[]"></div>
+    </div>
+
+
+
+
+<div>
+    <a asp-action="Index">Įstaigų sąrašas</a>
+</div>
+
+<script>
+
+
+    var max_fields = 10;
+    let wrapper = document.getElementById("input_fields_wrap");
+    let add_button = document.getElementsById("add_field_button");
+    let rowdata = document.getElementsByClassNmae("datarow");
+    let row = rowdata[0];
+
+
+
+    var x = 1;
+
+    function add() {
+        wrapper.append(row);
+    }
+
+</script>
